@@ -1,7 +1,16 @@
-    h2 {
-        color: darkblue;
-    }
+* {
+    border: 2px solid black;
+    padding: 10px;
+}
 
-    img {
-        width: 45%;
-    }
+a:hover {
+
+    color: red;
+}
+
+li:nth-child(3) {
+    
+    color: green;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+}
