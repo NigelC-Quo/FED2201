@@ -57,3 +57,9 @@ article > ol {
 
     padding: 30px;
 }
+
+label, button:hover, input:hover {
+
+    background-color: goldenrod;
+    color: black;
+}
