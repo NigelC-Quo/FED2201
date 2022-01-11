@@ -40,10 +40,15 @@ li:nth-child(3) {
 
 #Avatar {
 
-        background-color: lightsteelblue;
+    background-color: lightsteelblue;
 
 }
 
 .center {
     text-align: center;
+}
+
+article p {
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
 }
