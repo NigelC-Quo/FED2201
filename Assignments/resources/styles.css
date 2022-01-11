@@ -14,3 +14,32 @@ li:nth-child(3) {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: large;
 }
+
+#aboutMe:hover {
+
+    background-color: lightsalmon;
+
+}
+
+#HobbiesInterests {
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+#Lorem {
+
+    padding: 50px;
+}
+
+#Career {
+
+    text-align: center;
+    font-size: x-large;
+}
+
+#Avatar {
+
+        background-color: lightsteelblue;
+
+}
