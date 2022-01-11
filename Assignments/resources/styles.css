@@ -63,3 +63,8 @@ label, button:hover, input:hover {
     background-color: goldenrod;
     color: black;
 }
+
+footer {
+    position: sticky;
+    bottom: 0
+}
