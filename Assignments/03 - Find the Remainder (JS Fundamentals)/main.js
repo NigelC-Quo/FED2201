@@ -9,7 +9,7 @@ function RemainderFunc(dividend, divisor) {
 
     if (divisor == 0) {
 
-        console.log("Error: Cannot Divide By Zero")
+        return "Error: Cannot Divide By Zero"
     }
      
     else if (divisor > 0) {
@@ -21,6 +21,6 @@ function RemainderFunc(dividend, divisor) {
             dividend -= divisor;
         }
 
-        return console.log("Result: [" + count + "] Remainder: [" + dividend + "]");
+        return `Result: [` + count + `] Remainder: [` + dividend + `]`
     }
 }
