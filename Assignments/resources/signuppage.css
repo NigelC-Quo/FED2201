@@ -1,9 +1,13 @@
 @media screen and (max-width: 1000px) {
+
+    .container {
+        position: relative;
+    }
+
     img {
         width: 100%;
         height: 900px;
         border-radius: 3px;
-        position: relative;
     }
 
     .logo {
@@ -13,7 +17,9 @@
     .flexContainer {
         display: flex;
         flex-direction: column;
-        position: relative;
+        position: absolute;
+        top: 0%;
+        right: 30%
     }
 
     input, label {
