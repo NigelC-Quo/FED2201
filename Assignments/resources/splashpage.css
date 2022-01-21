@@ -1,0 +1,28 @@
+img {
+    width: 1050px;
+    height: 905px;
+    border-radius: 3px;
+}
+
+.container {
+    position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 20%;
+  right: 55%;
+  background: -webkit-linear-gradient(#FFB800 40%, #FFFFFF 100%, #FF7A00 38%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 10px transparent;
+  font-size: 200px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+
