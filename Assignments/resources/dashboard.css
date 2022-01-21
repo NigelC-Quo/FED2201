@@ -58,6 +58,22 @@
         right: 50%
     }
 
+    .editButton {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 15%;
+        right: 5%
+    }
+
+    .logoutButton {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 0%;
+        right: 5%
+    }
+
     button {
         padding: 10px;
         margin: 10px;
