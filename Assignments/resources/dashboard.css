@@ -50,6 +50,14 @@
         right: 35%
     }
 
+    .bio {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 10%;
+        right: 50%
+    }
+
     button {
         padding: 10px;
         margin: 10px;
@@ -77,4 +85,19 @@
         padding: 3px;
         font-size: 20px;
     }
+
+    .bio > img {
+        width: 50%;
+        height:50%;
+    }
+
+    .bio > h1 {
+       margin: 0px;
+       padding-left: 50px;
+    }
+
+    .bio > p {
+        padding-right: 50px;
+        font-size: 22px;
+     }
 }
