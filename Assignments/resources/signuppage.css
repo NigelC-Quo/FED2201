@@ -1,0 +1,23 @@
+@media screen and (max-width: 1000px) {
+    img {
+        width: 100%;
+        border-radius: 3px;
+    }
+
+    .logo {
+        position: absolute;
+        top: 5%;
+        right: 20%;
+        background: -webkit-linear-gradient(#FFB800 40%, #FFFFFF 100%, #FF7A00 38%);
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 10px transparent;
+        font-size: 150px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .flexContainer {
+        position: absolute;
+        top: 40%;
+        right: 40%;
+    }
+}
