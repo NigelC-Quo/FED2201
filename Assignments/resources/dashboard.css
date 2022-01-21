@@ -20,6 +20,15 @@
         position: absolute;
         bottom: 0%;
         right: 15%
+        
+    }
+
+    .feed {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 25%;
+        right: 40%
     }
 
     button {
@@ -42,5 +51,9 @@
 
     .account {
         color: yellow;
+    }
+
+    p {
+        font-size: 20px;;
     }
 }
