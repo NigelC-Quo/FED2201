@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App - Nigel Clayton</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>CRUD App - Nigel Clayton</h1>
+    
+    <section id="dom-manipulation">
+
+        <h3>DOM Manipulation</h3>
+        <hr>
+
+        <form name="dom-form">
+            
+            <h4>CRUD</h4>
+
+            <div class="form-div">
+                <label for="car-make">Make: </label>
+                <input type="text" name="car-make" id="car-make"
+                required>
+            </div>
+
+            <div class="form-div">
+                <label for="car-model">Model: </label>
+                <input type="text" name="car-model" id="car-model"
+                required>
+            </div>
+
+            <div class="form-div">
+                <label for="car-year">Year: </label>
+                <input type="text" name="car-year" id="car-year"
+                required>
+            </div>
+
+            <input type="submit" id="submit-cars">
+                
+        </form>
+        
+        <div>
+            <h4> List of Cars</h4>
+            <div id="grid-of-cars-submitted">
+                <div id="gridItems"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
