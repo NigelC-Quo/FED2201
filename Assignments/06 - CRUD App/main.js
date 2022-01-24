@@ -1,24 +1,47 @@
 // DOM Manipulation
-var listOfCars = [];
-var submitCarButton = document.getElementById("submit-cars");
+var listOfCrud = [];
+var submitCrudButton = document.getElementById("submit-crud");
 
-var carMakeInput = document.getElementById("car-make");
-var carModelInput = document.getElementById("car-model");
-var carYearInput = document.getElementById("car-year");
+var firstNameInput = document.getElementById("first-name");
+var middleNameInput = document.getElementById("middle-name");
+var lastNameInput = document.getElementById("last-name");
+var emailInput = document.getElementById("email");
+var addressInput = document.getElementById("address");
+var dobInput = document.getElementById("dob");
+var cityInput = document.getElementById("city");
+var stateInput = document.getElementById("state");
+var zipInput = document.getElementById("zip");
 
-var carSubmittedElement = document.getElementById("grid-of-cars-submitted");
+var crudSubmittedElement = document.getElementById("grid-of-crud-submitted");
 
 // console.dir(submitCarButton);
 
 
-submitCarButton.addEventListener("click", () => {
+submitCrudButton.addEventListener("click", () => {
     event.preventDefault();
 
+    var first = firstNameInput.value;
+    var middle = middleNameInput.value;
+    var last = lastNameInput.value;
+    var email = emailInput.value;
+    var address = addressInput.value;
+    var dob = dobInput.value;
+    var city = cityInput.value;
+    var state = stateInput.value;
+    var zip = zipInput.value;
+
     // print information
-    console.log(`Car Information submitted: 
-    \nMake:${carMakeInput.value}
-    \nModel:${carModelInput.value}
-    \nYear:${carYearInput.value}`)
+    console.log(`Crud Information submitted: 
+    \nFirst-Name:${first}
+    \nMiddle-name:${middle}
+    \nLast-Name:${last}
+    \nEmail:${email}
+    \nAddress:${address}
+    \nDOB:${dob}
+    \nCity:${city}
+    \nState:${state}
+    \nZip:${zip}
+    `)
 
     // clear input fields
     /*if (carMakeInput.value == "")
@@ -29,38 +52,50 @@ submitCarButton.addEventListener("click", () => {
         carYearInput.value = "Dummy";*/
 
     // attach to some stored value
-    listOfCars.push(new Car(carMakeInput.value, carModelInput.value,
-        carYearInput.value))
+    listOfCrud.push(new Crud(first, middle, last,
+        email, address, dob, city, state, zip))
 
 
     // add the submitted car to the Ol in the HTML
     // pull the innerHTML,_
-    let existingListOfCarsHTML = carSubmittedElement.innerHTML
+    let existingListOfCrudHTML = crudSubmittedElement.innerHTML
 
     // now add in new data
-    carSubmittedElement.innerHTML = `
-        ${existingListOfCarsHTML}
+    crudSubmittedElement.innerHTML = `
+        ${existingListOfCrudHTML}
         <div> 
-        <div class="gridItems"><strong>Make: </strong> ${carMakeInput.value} </div>
-        <div class="gridItems"><strong>Model: </strong> ${carModelInput.value} </div>
-        <div class="gridItems"><strong>Year: </strong>  ${carYearInput.value} </div>
+        <div class="gridItems"><strong>First-Name: </strong> ${first} </div>
+        <div class="gridItems"><strong>Middle-Name: </strong> ${middle} </div>
+        <div class="gridItems"><strong>Last-Name: </strong>  ${last}</div>
+        <div class="gridItems"><strong>Email: </strong>  ${email} </div>
+        <div class="gridItems"><strong>Address: </strong>  ${address} </div>
+        <div class="gridItems"><strong>Date of Birth: </strong>  ${dob} </div>
+        <div class="gridItems"><strong>City: </strong>  ${city} </div>
+        <div class="gridItems"><strong>State: </strong>  ${state} </div>
+        <div class="gridItems"><strong>Zip: </strong>  ${zip} </div>
         </div>   
         `
 
-        /*if (carMakeInput.value == "Dummy")
-        carMakeInput.value = "";
-        if (carModelInput.value == "Dummy")
-        carModelInput.value = "";
-        if (carYearInput.value == "Dummy")
-        carYearInput.value = "";*/
+    /*if (carMakeInput.value == "Dummy")
+    carMakeInput.value = "";
+    if (carModelInput.value == "Dummy")
+    carModelInput.value = "";
+    if (carYearInput.value == "Dummy")
+    carYearInput.value = "";*/
 
 
     //alert("Submitted was clicked!")
 })
 
 // Constructor function
-function Car(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
+function Crud(fi, mi, la, em, ad, dob, ci, st, zi) {
+    this.fi = fi;
+    this.mi = mi;
+    this.la = la;
+    this.em = em;
+    this.ad = ad;
+    this.dob = dob;
+    this.ci = ci;
+    this.st = st;
+    this.zi = zi;
 }
