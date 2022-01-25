@@ -16,6 +16,7 @@
   justify-content: center;
   margin-top: 10%;
   width: 20vw;
+  height: 7vh;
   font-size: 150%;
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
   background-image: linear-gradient(#3cff00 40%, #ffffff 100%, #00ff95 38%);
@@ -47,7 +48,9 @@ div > h4 {
 .form-div > input {
   display: flex;
   justify-content: center;
-  width: 20vw;
+  width: 50vw;
+  height: 4vh;
+  font-size: x-large;
   border: 5px darkblue solid;
 }
 
@@ -139,10 +142,10 @@ a:hover {
 
   .form-div > input {
     display: flex;
-    justify-content: left;
-    width: 15vh;
-    height: 5vh;
-    border: 5px darkblue solid;
+    justify-content: center;
+    width: 50vw;
+    height: 4vh;
+    font-size: medium;
   }
 
   .form-div > label {
@@ -153,8 +156,9 @@ a:hover {
   #submit-crud {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
-    width: 20vw;
+    margin-top: 15%;
+    width: 30vw;
+    height: 5vh;
     font-size: 150%;
     font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
     background-image: linear-gradient(#3cff00 40%, #ffffff 100%, #00ff95 38%);
