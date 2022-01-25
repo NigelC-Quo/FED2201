@@ -1,7 +1,8 @@
 #dom-manipulation {
   margin: 5%;
-  border: black solid 1px;
+  border: black solid 3px;
   width: 90vw;
+  background: radial-gradient(#f78356, #7b62eb);
 }
 
 #dom-manipulation > form {
@@ -19,7 +20,7 @@
   height: 7vh;
   font-size: 150%;
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
-  background-image: linear-gradient(#3cff00 40%, #ffffff 100%, #00ff95 38%);
+  background-image: linear-gradient(#4fc72b 40%, #ffffff 100%, #00ff95 38%);
   border-style: 1px black groove;
 }
 
@@ -69,6 +70,7 @@ div > h4 {
   flex-direction: column;
   transition: color 1s;
   transition: box-shadow 1s;
+  border: 2px solid black;
   opacity: 0.9;
   width: 15vw;
   height: 10vw;
