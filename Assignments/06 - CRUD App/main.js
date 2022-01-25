@@ -54,7 +54,7 @@ submitCrudButton.addEventListener("click", () => {
 
     // add the submitted car to the Ol in the HTML
     // pull the innerHTML,_
-    let existingListOfCrudHTML = crudSubmittedElement.innerHTML
+    let existingListOfCrudHTML = crudSubmittedElement.innerHTML.replace
 
     // now add in new data
     crudSubmittedElement.innerHTML = `
@@ -81,7 +81,7 @@ submitCrudButton.addEventListener("click", () => {
 
 // Constructor function
 function Crud(fi, mi, la, em, ad, dob, ci, st, zi) {
-    
+
     this.fi = fi;
     this.mi = mi;
     this.la = la;
@@ -105,4 +105,36 @@ function resetForm() {
     stateInput.value = "";
     zipInput.value = "";
 
+}
+
+function onEdit() {
+
+    firstNameInput.value = "";
+    middleNameInput.value = "";
+    lastNameInput.value = "";
+    emailInput.value = "";
+    addressInput.value = "";
+    dobInput.value = "";
+    cityInput.value = "";
+    stateInput.value = "";
+    zipInput.value = "";
+}
+
+function onDelete() {
+    crudSubmittedElement.innerHTML = `
+        ${crudSubmittedElement.innerHTML.replace}
+        <div id="grid-of-crud-submitted"> 
+            <div class="gridItems"><strong>First-Name: </strong>  </div>
+            <div class="gridItems"><strong>Middle-Name: </strong>  </div>
+            <div class="gridItems"><strong>Last-Name: </strong>  </div>
+            <div class="gridItems"><strong>Email: </strong>   </div>
+            <div class="gridItems"><strong>Address: </strong>   </div>
+            <div class="gridItems"><strong>Date of Birth: </strong>  </div>
+            <div class="gridItems"><strong>City: </strong>  </div>
+            <div class="gridItems"><strong>State: </strong>   </div>
+            <div class="gridItems"><strong>Zip: </strong>   </div>   
+            <a onClick="onEdit(this)">Edit</a>
+            <a onClick="onDelete(this)">Delete</a>
+        </div> 
+        `
 }
