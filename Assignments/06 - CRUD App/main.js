@@ -59,7 +59,6 @@ submitCrudButton.addEventListener("click", () => {
     // now add in new data
     crudSubmittedElement.innerHTML = `
         ${existingListOfCrudHTML.replace}
-        <h4>Submitted Info: </h4>
         <div id="grid-of-crud-submitted"> 
             <div class="gridItems"><strong>First-Name: </strong> ${first} </div>
             <div class="gridItems"><strong>Middle-Name: </strong> ${middle} </div>
