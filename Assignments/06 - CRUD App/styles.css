@@ -31,6 +31,14 @@ form > h4 {
   background-clip: text;
 }
 
+div > h4 {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  padding: 12px;
+  font-size: 200%;
+}
+
 .form-div {
   margin: 1.5%;
   font-size: x-large;
@@ -151,5 +159,12 @@ a:hover {
     font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
     background-image: linear-gradient(#3cff00 40%, #ffffff 100%, #00ff95 38%);
     border-style: 1px black groove;
+  }
+
+  div > h4 {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    font-size: 150%;
   }
 }
