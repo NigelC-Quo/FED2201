@@ -65,6 +65,8 @@ div > h4 {
 }
 
 .gridItems {
+  display: flex;
+  flex-direction: column;
   transition: color 1s;
   transition: box-shadow 1s;
   opacity: 0.9;
@@ -76,6 +78,10 @@ div > h4 {
   background: linear-gradient(-45deg, #2802ff, #2b6cc0, #61d0f8, #23d591);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+}
+
+.gridItems:nth-child(4) {
+  width: 28vw;
 }
 
 .gridItems:hover {
@@ -121,7 +127,14 @@ a:hover {
 
 @media screen and (max-width: 1000px) {
   .gridItems {
-    font-size: small;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    width: 15vw;
+  }
+
+  .gridItems:nth-child(4) {
+    width: 28vw;
   }
 
   .gridItems:hover {
@@ -181,7 +194,6 @@ a:hover {
     display: flex;
     align-items: center;
     margin-bottom: 10%;
-    
   }
 
   div > h4 {
@@ -189,5 +201,14 @@ a:hover {
     justify-content: center;
     padding: 12px;
     font-size: 150%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .gridItems {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    width: 15vw;
   }
 }

@@ -59,9 +59,9 @@ submitCrudButton.addEventListener("click", () => {
     // now add in new data
     crudSubmittedElement.innerHTML = `
         <div id="grid-of-crud-submitted"> 
-            <div class="gridItems"><strong>First-Name: </strong>  ${first} </div>
-            <div class="gridItems"><strong>Middle-Name: </strong> ${middle} </div>
-            <div class="gridItems"><strong>Last-Name: </strong>  ${last}</div>
+            <div class="gridItems"><strong>First: </strong>  ${first} </div>
+            <div class="gridItems"><strong>Middle: </strong> ${middle} </div>
+            <div class="gridItems"><strong>Last: </strong>  ${last}</div>
             <div class="gridItems"><strong>Email: </strong>  ${email} </div>
             <div class="gridItems"><strong>Address: </strong>  ${address} </div>
             <div class="gridItems"><strong>Date of Birth: </strong>  ${dob} </div>
@@ -92,6 +92,8 @@ function Crud(fi, mi, la, em, ad, dob, ci, st, zi) {
 }
 
 function resetFormAndUpdate() {
+
+    let existingListOfCrudHTML = crudSubmittedElement.innerHTML
 
     firstNameInput.value = "";
     middleNameInput.value = "";
