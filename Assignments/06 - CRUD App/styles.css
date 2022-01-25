@@ -7,29 +7,37 @@
 #dom-manipulation > form {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
-    padding: 5%;
+    align-items: center;
+    padding: 1%;
 }
 
 form > h4 {
+    display: flex;
+    align-items: center;
     margin: 2% auto;
+    font-size: 500%;
 }
 
-form input {
-    width: 90%;
-}
 
 .form-div {
+    margin: 1.5%;
+    font-size: x-large;
+}
+
+.form-div > input{
     display: flex;
-    margin: 2%;
+    justify-content: center;
+    width: 20vw;
 }
 
-label {
-    margin: 0 2% 0 0;
+.form-div > label {
+    display: flex;
+    justify-content: center;
 }
 
-.li2 {
-    color: yellow;
+input {
+    border: 5px darkblue solid;
+    
 }
 
 #grid-of-crud-submitted {
@@ -38,7 +46,7 @@ label {
 }
 
 .gridItems {
-    width: 10vw;
+    width: 15vw;
     height: 5vw;
     background-color: skyblue;
     margin: 1vw;
