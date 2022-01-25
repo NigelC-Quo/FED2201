@@ -22,16 +22,35 @@ var crudSubmittedElement = document.getElementById("grid-of-crud-submitted");
 submitCrudButton.addEventListener("click", () => {
     event.preventDefault()
 
-    var first = firstNameInput.value;
-    var middle = middleNameInput.value;
-    var last = lastNameInput.value;
-    var email = emailInput.value;
-    var address = addressInput.value;
-    var dob = dobInput.value;
-    var city = cityInput.value;
-    var state = stateInput.value;
-    var zip = zipInput.value;
+    let first = firstNameInput.value;
+    let middle = middleNameInput.value;
+    let last = lastNameInput.value;
+    let email = emailInput.value;
+    let address = addressInput.value;
+    let dob = dobInput.value;
+    let city = cityInput.value;
+    let state = stateInput.value;
+    let zip = zipInput.value;
 
+    // In case nothing was entered
+    if(firstNameInput.value == "")
+    first = "Nothing";
+    if(middleNameInput.value == "")
+    middle = "Nothing";          
+    if(lastNameInput.value == "")
+    last = "Nothing";   
+    if(emailInput.value == "")
+    email = "Nothing";   
+    if(addressInput.value == "")
+    address = "Nothing";
+    if(dobInput.value == "")
+    dob = "Nothing";
+    if(cityInput.value == "")
+    city = "Nothing";
+    if(stateInput.value == "")
+    state = "Nothing";
+    if(zipInput.value == "")
+    zip = "Nothing"
 
     // print information
     console.log(`Crud Information submitted: 
@@ -46,7 +65,6 @@ submitCrudButton.addEventListener("click", () => {
     \nZip:${zip}
     `)
 
-
     // attach to some stored value
     listOfCrud.push(new Crud(first, middle, last,
         email, address, dob, city, state, zip))
@@ -55,6 +73,7 @@ submitCrudButton.addEventListener("click", () => {
     // add the submitted car to the Ol in the HTML
     // pull the innerHTML,_
     let existingListOfCrudHTML = crudSubmittedElement.innerHTML
+    
 
     // now add in new data
     crudSubmittedElement.innerHTML = `
@@ -73,8 +92,6 @@ submitCrudButton.addEventListener("click", () => {
         `
 
     resetFormAndUpdate();
-
-    //alert("Submitted was clicked!")
 })
 
 // Constructor function
@@ -109,12 +126,9 @@ function resetFormAndUpdate() {
 
 }
 
-function onEdit() {
-
-}
-
 function onDelete() {
 
     document.getElementById("grid-of-crud-submitted").innerHTML = null;
+    listOfCrud.length = 0;
 
 }
