@@ -12,13 +12,15 @@ var cityInput = document.getElementById("city");
 var stateInput = document.getElementById("state");
 var zipInput = document.getElementById("zip");
 
+
+
 var crudSubmittedElement = document.getElementById("grid-of-crud-submitted");
 
 // console.dir(submitCarButton);
 
 
 submitCrudButton.addEventListener("click", () => {
-    event.preventDefault();
+    event.preventDefault()
 
     var first = firstNameInput.value;
     var middle = middleNameInput.value;
@@ -29,6 +31,7 @@ submitCrudButton.addEventListener("click", () => {
     var city = cityInput.value;
     var state = stateInput.value;
     var zip = zipInput.value;
+
 
     // print information
     console.log(`Crud Information submitted: 
@@ -43,13 +46,6 @@ submitCrudButton.addEventListener("click", () => {
     \nZip:${zip}
     `)
 
-    // clear input fields
-    /*if (carMakeInput.value == "")
-        carMakeInput.value = "Dummy";
-    if (carModelInput.value == "")
-        carModelInput.value = "Dummy";
-    if (carYearInput.value == "")
-        carYearInput.value = "Dummy";*/
 
     // attach to some stored value
     listOfCrud.push(new Crud(first, middle, last,
@@ -63,32 +59,29 @@ submitCrudButton.addEventListener("click", () => {
     // now add in new data
     crudSubmittedElement.innerHTML = `
         ${existingListOfCrudHTML}
-        <div> 
-        <div class="gridItems"><strong>First-Name: </strong> ${first} </div>
-        <div class="gridItems"><strong>Middle-Name: </strong> ${middle} </div>
-        <div class="gridItems"><strong>Last-Name: </strong>  ${last}</div>
-        <div class="gridItems"><strong>Email: </strong>  ${email} </div>
-        <div class="gridItems"><strong>Address: </strong>  ${address} </div>
-        <div class="gridItems"><strong>Date of Birth: </strong>  ${dob} </div>
-        <div class="gridItems"><strong>City: </strong>  ${city} </div>
-        <div class="gridItems"><strong>State: </strong>  ${state} </div>
-        <div class="gridItems"><strong>Zip: </strong>  ${zip} </div>
-        </div>   
+        <div id="grid-of-crud-submitted"> 
+            <div class="gridItems"><strong>First-Name: </strong> ${first} </div>
+            <div class="gridItems"><strong>Middle-Name: </strong> ${middle} </div>
+            <div class="gridItems"><strong>Last-Name: </strong>  ${last}</div>
+            <div class="gridItems"><strong>Email: </strong>  ${email} </div>
+            <div class="gridItems"><strong>Address: </strong>  ${address} </div>
+            <div class="gridItems"><strong>Date of Birth: </strong>  ${dob} </div>
+            <div class="gridItems"><strong>City: </strong>  ${city} </div>
+            <div class="gridItems"><strong>State: </strong>  ${state} </div>
+            <div class="gridItems"><strong>Zip: </strong>  ${zip} </div>
+            <a onClick="onEdit(this)">Edit</a>
+            <a onClick="onDelete(this)">Delete</a>   
+        </div> 
         `
 
-    /*if (carMakeInput.value == "Dummy")
-    carMakeInput.value = "";
-    if (carModelInput.value == "Dummy")
-    carModelInput.value = "";
-    if (carYearInput.value == "Dummy")
-    carYearInput.value = "";*/
-
+    resetForm();
 
     //alert("Submitted was clicked!")
 })
 
 // Constructor function
 function Crud(fi, mi, la, em, ad, dob, ci, st, zi) {
+    
     this.fi = fi;
     this.mi = mi;
     this.la = la;
@@ -98,4 +91,18 @@ function Crud(fi, mi, la, em, ad, dob, ci, st, zi) {
     this.ci = ci;
     this.st = st;
     this.zi = zi;
+}
+
+function resetForm() {
+
+    firstNameInput.value = "";
+    middleNameInput.value = "";
+    lastNameInput.value = "";
+    emailInput.value = "";
+    addressInput.value = "";
+    dobInput.value = "";
+    cityInput.value = "";
+    stateInput.value = "";
+    zipInput.value = "";
+
 }

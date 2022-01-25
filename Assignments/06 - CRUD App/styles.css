@@ -32,16 +32,17 @@ label {
     color: yellow;
 }
 
-#grid-of-cars-submitted {
+#grid-of-crud-submitted {
     display: grid;
-    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
 }
 
 .gridItems {
-    width: 5vw;
+    width: 10vw;
     height: 5vw;
     background-color: skyblue;
     margin: 1vw;
-    border: 1px solid black;
+    border: 3px solid black;
     padding: 1vw;
+    font-size: larger;
 }
