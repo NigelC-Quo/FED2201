@@ -58,9 +58,8 @@ submitCrudButton.addEventListener("click", () => {
 
     // now add in new data
     crudSubmittedElement.innerHTML = `
-        ${existingListOfCrudHTML.replace}
         <div id="grid-of-crud-submitted"> 
-            <div class="gridItems"><strong>First-Name: </strong> ${first} </div>
+            <div class="gridItems"><strong>First-Name: </strong>  ${first} </div>
             <div class="gridItems"><strong>Middle-Name: </strong> ${middle} </div>
             <div class="gridItems"><strong>Last-Name: </strong>  ${last}</div>
             <div class="gridItems"><strong>Email: </strong>  ${email} </div>
@@ -73,7 +72,7 @@ submitCrudButton.addEventListener("click", () => {
         </div> 
         `
 
-    resetForm();
+    resetFormAndUpdate();
 
     //alert("Submitted was clicked!")
 })
@@ -92,7 +91,7 @@ function Crud(fi, mi, la, em, ad, dob, ci, st, zi) {
     this.zi = zi;
 }
 
-function resetForm() {
+function resetFormAndUpdate() {
 
     firstNameInput.value = "";
     middleNameInput.value = "";
@@ -103,6 +102,8 @@ function resetForm() {
     cityInput.value = "";
     stateInput.value = "";
     zipInput.value = "";
+
+    existingListOfCrudHTML.replace
 
 }
 
