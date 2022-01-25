@@ -11,6 +11,17 @@
     padding: 1%;
 }
 
+#submit-crud {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    width: 20vw;
+    font-size: 150%;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    background-image: linear-gradient(#3cff00 40%, #FFFFFF 100%, #00ff95 38%);
+    border-style: 1px black groove;
+}
+
 form > h4 {
     display: flex;
     align-items: center;
@@ -28,16 +39,12 @@ form > h4 {
     display: flex;
     justify-content: center;
     width: 20vw;
+    border: 5px darkblue solid;  
 }
 
 .form-div > label {
     display: flex;
     justify-content: center;
-}
-
-input {
-    border: 5px darkblue solid;
-    
 }
 
 #grid-of-crud-submitted {
