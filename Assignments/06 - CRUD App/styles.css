@@ -124,8 +124,20 @@ a:hover {
     font-size: small;
   }
 
+  .gridItems:hover {
+    color: red;
+    opacity: 1;
+    box-shadow: 2.5px 5px rgb(3, 48, 100);
+  }
+
   a {
     font-size: small;
+  }
+
+  a:hover {
+    color: yellow;
+    opacity: 1;
+    box-shadow: 2.5px 5px rgb(70, 1, 1);
   }
 
   #dom-manipulation > form {
