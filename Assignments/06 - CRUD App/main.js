@@ -1,5 +1,6 @@
 // DOM Manipulation
 var listOfCrud = [];
+var sameListOfCrud = [];
 var submitCrudButton = document.getElementById("submit-crud");
 
 var firstNameInput = document.getElementById("first-name");
@@ -15,12 +16,13 @@ var zipInput = document.getElementById("zip");
 
 
 var crudSubmittedElement = document.getElementById("grid-of-crud-submitted");
+var crudSubmittedElement2 = document.getElementById("grid-of-crud-submitted");
 
 // console.dir(submitCarButton);
 
 
 submitCrudButton.addEventListener("click", () => {
-    event.preventDefault()
+    event.preventDefault();
 
     let first = firstNameInput.value;
     let middle = middleNameInput.value;
@@ -33,65 +35,43 @@ submitCrudButton.addEventListener("click", () => {
     let zip = zipInput.value;
 
     // In case nothing was entered
-    if(firstNameInput.value == "")
-    first = "Nothing";
-    if(middleNameInput.value == "")
-    middle = "Nothing";          
-    if(lastNameInput.value == "")
-    last = "Nothing";   
-    if(emailInput.value == "")
-    email = "Nothing";   
-    if(addressInput.value == "")
-    address = "Nothing";
-    if(dobInput.value == "")
-    dob = "Nothing";
-    if(cityInput.value == "")
-    city = "Nothing";
-    if(stateInput.value == "")
-    state = "Nothing";
-    if(zipInput.value == "")
-    zip = "Nothing"
+    if (firstNameInput.value == "")
+        first = "Nothing";
+    if (middleNameInput.value == "")
+        middle = "Nothing";
+    if (lastNameInput.value == "")
+        last = "Nothing";
+    if (emailInput.value == "")
+        email = "Nothing";
+    if (addressInput.value == "")
+        address = "Nothing";
+    if (dobInput.value == "")
+        dob = "Nothing";
+    if (cityInput.value == "")
+        city = "Nothing";
+    if (stateInput.value == "")
+        state = "Nothing";
+    if (zipInput.value == "")
+        zip = "Nothing"
 
-    // print information
-    console.log(`Crud Information submitted: 
-    \nFirst-Name:${first}
-    \nMiddle-name:${middle}
-    \nLast-Name:${last}
-    \nEmail:${email}
-    \nAddress:${address}
-    \nDOB:${dob}
-    \nCity:${city}
-    \nState:${state}
-    \nZip:${zip}
-    `)
 
     // attach to some stored value
     listOfCrud.push(new Crud(first, middle, last,
         email, address, dob, city, state, zip))
 
-
-    // add the submitted car to the Ol in the HTML
-    // pull the innerHTML,_
-    let existingListOfCrudHTML = crudSubmittedElement.innerHTML
-    
-
-    // now add in new data
-    crudSubmittedElement.innerHTML = `
+    if (firstNameInput.value != first) {
+        // now add in new data
+        crudSubmittedElement.innerHTML = `
         <div id="grid-of-crud-submitted"> 
             <div class="gridItems"><strong>First: </strong>  ${first} </div>
-            <div class="gridItems"><strong>Middle: </strong> ${middle} </div>
-            <div class="gridItems"><strong>Last: </strong>  ${last}</div>
-            <div class="gridItems"><strong>Email: </strong>  ${email} </div>
-            <div class="gridItems"><strong>Address: </strong>  ${address} </div>
-            <div class="gridItems"><strong>Date of Birth: </strong>  ${dob} </div>
-            <div class="gridItems"><strong>City: </strong>  ${city} </div>
-            <div class="gridItems"><strong>State: </strong>  ${state} </div>
-            <div class="gridItems"><strong>Zip: </strong>  ${zip} </div>
             <a onClick="onDelete(this)">Delete</a>   
         </div> 
         `
+       resetFormAndUpdate();
+    }
 
-    resetFormAndUpdate();
+    else
+     return 0;
 })
 
 // Constructor function
@@ -129,6 +109,14 @@ function resetFormAndUpdate() {
 function onDelete() {
 
     document.getElementById("grid-of-crud-submitted").innerHTML = null;
-    listOfCrud.length = 0;
 
+}
+
+function newEntry() {
+
+    switch(value)
+        {
+            case firstNameInput.value != first:
+
+        }
 }
