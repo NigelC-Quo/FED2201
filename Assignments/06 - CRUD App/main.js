@@ -1,6 +1,5 @@
 // DOM Manipulation
 var listOfCrud = [];
-var sameListOfCrud = [];
 var submitCrudButton = document.getElementById("submit-crud");
 
 var firstNameInput = document.getElementById("first-name");
@@ -14,15 +13,11 @@ var stateInput = document.getElementById("state");
 var zipInput = document.getElementById("zip");
 
 
-
 var crudSubmittedElement = document.getElementById("grid-of-crud-submitted");
-var crudSubmittedElement2 = document.getElementById("grid-of-crud-submitted");
-
-// console.dir(submitCarButton);
 
 
 submitCrudButton.addEventListener("click", () => {
-    event.preventDefault();
+    event.preventDefault()
 
     let first = firstNameInput.value;
     let middle = middleNameInput.value;
@@ -59,19 +54,24 @@ submitCrudButton.addEventListener("click", () => {
     listOfCrud.push(new Crud(first, middle, last,
         email, address, dob, city, state, zip))
 
-    if (firstNameInput.value != first) {
-        // now add in new data
-        crudSubmittedElement.innerHTML = `
+
+    // now add in new data
+    crudSubmittedElement.innerHTML = `
         <div id="grid-of-crud-submitted"> 
             <div class="gridItems"><strong>First: </strong>  ${first} </div>
+            <div class="gridItems"><strong>Middle: </strong> ${middle} </div>
+            <div class="gridItems"><strong>Last: </strong>  ${last}</div>
+            <div class="gridItems"><strong>Email: </strong>  ${email} </div>
+            <div class="gridItems"><strong>Address: </strong>  ${address} </div>
+            <div class="gridItems"><strong>Date of Birth: </strong>  ${dob} </div>
+            <div class="gridItems"><strong>City: </strong>  ${city} </div>
+            <div class="gridItems"><strong>State: </strong>  ${state} </div>
+            <div class="gridItems"><strong>Zip: </strong>  ${zip} </div>
             <a onClick="onDelete(this)">Delete</a>   
         </div> 
         `
-       resetFormAndUpdate();
-    }
 
-    else
-     return 0;
+    resetFormAndUpdate();
 })
 
 // Constructor function
@@ -109,14 +109,6 @@ function resetFormAndUpdate() {
 function onDelete() {
 
     document.getElementById("grid-of-crud-submitted").innerHTML = null;
+    listOfCrud.length = 0;
 
-}
-
-function newEntry() {
-
-    switch(value)
-        {
-            case firstNameInput.value != first:
-
-        }
 }
