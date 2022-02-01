@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Growler</title>
-    <!-- <script type="module">
-        import './vars.js';
-    </script> -->
+
+    <script type="module">
+        import './main.js';
+    </script>
+
     <link rel="stylesheet" type="text/css" href="CSS-Misc/splashpage.css">
     <link rel="stylesheet" type="text/css" href="CSS-Misc/loginpage.css" />
     <link rel="stylesheet" type="text/css" href="CSS-Misc/signuppage.css" />
     <link rel="stylesheet" type="text/css" href="CSS-Misc/dashboard.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <section id="splash">
@@ -19,8 +23,8 @@
         <h1 class="logo">Growler</h1>
         <div class="flexContainer">
           <h2>Welcome!</h2>
-          <button class="login">Login</button></a>
-          <button class="signUp">Sign Up</button></a>
+          <button id="splashLogin">Login</button>
+          <button id="splashSignUp">Sign Up</button>
         </div>
       </div>
     </section>
@@ -31,23 +35,22 @@
         <div class="flexContainer">
           <h2>Login</h2>
 
-          <label>Username/E-mail: </label>
-          <input
-            type="email"
-            name="name"
-            id="name"
-            placeholder="Username/E-mail"
-          />
+          <section id="logInput">
 
-          <label>Password: </label>
-          <input type="text" name="name" id="name" placeholder="Password" />
+            <label>Username/E-mail: </label>
+            <input type="email" name="name" id="name" placeholder="Username/E-mail"/>
+            
+            <label>Password: </label>
+            <input type="text" name="name" id="name" placeholder="Password" />
+            
+          </section>
 
-          <p>
+            <p>
             Don't have an account?
-            <a href="SignUpPage.html" target="_self">Sign Up Here</a>
+            <a id="signUpText" href="#signUpPage" target="_self">Sign Up Here</a>
           </p>
 
-          <a href="Dashboard.html"><button class="login">Login</button></a>
+          <input type="submit" id="loginBtn" value="Login"/>
         </div>
       </div>
     </section>
@@ -58,35 +61,35 @@
         <div class="flexContainer">
           <h2>Sign Up</h2>
 
-          <label>Username: </label>
-          <input type="text" name="name" id="name" placeholder="Username" />
+          <section id="signInput">
 
-          <label>Name: </label>
-          <input type="text" name="name" id="name" placeholder="Name" />
+            <label>Username: </label>
+            <input type="text" name="name" id="userName" placeholder="Username" required/>
+            
+            <label>Name: </label>
+            <input type="text" name="name" id="name" placeholder="Name" require/>
+            
+            <label>Email: </label>
+            <input type="email" name="email" id="email" placeholder="E-mail" required/>
+            
+            <label>Password: </label>
+            <input type="text" name="name" id="pass" placeholder="Password" required/>
+            
+            <label>Confirm password: </label>
+            <input type="text" name="name" id="confirmPass" placeholder="Confirm password" required/>
+            
+            <label>Phone: </label>
+            <input type="tel" name="phone" id="phone" placeholder="Phone" required/>
 
-          <label>Email: </label>
-          <input type="email" name="email" id="email" placeholder="E-mail" />
+          </section>
 
-          <label>Password: </label>
-          <input type="text" name="name" id="name" placeholder="Password" />
-
-          <label>Confirm password: </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Confirm password"
-          />
-
-          <label>Phone: </label>
-          <input type="tel" name="phone" id="phone" placeholder="Phone" />
-
-          <p>
-            Already have an account?
-            <a href="LoginPage.html" target="_self">Login Here</a>
-          </p>
-
-          <a href="Dashboard.html"><button class="create">Create</button></a>
+            <p>
+              Already have an account?
+              <a id="loginText" href="#loginPage" target="_self">Login Here</a>
+            </p>
+          
+            
+          <input type="submit" id="createBtn" value="Create"/>
         </div>
       </div>
     </section>
@@ -95,7 +98,7 @@
       <div class="container">
 
         <div class="logoutButton">
-          <a href="SplashPage.html"><button class="logout">Logout</button></a>
+          <button id="logout">Logout</button>
         </div>
 
         <div class="editButton">

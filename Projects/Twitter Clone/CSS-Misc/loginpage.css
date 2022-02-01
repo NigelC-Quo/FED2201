@@ -8,8 +8,10 @@
     flex-direction: column;
   }
 
-  #login input,
+  #login #logInput input,
   label {
+    display: flex;
+    flex-direction: column;
     align-self: center;
     margin: 5px;
   }
@@ -20,7 +22,7 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  #login .create {
+  #login #logBtn {
     font-size: 30px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     padding: 14px 40px;
@@ -49,7 +51,7 @@
 
 #login .flexContainer {
   position: relative;
-  bottom: 10vh;
+  bottom: 5vh;
   left: 20%;
   display: flex;
   flex-direction: column;
@@ -57,17 +59,19 @@
 }
 
 #login h2 {
-  font-size: 100px;
+  font-size: 65px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#login input,
+#login #logInput input,
 label {
+  display: flex;
+  flex-direction: column;
   align-self: center;
   margin: 15px;
 }
 
-#login .login {
+#login #loginBtn {
   font-size: 30px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 14px 40px;

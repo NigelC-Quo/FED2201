@@ -27,7 +27,7 @@ body {
   align-items: center;
 }
 
-#splash .flexContainer a {
+#splash .flexContainer button {
   margin: 30px;
   position: relative;
   bottom: 10vh;
@@ -39,7 +39,7 @@ body {
   font-size: 100px;
 }
 
-#splash .login {
+#splash #splashLogin {
   font-size: 30px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 14px 40px;
@@ -47,7 +47,7 @@ body {
   background-color: #ff7900;
 }
 
-#splash .signUp {
+#splash #splashSignUp {
   font-size: 30px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 14px 40px;
