@@ -1,9 +1,9 @@
 body {
-    background-color: rgb(255, 186, 38);
+  background-color: rgb(255, 186, 38);
 }
 
 #splash {
-    display: none;
+  display: all;
 }
 
 #splash .container {
@@ -55,6 +55,10 @@ body {
   background-color: #ff7900;
 }
 
+#splash button {
+  margin: 30px;
+}
+
 @media screen and (max-width: 1000px) {
   #splash .logo {
     position: absolute;
@@ -70,7 +74,7 @@ body {
     right: 15%;
   }
 
-  #splash .flexContainer a {
+  #splash button {
     margin: 30px;
   }
 
