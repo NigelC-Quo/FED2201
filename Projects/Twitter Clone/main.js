@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
     var id = 0;
-    var listOfCredentials = []
+    var listOfCredentials = [];
 
     var splashPage = $("#splash");
     var loginPage = $("#login");
@@ -26,7 +26,7 @@ $(document).ready(() => {
 
 
     var createBtn = $("#createBtn");
-
+    var logOutBtn = $("#logOut")
 
 
     $(splashLogin).click(() => {
@@ -57,16 +57,31 @@ $(document).ready(() => {
         resetForm();
     })
 
+    $(logOutBtn).click(() => {
+
+        $(dashboardPage).hide();
+        $(splashPage).show();
+        resetForm();
+    })
+
     $(createBtn).click((e) => {
         e.preventDefault();
-        id++;
 
-        if ($(passSignInput).val() === $(confirmPassInput).val()) {
+        let userName = $(userNameInput).val();
+        let nameVal = $(nameInput).val();
+        let email = $(emailSignInput).val();
+        let pass = $(passSignInput).val();
+        let cPass = $(confirmPassInput).val();
+        let phone = $(phoneInput).val();
+
+        if (pass === cPass) {
+            id++;
+            listOfCredentials.push(new credentials(id, userName, nameVal, email, pass, phone))
+            console.log(listOfCredentials);
             $(signUpPage).hide();
             $(dashboardPage).show();
-            $(accName).text($(userNameInput).val());
-        } 
-        else
+            $(accName).text(userName);
+        } else
             alert("Passwords do not match");
     })
 
@@ -81,9 +96,9 @@ $(document).ready(() => {
         $(passLogInput).val("");
     }
 
-    function credentials (userName, name, email, password, phone)
-    {
-        this.userName = userNameInput;
+    function credentials(id, userName, name, email, password, phone) {
+        this.id = id;
+        this.userName = userName;
         this.name = name;
         this.email = email;
         this.password = password;
