@@ -19,6 +19,8 @@ $(document).ready(() => {
     var emailLogInput = $("#emailLog");
     var passLogInput = $("#passLog");
 
+    var accName = $("#accName");
+
 
     var createBtn = $("#createBtn");
 
@@ -52,11 +54,13 @@ $(document).ready(() => {
         resetForm();
     })
 
-    $(createBtn).click(() => {
+    $(createBtn).click((e) => {
+        e.preventDefault();
 
         if ($(passSignInput).val() === $(confirmPassInput).val()) {
             $(signUpPage).hide();
             $(dashboardPage).show();
+            $(accName).text($(userNameInput).val());
         } 
         else
             alert("Passwords do not match");
