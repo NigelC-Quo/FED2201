@@ -1,5 +1,8 @@
 $(document).ready(() => {
 
+    var id = 0;
+    var listOfCredentials = []
+
     var splashPage = $("#splash");
     var loginPage = $("#login");
     var signUpPage = $("#signup")
@@ -56,6 +59,7 @@ $(document).ready(() => {
 
     $(createBtn).click((e) => {
         e.preventDefault();
+        id++;
 
         if ($(passSignInput).val() === $(confirmPassInput).val()) {
             $(signUpPage).hide();
@@ -75,6 +79,15 @@ $(document).ready(() => {
         $(phoneInput).val("");
         $(emailLogInput).val("");
         $(passLogInput).val("");
+    }
+
+    function credentials (userName, name, email, password, phone)
+    {
+        this.userName = userNameInput;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
     }
 
 })
