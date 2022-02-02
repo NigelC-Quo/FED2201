@@ -12,11 +12,15 @@ $(document).ready(() => {
 
     var userNameInput = $("#userName");
     var nameInput = $("#name");
-    var emailInput = $("#email");
-    var passInput = $("#pass");
+    var emailSignInput = $("#emailSign");
+    var passSignInput = $("#passSign");
     var confirmPassInput = $("#confirmPass");
     var phoneInput = $("#phone");
-    var createBtn = $("#creatBtn");
+    var emailLogInput = $("#emailLog");
+    var passLogInput = $("#passLog");
+
+
+    var createBtn = $("#createBtn");
 
 
 
@@ -38,22 +42,31 @@ $(document).ready(() => {
 
         $(signUpPage).hide();
         $(loginPage).show();
-
+        resetForm();
     })
 
     $(signUpText).click(() => {
 
         $(loginPage).hide();
-        $(signUpPage).show();
-
+        $(signUpPage).show(); 
+        resetForm();
     })
 
     $(createBtn).click(() => {
 
         $(signUpPage).hide();
         $(dashboardPage).show();
-
-
     })
+
+    function resetForm(){
+        $(userNameInput).val("");
+        $(nameInput).val("");
+        $(emailSignInput).val("");
+        $(passSignInput).val("");
+        $(confirmPassInput).val("");
+        $(phoneInput).val("");
+        $(emailLogInput).val("");
+        $(passLogInput).val("");
+    }
 
 })
