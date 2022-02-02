@@ -48,17 +48,21 @@ $(document).ready(() => {
     $(signUpText).click(() => {
 
         $(loginPage).hide();
-        $(signUpPage).show(); 
+        $(signUpPage).show();
         resetForm();
     })
 
     $(createBtn).click(() => {
 
-        $(signUpPage).hide();
-        $(dashboardPage).show();
+        if ($(passSignInput).val() === $(confirmPassInput).val()) {
+            $(signUpPage).hide();
+            $(dashboardPage).show();
+        } 
+        else
+            alert("Passwords do not match");
     })
 
-    function resetForm(){
+    function resetForm() {
         $(userNameInput).val("");
         $(nameInput).val("");
         $(emailSignInput).val("");
