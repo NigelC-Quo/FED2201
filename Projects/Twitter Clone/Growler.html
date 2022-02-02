@@ -7,14 +7,14 @@
     <title>Growler</title>
 
     <script type="module">
-        import './main.js';
+      import "./main.js";
     </script>
 
-    <link rel="stylesheet" type="text/css" href="CSS-Misc/splashpage.css">
+    <link rel="stylesheet" type="text/css" href="CSS-Misc/splashpage.css" />
     <link rel="stylesheet" type="text/css" href="CSS-Misc/loginpage.css" />
     <link rel="stylesheet" type="text/css" href="CSS-Misc/signuppage.css" />
-    <link rel="stylesheet" type="text/css" href="CSS-Misc/dashboard.css">
-    
+    <link rel="stylesheet" type="text/css" href="CSS-Misc/dashboard.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -36,21 +36,31 @@
           <h2>Login</h2>
 
           <section id="logInput">
-
             <label>E-mail: </label>
-            <input type="email" name="e-mail" id="emailLog" placeholder="E-mail"/>
-            
+            <input
+              type="email"
+              name="e-mail"
+              id="emailLog"
+              placeholder="E-mail"
+            />
+
             <label>Password: </label>
-            <input type="password" name="password" id="passLog" placeholder="Password" />
-            
+            <input
+              type="password"
+              name="password"
+              id="passLog"
+              placeholder="Password"
+            />
           </section>
 
-            <p>
+          <p>
             Don't have an account?
-            <a id="signUpText" href="#signUpPage" target="_self">Sign Up Here</a>
+            <a id="signUpText" href="#signUpPage" target="_self"
+              >Sign Up Here</a
+            >
           </p>
 
-          <input type="submit" id="loginBtn" value="Login"/>
+          <input type="submit" id="loginBtn" value="Login" />
         </div>
       </div>
     </section>
@@ -62,65 +72,100 @@
           <h2>Sign Up</h2>
 
           <section id="signInput">
-
             <label>Username: </label>
-            <input type="text" name="username" id="userName" placeholder="Username" required/>
-            
-            <label>Name: </label>
-            <input type="text" name="normName" id="name" placeholder="Name" require/>
-            
-            <label>Email: </label>
-            <input type="email" name="e-mail" id="emailSign" placeholder="E-mail" required/>
-            
-            <label>Password: </label>
-            <input type="password" name="password" id="passSign" placeholder="Password" required/>
-            
-            <label>Confirm password: </label>
-            <input type="password" name="cPass" id="confirmPass" placeholder="Confirm password" required/>
-            
-            <label>Phone: </label>
-            <input type="tel" name="phone" id="phone" placeholder="Phone" required/>
+            <input
+              type="text"
+              name="username"
+              id="userName"
+              placeholder="Username"
+              required
+            />
 
+            <label>Name: </label>
+            <input
+              type="text"
+              name="normName"
+              id="name"
+              placeholder="Name"
+              require
+            />
+
+            <label>Email: </label>
+            <input
+              type="email"
+              name="e-mail"
+              id="emailSign"
+              placeholder="E-mail"
+              required
+            />
+
+            <label>Password: </label>
+            <input
+              type="password"
+              name="password"
+              id="passSign"
+              placeholder="Password"
+              required
+            />
+
+            <label>Confirm password: </label>
+            <input
+              type="password"
+              name="cPass"
+              id="confirmPass"
+              placeholder="Confirm password"
+              required
+            />
+
+            <label>Phone: </label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="Phone"
+              required
+            />
           </section>
 
-            <p>
-              Already have an account?
-              <a id="loginText" href="#loginPage" target="_self">Login Here</a>
-            </p>
-          
-            
-          <input type="submit" id="createBtn" value="Create"/>
+          <p>
+            Already have an account?
+            <a id="loginText" href="#loginPage" target="_self">Login Here</a>
+          </p>
+
+          <input type="submit" id="createBtn" value="Create" />
         </div>
       </div>
     </section>
 
     <section id="dashboard">
       <div class="container">
-
         <div class="logoutButton">
           <button id="logout">Logout</button>
         </div>
 
         <div class="editButton">
-          <button class="edit" onclick="edit()">Edit Account</button>
+          <button id="edit">Edit Account</button>
         </div>
 
-        <div class="bio">
-          <img src="CSS-Misc/usericon.png" alt="usericon" />
+        <div id="bio">
+          <img id="userImage" src="CSS-Misc/usericon.png" alt="usericon" />
           <h1 id="accName">User01</h1>
-          <p>Say hello to my new Growler account!</p>
+          <p id="bioPara">Say hello to my new Growler account!</p>
         </div>
 
-        <div class="userInfo">
+        <div id="userInfo">
           <p>Location: My area</p>
           <p>Website: My website</p>
           <p>Joined: Jan 2022</p>
+        </div>
+
+        <div id="counts">
           <p>0 Followers</p>
           <p>0 Following</p>
           <p>0 Growls</p>
           <p>0 Likes</p>
         </div>
-
+        <!-- <hr> -->
         <div class="feedHeader">
           <h2 style="color: yellow">Growls</h2>
           <h2>Replies</h2>
@@ -130,16 +175,14 @@
 
         <div class="feed">
           <p>You haven't growled yet</p>
-          <button class="growl" onclick="growl()">Growl now</button>
+          <button class="growl">Growl now</button>
         </div>
 
         <div class="links">
-          <button class="home" onclick="home()">Home</button>
-          <button class="notifications" onclick="notifications()">
-            Notifications
-          </button>
-          <button class="messages" onclick="messages()">Messages</button>
-          <button class="account" onclick="account()">Account</button>
+          <button class="home">Home</button>
+          <button class="notifications">Notifications</button>
+          <button class="messages">Messages</button>
+          <button class="account">Account</button>
         </div>
       </div>
     </section>

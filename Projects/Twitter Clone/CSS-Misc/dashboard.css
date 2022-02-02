@@ -2,6 +2,13 @@
   display: none;
 }
 
+#dashboard hr {
+  position: relative;
+  top: 50vh;
+  width: 1050px;
+  border: 2px solid black;
+}
+
 #dashboard .links {
   display: flex;
   flex-direction: column;
@@ -14,7 +21,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   right: 43%;
 }
 
@@ -26,23 +33,27 @@
   right: 47%;
 }
 
-#dashboard .userInfo {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  flex-wrap: wrap;
-  margin-left: 400px;
-  padding: 16px;
-  top: 45%;
-  right: 25%;
-}
-
-#dashboard .bio {
+#dashboard #bio {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 13%;
-  right: 35%;
+}
+
+#dashboard #bio #userImage {
+  height: 30vh;
+  width: 15vw;
+  position: relative;
+  align-self: center;
+}
+
+#dashboard #bio #accName {
+  position: relative;
+  align-self: center;
+}
+
+#dashboard #bio p {
+  position: relative;
+  align-self: center;
+  font-size: larger;
 }
 
 #dashboard .editButton {
@@ -83,25 +94,30 @@
   padding: 20px;
 }
 
-#dashboard .userInfo p {
-  margin: 5px;
-  padding: 3px;
-  font-size: 20px;
+#dashboard #userInfo {
+  display: flex;
+  flex-direction: row;
 }
 
-#dashboard .bio img {
-  width: 50%;
-  height: 50%;
+#dashboard #counts {
+  display: flex;
+  flex-direction: row;
 }
 
-#dashboard .bio h1 {
-  margin: 0px;
-  padding-left: 50px;
+#dashboard #counts p {
+  position: relative;
+  left: 36vw;
+  bottom: 2vh;
+  font-size: larger;
+  margin: 20px;
 }
 
-#dashboard .bio p {
-  padding-right: 80px;
-  font-size: 22px;
+#dashboard #userInfo p {
+  position: relative;
+  left: 36vw;
+  bottom: 1vh;
+  font-size: larger;
+  margin: 20px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -133,23 +149,21 @@
     right: 47%;
   }
 
-  #dashboard .userInfo {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    flex-wrap: wrap;
-    margin-left: 30px;
-    padding: 30px;
+  #dashboard #userInfo {
+    position: relative;
     top: 41%;
-    right: 35%;
+    right: 31vw;
   }
 
-  #dashboard .bio {
+  #dashboard #counts {
+    position: relative;
+    top: 41%;
+    right: 31vw;
+  }
+
+  #dashboard #bio {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 10%;
-    right: 50%;
   }
 
   #dashboard .editButton {
@@ -190,24 +204,22 @@
     padding: 20px;
   }
 
-  #dashboard .userInfo p {
-    margin: 5px;
-    padding: 3px;
-    font-size: 20px;
+  #dashboard #bio #bioPara {
+    position: relative;
+    right: 27vw;
   }
 
-  #dashboard .bio img {
-    width: 50%;
-    height: 50%;
+  #dashboard #bio #accName {
+    position: relative;
+    top: 33%;
+    right: 27vw;
   }
 
-  #dashboard .bio h1 {
-    margin: 0px;
-    padding-left: 50px;
-  }
-
-  #dashboard .bio p {
-    padding-right: 50px;
-    font-size: 22px;
+  #dashboard #bio #userImage {
+    height: 30vh;
+    width: 25vw;
+    position: relative;
+    align-self: flex-start;
+    left: 10vw;
   }
 }
