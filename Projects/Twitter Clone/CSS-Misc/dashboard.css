@@ -217,9 +217,9 @@
 
   #dashboard #bio #userImage {
     height: 30vh;
-    width: 25vw;
+    width: 30vw;
     position: relative;
     align-self: flex-start;
-    left: 10vw;
+    left: 7vw;
   }
 }
