@@ -30,6 +30,7 @@ $(document).ready(() => {
     var createBtn = $("#createBtn");
     var loginBtn = $("#loginBtn");
     var growlBtn = $("#growlNow");
+    var growlConfirm = $("#growl");
     var logOutBtn = $("#logOut");
 
 
@@ -92,9 +93,9 @@ $(document).ready(() => {
         let foundEmail = listOfCredentials.find(user => user.email === email)
         
         
-        if (!foundUser || !foundEmail) {
+        if (!foundUser && !foundEmail) {
             
-            if (pass === cPass) {
+            if (pass && cPass !== "" && pass === cPass) {
                 listOfCredentials.push(new credentials(userName, nameVal, email, pass, phone))
                 postUserToFB(username, email, pass)
                 $(signUpPage).hide();
@@ -133,7 +134,8 @@ $(document).ready(() => {
         $(".feed").html(`
         <div id="feed"> 
             <div class="gridItem">
-            <input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..." required/>
+            <input type="text" name="growlEdit" id="growlBox"
+             placeholder="Growl Here..."/>
             <button id="update">Edit</button>  
             <button id="delete">Delete</button>  
             <button id="growl">Growl</button>  
