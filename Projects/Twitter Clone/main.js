@@ -34,6 +34,8 @@ $(document).ready(() => {
     var logOutBtn = $("#logOut");
 
 
+    // General buttons that hide and show pages
+    // GetUser is called so that it's not out of scope
     $(splashLogin).click((e) => {
         e.preventDefault();
 
@@ -78,6 +80,10 @@ $(document).ready(() => {
         resetForm();
     })
 
+    // Create button should see if the inputted username and email match
+    // with existing users, if not, submit username, email, and password to the firebase
+    // if the passwords match AND are not empty. The account name should also reflect the 
+    // inputted username 
     $(createBtn).click((e) => {
         e.preventDefault();
 
@@ -107,6 +113,9 @@ $(document).ready(() => {
             alert("User or email already exits");
     })
 
+    // Login Button when click should check the firebase to see if username
+    // and password match up, if so then go to dash and the account name will
+    // that user
     $(loginBtn).click((e) => {
         e.preventDefault();
 
@@ -127,6 +136,9 @@ $(document).ready(() => {
             alert("Invalid email or password");
     })
 
+    // When clicked an input box shows up with 3 buttons, that will allow you
+    // to edit, delete, and submit the input value. Tweets should also go to firebase
+    // and be updated accordingly in the event of any changes 
     $(growlBtn).click((e) => {
         e.preventDefault();
 
@@ -143,6 +155,7 @@ $(document).ready(() => {
         `) 
     })
 
+    // Reset values every time a link is clicked
     function resetForm() {
         $(userNameInput).val("");
         $(nameInput).val("");
@@ -154,6 +167,7 @@ $(document).ready(() => {
         $(passLogInput).val("");
     }
 
+    // Constructor function
     function credentials(userName, name, email, password, phone) {
         this.userName = userName;
         this.name = name;
@@ -185,9 +199,9 @@ $(document).ready(() => {
                 } else {
                     listOfCredentials.push({
                         id: user, // user's ID
-                        username: data[user].username,
-                        email: data[user].email,
-                        password: data[user].password
+                        username: data[user].username, // user's username
+                        email: data[user].email, // user's email
+                        password: data[user].password // // user's password
                     })
                 }
             }
