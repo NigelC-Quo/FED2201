@@ -29,7 +29,7 @@ $(document).ready(() => {
 
     var createBtn = $("#createBtn");
     var loginBtn = $("#loginBtn");
-    var growlBtn = $("#growl");
+    var growlBtn = $("#growlNow");
     var logOutBtn = $("#logOut");
 
 
@@ -128,16 +128,15 @@ $(document).ready(() => {
 
     $(growlBtn).click((e) => {
         e.preventDefault();
-    
-    
+
         // now add in new data
         $(".feed").html(`
-        <div class="feed"> 
+        <div id="feed"> 
             <div class="gridItem">
-            <p>My first growl!</p>
-            <button id="update">Update</button>  
+            <input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..." required/>
+            <button id="update">Edit</button>  
             <button id="delete">Delete</button>  
-            <button id="growl">Growl now</button>  
+            <button id="growl">Growl</button>  
         </div> 
         `) 
     })
