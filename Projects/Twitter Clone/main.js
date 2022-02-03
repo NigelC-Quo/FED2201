@@ -1,38 +1,40 @@
 $(document).ready(() => {
 
-    var listOfCredentials = [];
-    var firebaseUrl = "https://twitter-clone-51246-default-rtdb.firebaseio.com";
-    var jsonExit = ".json";
-    var fullFirebase
-    var user;
+     var listOfCredentials = [];
+     var firebaseUrl = "https://twitter-clone-51246-default-rtdb.firebaseio.com";
+     var jsonExit = ".json";
+     var fullFirebase
+     var user;
+ 
+     var splashPage = $("#splash");
+     var loginPage = $("#login");
+     var signUpPage = $("#signup")
+     var dashboardPage = $("#dashboard");
+     var splashLogin = $("#splashLogin");
+     var splashSignUp = $("#splashSignUp");
+     var loginText = $("#loginText");
+     var signUpText = $("#signUpText");
+     var logOutBtn = $("#logOut");
 
-    var splashPage = $("#splash");
-    var loginPage = $("#login");
-    var signUpPage = $("#signup")
-    var dashboardPage = $("#dashboard");
-    var splashLogin = $("#splashLogin");
-    var splashSignUp = $("#splashSignUp");
-    var loginText = $("#loginText");
-    var signUpText = $("#signUpText");
+ 
+     var userNameInput = $("#userName");
+     var nameInput = $("#name");
+     var emailSignInput = $("#emailSign");
+     var passSignInput = $("#passSign");
+     var confirmPassInput = $("#confirmPass");
+     var phoneInput = $("#phone");
+     var emailLogInput = $("#emailLog");
+     var passLogInput = $("#passLog");
 
-
-    var userNameInput = $("#userName");
-    var nameInput = $("#name");
-    var emailSignInput = $("#emailSign");
-    var passSignInput = $("#passSign");
-    var confirmPassInput = $("#confirmPass");
-    var phoneInput = $("#phone");
-    var emailLogInput = $("#emailLog");
-    var passLogInput = $("#passLog");
-
-    var accName = $("#accName");
-
-    var createBtn = $("#createBtn");
-    var loginBtn = $("#loginBtn");
-    var growlBtn = $("#growlNow");
-    var growlConfirm = $("#growl");
-    var logOutBtn = $("#logOut");
-
+     var accName = $("#accName");
+ 
+     var createBtn = $("#createBtn");
+     var loginBtn = $("#loginBtn");
+     
+     var growlBtn = $("#growlNow");
+     var growlConfirm = $("#growlAgain");
+     var growlArea = $("#growlBox");
+     
 
     // General buttons that hide and show pages
     // GetUser is called so that it's not out of scope
@@ -144,15 +146,24 @@ $(document).ready(() => {
 
         // now add in new data
         $(".feed").html(`
-        <div id="feed"> 
             <div class="gridItem">
             <input type="text" name="growlEdit" id="growlBox"
              placeholder="Growl Here..."/>
             <button id="update">Edit</button>  
             <button id="delete">Delete</button>  
-            <button id="growl">Growl</button>  
+            <button id="submit">Submit</button>  
         </div> 
+        <button id="growlAgain">Growl now</button>
         `) 
+    })
+
+    growlConfirm.click((e) => {
+        e.preventDefault();
+
+        growlArea.html(`
+        ${growlArea.val()}`)
+
+        console.log("Function ran!!")
     })
 
     // Reset values every time a link is clicked
@@ -177,12 +188,13 @@ $(document).ready(() => {
     }
 
     // post data to DB
-    function postUserToFB(username, email, pass) {
+    function postUserToFB(username, email, pass, tweets) {
         $.post(`${firebaseUrl}/users${jsonExit}`,
             JSON.stringify({
                 email: email,
                 password: pass,
-                username: username
+                username: username,
+                tweets: tweets
             })).then(console.log("data created!"))
     }
 
@@ -201,7 +213,8 @@ $(document).ready(() => {
                         id: user, // user's ID
                         username: data[user].username, // user's username
                         email: data[user].email, // user's email
-                        password: data[user].password // // user's password
+                        password: data[user].password, // // user's password
+                        tweets: data[user].tweets // // user's password
                     })
                 }
             }

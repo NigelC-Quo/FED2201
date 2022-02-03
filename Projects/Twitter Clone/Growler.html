@@ -8,9 +8,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script type="module">
-      import "./main.js";
-    </script>
+    <script type="module" src="./main.js"></script>
 
     <link rel="stylesheet" type="text/css" href="CSS-Misc/splashpage.css" />
     <link rel="stylesheet" type="text/css" href="CSS-Misc/loginpage.css" />
@@ -174,17 +172,20 @@
         </div>
 
         <div class="feed">
-          <p>You haven't growled yet</p>
           <button id="growlNow">Growl now</button>
         </div>
 
+        </div>
         <div class="links">
           <button class="home">Home</button>
           <button class="notifications">Notifications</button>
           <button class="messages">Messages</button>
           <button class="account">Account</button>
-        </div>
       </div>
     </section>
+    <script src="./modules/SPANav.js"></script>
+    <script src="./modules/ConstructAJAX.js"></script>
+    <script src="./modules/CredentialConfirm.js"></script>
+    <script src="./modules/DOMManip.js"></script>
   </body>
 </html>
