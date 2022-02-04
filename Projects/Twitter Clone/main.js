@@ -155,8 +155,9 @@ $(document).ready(() => {
         $("#submit").click((e) => {
             e.preventDefault();
 
+            $("#submittedText").remove();
             if ($("#growlBox").val() !== "") {
-                $("#gridItem").find("#submit").remove();
+                $("#gridItem").find("#submit").hide();
                 $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${$("#growlBox").val()}</p>`);
             } else
                 alert("There must be input before submission");
@@ -170,6 +171,16 @@ $(document).ready(() => {
             $("#submittedText").remove();
             $("#growlNow").show();
             alert("Growl successfully deleted!")
+            
+        })
+
+        $("#update").click((e) => {
+            e.preventDefault();
+            
+            $(`<input type="text" name="growlEdit" id="growlBox" 
+            placeholder="Growl Here..." value=""/>`).appendTo("#feed");
+            $("#submittedText").hide();
+            $("#submit").show();
             
         })
 
