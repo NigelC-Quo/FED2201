@@ -99,23 +99,23 @@ $(document).ready(() => {
 
         let foundUser = listOfCredentials.find(user => user.username === username)
         let foundEmail = listOfCredentials.find(user => user.email === email)
-
-
+        
         if (!foundUser && !foundEmail) {
-
+            
             if (pass && cPass !== "" && pass === cPass) {
-                listOfCredentials.push(new credentials(userName, nameVal, email, pass, phone))
+                listOfCredentials.push(new credentials(username, nameVal, email, pass, phone))
                 postUserToFB(username, email, pass)
                 $(signUpPage).hide();
                 $(dashboardPage).show();
                 $(accName).text(username);
             } else
-                alert("Passwords do not match");
+            alert("Passwords do not match");
         } else
-            alert("User or email already exits");
+        alert("User or email already exits");
     })
-
+    
     // Login Button when click should check the firebase to see if username
+    
     // and password match up, if so then go to dash and the account name will
     // that user
     loginBtn.click((e) => {
@@ -144,6 +144,7 @@ $(document).ready(() => {
     growlBtn.click((e) => {
         e.preventDefault();
 
+
         $(`<div id="gridItem"></div>`).appendTo("#feed");
         $(`<input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..."/>`).appendTo("#feed");
         $(`<button id="update">Edit</button>`).appendTo("#gridItem");
@@ -155,10 +156,16 @@ $(document).ready(() => {
         $("#submit").click((e) => {
             e.preventDefault();
 
+            getUser();
+
+            let tweet = $("#growlBox").val();
+            let foundUser = listOfCredentials.find(user => user.username === accName.text())
             $("#submittedText").remove();
+
             if ($("#growlBox").val() !== "") {
+                postTweetToFB(tweet, foundUser.username)
                 $("#gridItem").find("#submit").hide();
-                $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${$("#growlBox").val()}</p>`);
+                $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${tweet}</p>`);
             } else
                 alert("There must be input before submission");
         })
@@ -201,24 +208,34 @@ $(document).ready(() => {
     }
 
     // Constructor function
-    function credentials(userName, name, email, password, phone) {
+    function credentials(userName, name, email, password, phone, tweet) {
         this.userName = userName;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
+        this.tweet = tweet;
     }
 
     // post data to DB
-    function postUserToFB(username, email, pass, tweets) {
+    function postUserToFB(username, email, pass) {
         $.post(`${firebaseUrl}/users${jsonExit}`,
             JSON.stringify({
                 email: email,
                 password: pass,
-                username: username,
-                tweets: tweets
+                username: username
             })).then(console.log("data created!"))
-    }
+    
+        }
+
+    function postTweetToFB(tweet, username) {
+        $.post(`${firebaseUrl}/tweets${jsonExit}`,
+            JSON.stringify({
+                tweet: tweet,
+                username: username
+            })).then(console.log("data created!"))
+    
+        }
 
     function getUser() {
         // READ/get data from a database
@@ -236,7 +253,6 @@ $(document).ready(() => {
                         username: data[user].username, // user's username
                         email: data[user].email, // user's email
                         password: data[user].password, // // user's password
-                        tweets: data[user].tweets // // user's tweets
                     })
                 }
             }
