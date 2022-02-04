@@ -1,44 +1,44 @@
 $(document).ready(() => {
 
-     var listOfCredentials = [];
-     var firebaseUrl = "https://twitter-clone-51246-default-rtdb.firebaseio.com";
-     var jsonExit = ".json";
-     var fullFirebase
-     var user;
- 
-     var splashPage = $("#splash");
-     var loginPage = $("#login");
-     var signUpPage = $("#signup")
-     var dashboardPage = $("#dashboard");
-     var splashLogin = $("#splashLogin");
-     var splashSignUp = $("#splashSignUp");
-     var loginText = $("#loginText");
-     var signUpText = $("#signUpText");
-     var logOutBtn = $("#logOut");
+    var listOfCredentials = [];
+    var firebaseUrl = "https://twitter-clone-51246-default-rtdb.firebaseio.com";
+    var jsonExit = ".json";
+    var fullFirebase
+    var user;
 
- 
-     var userNameInput = $("#userName");
-     var nameInput = $("#name");
-     var emailSignInput = $("#emailSign");
-     var passSignInput = $("#passSign");
-     var confirmPassInput = $("#confirmPass");
-     var phoneInput = $("#phone");
-     var emailLogInput = $("#emailLog");
-     var passLogInput = $("#passLog");
+    var splashPage = $("#splash");
+    var loginPage = $("#login");
+    var signUpPage = $("#signup")
+    var dashboardPage = $("#dashboard");
+    var splashLogin = $("#splashLogin");
+    var splashSignUp = $("#splashSignUp");
+    var loginText = $("#loginText");
+    var signUpText = $("#signUpText");
+    var logOutBtn = $("#logOut");
 
-     var accName = $("#accName");
- 
-     var createBtn = $("#createBtn");
-     var loginBtn = $("#loginBtn");
-     
-     var growlBtn = $("#growlNow");
-     var growlConfirm = $("#growlAgain");
-     var growlArea = $("#growlBox");
-     
+
+    var userNameInput = $("#userName");
+    var nameInput = $("#name");
+    var emailSignInput = $("#emailSign");
+    var passSignInput = $("#passSign");
+    var confirmPassInput = $("#confirmPass");
+    var phoneInput = $("#phone");
+    var emailLogInput = $("#emailLog");
+    var passLogInput = $("#passLog");
+
+    var accName = $("#accName");
+
+    var createBtn = $("#createBtn");
+    var loginBtn = $("#loginBtn");
+
+    var growlBtn = $("#growlNow");
+    var growlConfirm = $("#submit");
+    var growlArea = $("#growlBox");
+
 
     // General buttons that hide and show pages
     // GetUser is called so that it's not out of scope
-    $(splashLogin).click((e) => {
+    splashLogin.click((e) => {
         e.preventDefault();
 
         $(splashPage).hide();
@@ -47,7 +47,7 @@ $(document).ready(() => {
 
     })
 
-    $(splashSignUp).click((e) => {
+    splashSignUp.click((e) => {
         e.preventDefault();
 
         $(splashPage).hide();
@@ -56,7 +56,7 @@ $(document).ready(() => {
 
     })
 
-    $(loginText).click((e) => {
+    loginText.click((e) => {
         e.preventDefault();
 
         $(signUpPage).hide();
@@ -65,7 +65,7 @@ $(document).ready(() => {
         getUser();
     })
 
-    $(signUpText).click((e) => {
+    signUpText.click((e) => {
         e.preventDefault();
 
         $(loginPage).hide();
@@ -74,7 +74,7 @@ $(document).ready(() => {
         getUser();
     })
 
-    $(logOutBtn).click((e) => {
+    logOutBtn.click((e) => {
         e.preventDefault();
 
         $(dashboardPage).hide();
@@ -86,7 +86,7 @@ $(document).ready(() => {
     // with existing users, if not, submit username, email, and password to the firebase
     // if the passwords match AND are not empty. The account name should also reflect the 
     // inputted username 
-    $(createBtn).click((e) => {
+    createBtn.click((e) => {
         e.preventDefault();
 
         let username = $(userNameInput).val();
@@ -99,10 +99,10 @@ $(document).ready(() => {
 
         let foundUser = listOfCredentials.find(user => user.username === username)
         let foundEmail = listOfCredentials.find(user => user.email === email)
-        
-        
+
+
         if (!foundUser && !foundEmail) {
-            
+
             if (pass && cPass !== "" && pass === cPass) {
                 listOfCredentials.push(new credentials(userName, nameVal, email, pass, phone))
                 postUserToFB(username, email, pass)
@@ -118,22 +118,22 @@ $(document).ready(() => {
     // Login Button when click should check the firebase to see if username
     // and password match up, if so then go to dash and the account name will
     // that user
-    $(loginBtn).click((e) => {
+    loginBtn.click((e) => {
         e.preventDefault();
 
 
         let email = $(emailLogInput).val();
         let password = $(passLogInput).val();
-        
+
         let foundEmail = listOfCredentials.find(user => user.email === email)
         let foundPass = listOfCredentials.find(user => user.password === password)
-        
-        
+
+
         if (foundEmail && foundPass) {
-    
-                $(loginPage).hide();
-                $(dashboardPage).show();
-                $(accName).text(foundEmail.username);
+
+            $(loginPage).hide();
+            $(dashboardPage).show();
+            $(accName).text(foundEmail.username);
         } else
             alert("Invalid email or password");
     })
@@ -141,30 +141,41 @@ $(document).ready(() => {
     // When clicked an input box shows up with 3 buttons, that will allow you
     // to edit, delete, and submit the input value. Tweets should also go to firebase
     // and be updated accordingly in the event of any changes 
-    $(growlBtn).click((e) => {
+    growlBtn.click((e) => {
         e.preventDefault();
 
-        // now add in new data
-        $(".feed").html(`
-            <div class="gridItem">
-            <input type="text" name="growlEdit" id="growlBox"
-             placeholder="Growl Here..."/>
-            <button id="update">Edit</button>  
-            <button id="delete">Delete</button>  
-            <button id="submit">Submit</button>  
-        </div> 
-        <button id="growlAgain">Growl now</button>
-        `) 
+        $(`<div id="gridItem"></div>`).appendTo("#feed");
+        $(`<input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..."/>`).appendTo("#feed");
+        $(`<button id="update">Edit</button>`).appendTo("#gridItem");
+        $(`<button id="delete">Delete</button>  `).appendTo("#gridItem");
+        $(`<button id="submit">Submit</button>`).appendTo("#gridItem");
+
+        $("#growlNow").hide();
+
+        $("#submit").click((e) => {
+            e.preventDefault();
+
+            if ($("#growlBox").val() !== "") {
+                $("#gridItem").find("#submit").remove();
+                $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${$("#growlBox").val()}</p>`);
+            } else
+                alert("There must be input before submission");
+        })
+
+        $("#delete").click((e) => {
+            e.preventDefault();
+            
+            $("#gridItem").remove();
+            $("#growlBox").remove();
+            $("#submittedText").remove();
+            $("#growlNow").show();
+            alert("Growl successfully deleted!")
+            
+        })
+
+
     })
 
-    growlConfirm.click((e) => {
-        e.preventDefault();
-
-        growlArea.html(`
-        ${growlArea.val()}`)
-
-        console.log("Function ran!!")
-    })
 
     // Reset values every time a link is clicked
     function resetForm() {
@@ -198,7 +209,7 @@ $(document).ready(() => {
             })).then(console.log("data created!"))
     }
 
-    function getUser(){
+    function getUser() {
         // READ/get data from a database
         $.get(`${firebaseUrl}/users${jsonExit}`).then((data) => {
             fullFirebase = data
@@ -214,7 +225,7 @@ $(document).ready(() => {
                         username: data[user].username, // user's username
                         email: data[user].email, // user's email
                         password: data[user].password, // // user's password
-                        tweets: data[user].tweets // // user's password
+                        tweets: data[user].tweets // // user's tweets
                     })
                 }
             }
