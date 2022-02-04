@@ -1,10 +1,12 @@
 $(document).ready(() => {
 
     var listOfCredentials = [];
+    var listOfTweets = [];
     var firebaseUrl = "https://twitter-clone-51246-default-rtdb.firebaseio.com";
     var jsonExit = ".json";
     var fullFirebase
     var user;
+    var tweet;
 
     var splashPage = $("#splash");
     var loginPage = $("#login");
@@ -99,9 +101,9 @@ $(document).ready(() => {
 
         let foundUser = listOfCredentials.find(user => user.username === username)
         let foundEmail = listOfCredentials.find(user => user.email === email)
-        
+
         if (!foundUser && !foundEmail) {
-            
+
             if (pass && cPass !== "" && pass === cPass) {
                 listOfCredentials.push(new credentials(username, nameVal, email, pass, phone))
                 postUserToFB(username, email, pass)
@@ -109,13 +111,13 @@ $(document).ready(() => {
                 $(dashboardPage).show();
                 $(accName).text(username);
             } else
-            alert("Passwords do not match");
+                alert("Passwords do not match");
         } else
-        alert("User or email already exits");
+            alert("User or email already exits");
     })
-    
+
     // Login Button when click should check the firebase to see if username
-    
+
     // and password match up, if so then go to dash and the account name will
     // that user
     loginBtn.click((e) => {
@@ -157,13 +159,17 @@ $(document).ready(() => {
             e.preventDefault();
 
             getUser();
-
+            
             let tweet = $("#growlBox").val();
             let foundUser = listOfCredentials.find(user => user.username === accName.text())
+
+
             $("#submittedText").remove();
 
             if ($("#growlBox").val() !== "") {
                 postTweetToFB(tweet, foundUser.username)
+                getTweet()
+                listOfTweets.push(new tweets(tweet, foundUser.username))
                 $("#gridItem").find("#submit").hide();
                 $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${tweet}</p>`);
             } else
@@ -172,23 +178,35 @@ $(document).ready(() => {
 
         $("#delete").click((e) => {
             e.preventDefault();
-            
+
+            getTweet()
+
+            let tweeted = $("#growlBox");
+            let foundUser = listOfTweets.find(tweet => tweet.user === accName.text())
+            console.log(foundUser.id)
+
+            $.ajax({
+                type: "DELETE",
+                url: `${firebaseUrl}/tweets/${foundUser.id}${jsonExit}`,
+                success: console.log(`DELETE was successful`)
+            })
+
             $("#gridItem").remove();
-            $("#growlBox").remove();
+            tweeted.remove();
             $("#submittedText").remove();
             $("#growlNow").show();
             alert("Growl successfully deleted!")
-            
+
         })
 
         $("#update").click((e) => {
             e.preventDefault();
-            
+
             $(`<input type="text" name="growlEdit" id="growlBox" 
             placeholder="Growl Here..." value=""/>`).appendTo("#feed");
             $("#submittedText").hide();
             $("#submit").show();
-            
+
         })
 
 
@@ -208,12 +226,16 @@ $(document).ready(() => {
     }
 
     // Constructor function
-    function credentials(userName, name, email, password, phone, tweet) {
+    function credentials(userName, name, email, password, phone) {
         this.userName = userName;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
+    }
+
+    function tweets(username, tweet) {
+        this.username = username;
         this.tweet = tweet;
     }
 
@@ -225,17 +247,17 @@ $(document).ready(() => {
                 password: pass,
                 username: username
             })).then(console.log("data created!"))
-    
-        }
 
-    function postTweetToFB(tweet, username) {
+    }
+
+    function postTweetToFB(tweet, user) {
         $.post(`${firebaseUrl}/tweets${jsonExit}`,
             JSON.stringify({
                 tweet: tweet,
-                username: username
+                user: user
             })).then(console.log("data created!"))
-    
-        }
+
+    }
 
     function getUser() {
         // READ/get data from a database
@@ -252,7 +274,29 @@ $(document).ready(() => {
                         id: user, // user's ID
                         username: data[user].username, // user's username
                         email: data[user].email, // user's email
-                        password: data[user].password, // // user's password
+                        password: data[user].password // // user's password
+                    })
+                }
+            }
+        })
+
+    }
+
+    function getTweet() {
+        // READ/get data from a database
+        $.get(`${firebaseUrl}/tweets${jsonExit}`).then((data) => {
+            fullFirebase = data
+            // for each property returned from the first the fullFirebase object,
+            // add each one to array of objects where an ID is now listed.
+
+            for (tweet in fullFirebase) {
+                if (listOfTweets.includes(tweet)) {
+                    // don't do anything
+                } else {
+                    listOfTweets.push({
+                        id: tweet, // user's ID
+                        user: data[tweet].user, // user's username
+                        tweet: data[tweet].tweet // user's tweets
                     })
                 }
             }
