@@ -149,9 +149,11 @@ $(document).ready(() => {
 
         $(`<div id="gridItem"></div>`).appendTo("#feed");
         $(`<input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..."/>`).appendTo("#feed");
+        $(`<p id="tweetID">${accName.text()}</p>`).appendTo("#gridItem");
         $(`<button id="update">Edit</button>`).appendTo("#gridItem");
         $(`<button id="delete">Delete</button>  `).appendTo("#gridItem");
         $(`<button id="submit">Submit</button>`).appendTo("#gridItem");
+
 
         $("#growlNow").hide();
 
