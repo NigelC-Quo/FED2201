@@ -146,53 +146,80 @@ $(document).ready(() => {
     growlBtn.click((e) => {
         e.preventDefault();
 
+        let numID = 0;
 
+        numID++
+
+        $(`<div id="feed"></div>`).appendTo("#content");
         $(`<div id="gridItem"></div>`).appendTo("#feed");
         $(`<input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..."/>`).appendTo("#feed");
         $(`<p id="tweetID">${accName.text()}</p>`).appendTo("#gridItem");
+        $(`<p id="numID">${numID.toString()}</p>`).appendTo("#gridItem");
         $(`<button id="update">Edit</button>`).appendTo("#gridItem");
         $(`<button id="delete">Delete</button>  `).appendTo("#gridItem");
         $(`<button id="submit">Submit</button>`).appendTo("#gridItem");
 
 
+
+        $("#update").hide();
         $("#growlNow").hide();
 
         $("#submit").click((e) => {
             e.preventDefault();
-
-            getUser();
             
-            let tweet = $("#growlBox").val();
+            getUser();
+            getTweet()
+
+            let tweetC = $("#growlBox").val();
+            numID = $("#numID").text();
             let foundUser = listOfCredentials.find(user => user.username === accName.text())
+            let foundTweet = listOfCredentials.find(tweet => tweet.numID === numID)
+            console.log(foundUser.id)
+            
 
-
+            $("#update").show();
             $("#submittedText").remove();
+            console.log(foundUser)
 
             if ($("#growlBox").val() !== "") {
-                postTweetToFB(tweet, foundUser.username)
-                getTweet()
-                listOfTweets.push(new tweets(tweet, foundUser.username))
+                postTweetToFB(tweetC, foundUser.username, numID)
+                listOfTweets.push(new tweets(foundUser.username, tweetC, numID))
+                console.log(foundTweet.id)
                 $("#gridItem").find("#submit").hide();
-                $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${tweet}</p>`);
-            } else
+                $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${tweetC}</p>`);
+            } else {
                 alert("There must be input before submission");
+                $("#update").hide();
+            }
         })
 
         $("#delete").click((e) => {
             e.preventDefault();
 
-            getTweet()
-
             let tweeted = $("#growlBox");
-            let foundUser = listOfTweets.find(tweet => tweet.user === accName.text())
-            console.log(foundUser.id)
+            
+            if ($("#submittedText").text() !== "") {
+                
+                numID = $("#numID").text();
+                let foundID = listOfTweets.find(tweet => tweet.numID === numID)
+                console.log(foundID.user)
+                console.log(foundID.numID)
+                console.log(foundID)
+                console.log(foundID.id)
 
-            $.ajax({
-                type: "DELETE",
-                url: `${firebaseUrl}/tweets/${foundUser.id}${jsonExit}`,
-                success: console.log(`DELETE was successful`)
-            })
+                setTimeout(function () {
+                    $.ajax({
+                        type: "DELETE",
+                        url: `${firebaseUrl}/tweets/${foundID.numID}${jsonExit}`,
+                        success: console.log(`DELETE was successful`)
+                    })
 
+                }, 2000);
+            }
+
+            numID--
+
+            $("#feed").remove();
             $("#gridItem").remove();
             tweeted.remove();
             $("#submittedText").remove();
@@ -236,9 +263,10 @@ $(document).ready(() => {
         this.phone = phone;
     }
 
-    function tweets(username, tweet) {
+    function tweets(username, tweetContent, numID) {
         this.username = username;
-        this.tweet = tweet;
+        this.tweetContent = tweetContent;
+        this.numID = numID;
     }
 
     // post data to DB
@@ -252,12 +280,13 @@ $(document).ready(() => {
 
     }
 
-    function postTweetToFB(tweet, user) {
+    function postTweetToFB(tweetContent, user, numID) {
         $.post(`${firebaseUrl}/tweets${jsonExit}`,
             JSON.stringify({
-                tweet: tweet,
-                user: user
-            })).then(console.log("data created!"))
+                tweetContent: tweetContent,
+                user: user,
+                numID: numID
+            })).then(console.log("tweet created!"))
 
     }
 
@@ -298,7 +327,8 @@ $(document).ready(() => {
                     listOfTweets.push({
                         id: tweet, // user's ID
                         user: data[tweet].user, // user's username
-                        tweet: data[tweet].tweet // user's tweets
+                        tweetContent: data[tweet].tweetContent, // user's tweets
+                        numID: data[tweet].numID // user's numID
                     })
                 }
             }
