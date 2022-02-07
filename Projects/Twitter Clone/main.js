@@ -6,7 +6,7 @@ $(document).ready(() => {
     var jsonExit = ".json";
     var fullFirebase
     var user;
-    var tweet;
+    var tweeter;
 
     var splashPage = $("#splash");
     var loginPage = $("#login");
@@ -145,6 +145,7 @@ $(document).ready(() => {
     // and be updated accordingly in the event of any changes 
     growlBtn.click((e) => {
         e.preventDefault();
+        getTweet()
 
         let numID = 0;
 
@@ -166,16 +167,15 @@ $(document).ready(() => {
 
         $("#submit").click((e) => {
             e.preventDefault();
-            
+
             getUser();
-            getTweet()
+
 
             let tweetC = $("#growlBox").val();
             numID = $("#numID").text();
             let foundUser = listOfCredentials.find(user => user.username === accName.text())
-            let foundTweet = listOfCredentials.find(tweet => tweet.numID === numID)
-            console.log(foundUser.id)
-            
+            let foundTweet = listOfTweets.find(tweeter => tweeter.numID === numID)
+
 
             $("#update").show();
             $("#submittedText").remove();
@@ -184,7 +184,6 @@ $(document).ready(() => {
             if ($("#growlBox").val() !== "") {
                 postTweetToFB(tweetC, foundUser.username, numID)
                 listOfTweets.push(new tweets(foundUser.username, tweetC, numID))
-                console.log(foundTweet.id)
                 $("#gridItem").find("#submit").hide();
                 $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${tweetC}</p>`);
             } else {
@@ -197,24 +196,22 @@ $(document).ready(() => {
             e.preventDefault();
 
             let tweeted = $("#growlBox");
-            
+
             if ($("#submittedText").text() !== "") {
-                
+                getTweet();
                 numID = $("#numID").text();
-                let foundID = listOfTweets.find(tweet => tweet.numID === numID)
-                console.log(foundID.user)
-                console.log(foundID.numID)
+                let foundID = listOfTweets.find(tweeter => tweeter.numID === numID)
                 console.log(foundID)
                 console.log(foundID.id)
 
-                setTimeout(function () {
-                    $.ajax({
-                        type: "DELETE",
-                        url: `${firebaseUrl}/tweets/${foundID.numID}${jsonExit}`,
-                        success: console.log(`DELETE was successful`)
-                    })
 
-                }, 2000);
+                $.ajax({
+                    type: "DELETE",
+                    url: `${firebaseUrl}/tweets/${foundID.id}${jsonExit}`,
+                    success: console.log(`DELETE was successful`)
+                })
+
+
             }
 
             numID--
@@ -320,15 +317,15 @@ $(document).ready(() => {
             // for each property returned from the first the fullFirebase object,
             // add each one to array of objects where an ID is now listed.
 
-            for (tweet in fullFirebase) {
-                if (listOfTweets.includes(tweet)) {
+            for (tweeter in fullFirebase) {
+                if (listOfTweets.includes(tweeter)) {
                     // don't do anything
                 } else {
                     listOfTweets.push({
-                        id: tweet, // user's ID
-                        user: data[tweet].user, // user's username
-                        tweetContent: data[tweet].tweetContent, // user's tweets
-                        numID: data[tweet].numID // user's numID
+                        id: tweeter, // user's ID
+                        username: data[tweeter].username, // user's username
+                        tweetContent: data[tweeter].tweetContent, // user's tweets
+                        numID: data[tweeter].numID // user's numID
                     })
                 }
             }
