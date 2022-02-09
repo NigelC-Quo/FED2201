@@ -151,15 +151,16 @@ $(document).ready(() => {
 
         numID++
 
-        $(`<div id="feed"></div>`).appendTo("#content");
-        $(`<div id="gridItem"></div>`).appendTo("#feed");
-        $(`<input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..."/>`).appendTo("#feed");
-        $(`<p id="tweetID">${accName.text()}</p>`).appendTo("#gridItem");
-        $(`<p id="numID">${numID.toString()}</p>`).appendTo("#gridItem");
-        $(`<button id="update">Edit</button>`).appendTo("#gridItem");
-        $(`<button id="delete">Delete</button>  `).appendTo("#gridItem");
-        $(`<button id="submit">Submit</button>`).appendTo("#gridItem");
-
+        $(`<div id="feed">
+        <div id="gridItem">
+        <p id="tweetID">${accName.text()}</p>
+        <p id="numID">${numID.toString()}</p>
+        <button id="update">Edit</button>
+        <button id="delete">Delete</button>
+        <button id="submit">Submit</button>
+        </div>
+        <input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..."/>
+        </div>`).appendTo("#content");
 
 
         $("#update").hide();
@@ -186,6 +187,7 @@ $(document).ready(() => {
                 listOfTweets.push(new tweets(foundUser.username, tweetC, numID))
                 $("#gridItem").find("#submit").hide();
                 $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${tweetC}</p>`);
+                $("#growlNow").show();
             } else {
                 alert("There must be input before submission");
                 $("#update").hide();
