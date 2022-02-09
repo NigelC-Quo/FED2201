@@ -7,6 +7,7 @@ $(document).ready(() => {
     var fullFirebase
     var user;
     var tweeter;
+    let numID = 0;
 
     var splashPage = $("#splash");
     var loginPage = $("#login");
@@ -147,64 +148,75 @@ $(document).ready(() => {
         e.preventDefault();
         getTweet()
 
-        let numID = 0;
 
         numID++
 
-        $(`<div id="feed">
-        <div id="gridItem">
-        <p id="tweetID">${accName.text()}</p>
-        <p id="numID">${numID.toString()}</p>
-        <button id="update">Edit</button>
-        <button id="delete">Delete</button>
-        <button id="submit">Submit</button>
+        $(`<div class="feed">
+        <div class="gridItem">
+        <p class="tweetID">${accName.text()}</p>
+        <p class="numID">${numID.toString()}</p>
+        <button class="update">Edit</button>
+        <button class="delete">Delete</button>
+        <button class="submit">Submit</button>
         </div>
-        <input type="text" name="growlEdit" id="growlBox" placeholder="Growl Here..."/>
+        <input type="text" name="growlEdit" class="growlBox" placeholder="Growl Here..."/>
         </div>`).appendTo("#content");
 
 
-        $("#update").hide();
-        $("#growlNow").hide();
+        $(".update").hide();
+        $(".growlNow").hide();
 
-        $("#submit").click((e) => {
+        $(".submit").click((e) => {
             e.preventDefault();
 
             getUser();
 
 
-            let tweetC = $("#growlBox").val();
-            numID = $("#numID").text();
+            let tweetC = $(".growlBox").val();
+            numID = $(".numID").text();
             let foundUser = listOfCredentials.find(user => user.username === accName.text())
-            let foundTweet = listOfTweets.find(tweeter => tweeter.numID === numID)
+            let foundID = listOfTweets.find(tweeter => tweeter.numID === numID)
 
 
-            $("#update").show();
-            $("#submittedText").remove();
+            $(".update").show();
+            $(".submittedText").remove();
             console.log(foundUser)
 
-            if ($("#growlBox").val() !== "") {
+
+            if ($(".growlBox").val() !== "") {
                 postTweetToFB(tweetC, foundUser.username, numID)
                 listOfTweets.push(new tweets(foundUser.username, tweetC, numID))
-                $("#gridItem").find("#submit").hide();
-                $("#feed").find("#growlBox").replaceWith(`<p id="submittedText">${tweetC}</p>`);
-                $("#growlNow").show();
+                $(".gridItem").find(".submit").hide();
+                $(".feed").find(".growlBox").replaceWith(`<p class="submittedText">${tweetC}</p>`);
+                $(".growlNow").show();
             } else {
                 alert("There must be input before submission");
-                $("#update").hide();
+                $(".update").hide();
+            }
+
+
+            if (foundID.id !== undefined) {
+
+                $.ajax({
+                    type: "PUT",
+                    url: `${firebaseUrl}/tweets/${foundID.id}/tweetContent${jsonExit}`,
+                    data: JSON.stringify(tweetC),
+                    success: console.log(`UPDATE was successful`)
+                })
+
             }
         })
 
-        $("#delete").click((e) => {
+        $(".delete").click((e) => {
             e.preventDefault();
 
-            let tweeted = $("#growlBox");
+            let tweeted = $(".growlBox");
 
-            if ($("#submittedText").text() !== "") {
+            if ($(".submittedText").text() !== "") {
                 getTweet();
-                numID = $("#numID").text();
+                numID = $(".numID").text();
                 let foundID = listOfTweets.find(tweeter => tweeter.numID === numID)
                 console.log(foundID)
-                console.log(foundID.id)
 
 
                 $.ajax({
@@ -218,22 +230,23 @@ $(document).ready(() => {
 
             numID--
 
-            $("#feed").remove();
-            $("#gridItem").remove();
+            $(".feed").remove();
+            $(".gridItem").remove();
             tweeted.remove();
-            $("#submittedText").remove();
-            $("#growlNow").show();
+            $(".submittedText").remove();
+            $(".growlNow").show();
             alert("Growl successfully deleted!")
 
         })
 
-        $("#update").click((e) => {
+        $(".update").click((e) => {
             e.preventDefault();
 
-            $(`<input type="text" name="growlEdit" id="growlBox" 
-            placeholder="Growl Here..." value=""/>`).appendTo("#feed");
-            $("#submittedText").hide();
-            $("#submit").show();
+            $(`<input type="text" name="growlEdit" class="growlBox" 
+            placeholder="Growl Here..." value=""/>`).appendTo(".feed");
+
+            $(".submittedText").hide();
+            $(".submit").show();
 
         })
 
