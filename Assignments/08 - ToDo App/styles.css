@@ -8,6 +8,10 @@ body {
     justify-content: center;
 }
 
+form {
+    padding-top: 35vh;
+}
+
 input {
     background-color: white;
     background-position: 10px 10px;
