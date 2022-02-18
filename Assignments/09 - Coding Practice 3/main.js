@@ -1,56 +1,68 @@
-var CC9 = document.getElementsByClassName("CC9");
-var CC10 = document.getElementsByClassName("CC10");
+// p element IDs, where expected output should go
+var today = document.getElementById("today");
+var custom = document.getElementById("custom");
+var betwixt = document.getElementById("betwixt");
 
+// Input IDs
 var inputDateTo2030 = document.getElementById("2030ID");
-var fromTodayBtn = document.getElementById("2030Btn");
-
 var daysBetween1 = document.getElementById("date1");
 var daysBetween2 = document.getElementById("date2");
 
+// Button IDs
+var fromTodayBtn = document.getElementById("today2030Btn");
+var fromCustomBtn = document.getElementById("custom2030Btn");
+var fromBetwixtBtn = document.getElementById("betwixtBtn");
+
+// const variables for todays date and the first day of 2030
 const date2030 = new Date("01/01/2030");
-const today = new Date();
+const todaysDate = new Date();
 
 
 fromTodayBtn.addEventListener('click', e => {
     e.preventDefault()
 
     todayTo2030()
+});
+
+fromCustomBtn.addEventListener('click', e => {
+    e.preventDefault()
+
     dateTo2030()
+});
+
+fromBetwixtBtn.addEventListener('click', e => {
+    e.preventDefault()
+
     twoDates()
 });
 
 function todayTo2030() {
 
-    let differenceInTime = date2030.getTime() - today.getTime();
+    let differenceInTime = date2030.getTime() - todaysDate.getTime();
     let differenceInDays = Math.round(differenceInTime / (1000 * 3600 * 24));
 
-    console.log(`Today, there are ${differenceInDays} days until the year 2030`)
+    today.innerHTML = `<p>Today, there are <strong>${differenceInDays}</strong> days until the year 2030.</p>`
 }
 
 function dateTo2030() {
 
-    let diff = new Date(inputDateTo2030.value)
+    let customDate = new Date(inputDateTo2030.value)
 
-    let differenceInTime = date2030.getTime() - diff.getTime()
+    let differenceInTime = date2030.getTime() - customDate.getTime()
     let differenceInDays = Math.round(differenceInTime / (1000 * 3600 * 24))
 
-    console.log(`There are ${differenceInDays} days until the year 2030 from this date`)
+    custom.innerHTML = `<p>There are <strong>${differenceInDays}</strong> days until the year 2030 from this date.</p>`
 }
+
 
 function twoDates() {
 
-    // JavaScript program to illustrate
-    // calculation of no. of days between two date
-
-    // To set two dates to two variables
     let date1 = new Date(daysBetween1.value);
     let date2 = new Date(daysBetween2.value);
 
-    // To calculate the time difference of two dates
-    var differenceInTime = date2.getTime() - date1.getTime();
+    let differenceInTime = date2.getTime() - date1.getTime();
 
-    // To calculate the no. of days between two dates
-    var differenceInDays = Math.abs(differenceInTime / (1000 * 3600 * 24));
+    let differenceInDays = Math.abs(differenceInTime / (1000 * 3600 * 24));
 
-    console.log(`There are ${differenceInDays} days between these dates`)
+    betwixt.innerHTML = `<p>There are <strong>${differenceInDays}</strong> days between these dates.</p>`
 }
