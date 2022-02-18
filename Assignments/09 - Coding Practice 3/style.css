@@ -1,6 +1,7 @@
 * {
   font-family: "Archivo Black", sans-serif;
 }
+
 .CC9 {
   display: flex;
   flex-direction: column;
@@ -11,6 +12,10 @@
   margin: 10px;
 }
 
+.CC9 p {
+    margin: 15px;
+}
+
 .CC10 {
   display: flex;
   flex-direction: column;
@@ -18,4 +23,13 @@
   padding: 10px;
   font-size: x-large;
   margin: 10px;
+}
+
+label {
+  font-size: 17px;
+}
+
+button {
+  width: 30vh;
+  margin: 2vh;
 }
