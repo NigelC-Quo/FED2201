@@ -23,14 +23,17 @@ body {
     background-repeat: no-repeat;
     padding-left: 40px;
     height: 5vh;
-    width: 54vw;
+    width: 235px;
+    border-radius: 5px;
   }
 
   ul {
     display: flex;
-    flex-direction: column;
     padding-right: 15vw;
     margin-top: 3vh;
+    flex-direction: column;
+    width: 280px;
+    
   }
 
   ul li {
@@ -38,6 +41,11 @@ body {
     border: 1px solid black;
     padding: 1.5vh;
     text-align: center;
+  }
+
+  ul li:nth-child(1) {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 
   ul #left-clear {
@@ -48,6 +56,8 @@ body {
     text-align: center;
     margin: 0px;
     padding: 2vh;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
   ul #tab {
@@ -57,5 +67,6 @@ body {
     padding-top: 2vh;
     text-align: center;
     padding: 2vh;
+    border-radius: 5px;
   }
 }
