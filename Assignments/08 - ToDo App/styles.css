@@ -10,21 +10,25 @@ body {
 }
 
 @media screen and (max-width: 375px) {
+    #content-Container {
+        position: relative;
+        bottom: 17vh;
+    }
+
   form {
     display: flex;
-    padding-top: 30vh;
     padding-right: -16vw;
     justify-content: center;
   }
 
   input {
-    background-color: rgb(128, 0, 0);
-    background-image: url('images/icon-check.svg');
+    background-color: rgb(204, 204, 204);
+    background-image: url("images/icon-check.svg");
     background-position: 10px 15px;
     background-repeat: no-repeat;
-    padding-left: 40px;
+    padding-left: 27px;
     height: 5vh;
-    width: 235px;
+    width: 248px;
     border-radius: 5px;
   }
 
@@ -34,17 +38,17 @@ body {
     margin-top: 3vh;
     flex-direction: column;
     width: 280px;
-    
   }
 
   ul li {
-    display: block;
-    background-image: url('images/icon-cross.svg');
+    background-image: url("images/icon-cross.svg");
     background-position: 245px 13px;
     background-repeat: no-repeat;
     border: 1px solid black;
     padding: 1.5vh;
-    text-align: center;
+    background-color: rgb(204, 204, 204);
+    list-style-position: inside;
+    list-style-image: url("images/icon-check.svg");
   }
 
   ul li:nth-child(1) {
@@ -72,5 +76,21 @@ body {
     text-align: center;
     padding: 2vh;
     border-radius: 5px;
+  }
+
+  img {
+    position: relative;
+    bottom: 1vh;
+    left: -3vw;
+    width: 101vw;
+  }
+
+  #TODOLogo {
+    position: relative;
+    bottom: 21vh;
+    left: 3vw;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
   }
 }
