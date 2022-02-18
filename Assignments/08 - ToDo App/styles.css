@@ -1,21 +1,41 @@
 * {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (max-width: 375px) {
+  form {
     display: flex;
+    padding-top: 30vh;
+    padding-right: -16vw;
     justify-content: center;
-}
+  }
 
-form {
-    padding-top: 35vh;
-}
-
-input {
+  input {
     background-color: white;
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding-left: 40px;
+    height: 5vh;
+    width: 54vw;
   }
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding-right: 15vw;
+  }
+
+  ul li {
+    display: block;
+    border: 1px solid black;
+    padding-top: 2vh;
+    text-align: center;
+  }
+}
