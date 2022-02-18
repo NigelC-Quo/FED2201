@@ -40,13 +40,22 @@ body {
     text-align: center;
   }
 
-  ul pre {
+  ul #left-clear {
     display: block;
     font-size: 13px;
     border: 1px solid black;
     padding-top: 2vh;
     text-align: center;
     margin: 0px;
+    padding: 2vh;
+  }
+
+  ul #tab {
+    display: block;
+    font-size: 13px;
+    border: 1px solid black;
+    padding-top: 2vh;
+    text-align: center;
     padding: 2vh;
   }
 }
