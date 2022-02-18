@@ -1,0 +1,27 @@
+.CC9 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: x-large;
+    margin: 10px;
+}
+
+.CC10 {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: x-large;
+    margin: 10px;
+}
+
+.CC11 {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: x-large;
+    margin: 10px;
+}
