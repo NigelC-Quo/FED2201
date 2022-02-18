@@ -2,14 +2,24 @@
   font-family: "Archivo Black", sans-serif;
 }
 
+body {
+    background-color: rgb(235, 235, 191);
+}
+
 .CC9 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  background-color: rgb(101, 178, 255);
   border: 2px solid black;
   padding: 10px;
   font-size: x-large;
   margin: 10px;
+  color: rgb(0, 0, 58);
+}
+
+.CC9 form {
+    display: flex;
+    flex-direction: row;
 }
 
 .CC9 p {
@@ -20,16 +30,39 @@
   display: flex;
   flex-direction: column;
   border: 2px solid black;
+  background-color: rgb(101, 178, 255);
   padding: 10px;
   font-size: x-large;
   margin: 10px;
+  color: rgb(0, 0, 58);
+}
+
+.CC10 #betwixt {
+    margin: 30px;
 }
 
 label {
   font-size: 17px;
+  align-self: center;
 }
 
 button {
   width: 30vh;
   margin: 2vh;
+  background-color: rgb(255, 112, 60);
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+#ID2030 {
+    height: 2vh;
+    align-self: center;
+    margin-left: 6px;
+    padding-left: 2;
+}
+
+#liveTimer {
+    margin-left: 50px;
 }
