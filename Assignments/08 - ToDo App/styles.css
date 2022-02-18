@@ -18,8 +18,9 @@ body {
   }
 
   input {
-    background-color: white;
-    background-position: 10px 10px;
+    background-color: rgb(128, 0, 0);
+    background-image: url('images/icon-check.svg');
+    background-position: 10px 15px;
     background-repeat: no-repeat;
     padding-left: 40px;
     height: 5vh;
@@ -38,6 +39,9 @@ body {
 
   ul li {
     display: block;
+    background-image: url('images/icon-cross.svg');
+    background-position: 245px 13px;
+    background-repeat: no-repeat;
     border: 1px solid black;
     padding: 1.5vh;
     text-align: center;
