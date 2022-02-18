@@ -41,7 +41,10 @@ function todayTo2030() {
     let differenceInTime = date2030.getTime() - todaysDate.getTime();
     let differenceInDays = Math.round(differenceInTime / (1000 * 3600 * 24));
 
-    today.innerHTML = `<p>Today, there are <strong>${differenceInDays}</strong> days until the year 2030.</p>`
+    if (differenceInDays != 1)
+        today.innerHTML = `<p>Today, there are <strong>${differenceInDays}</strong> days until the year 2030.</p>`
+    else
+        today.innerHTML = `<p>Today, there is <strong>${differenceInDays}</strong> day until the year 2030.</p>`
 }
 
 function dateTo2030() {
@@ -51,7 +54,10 @@ function dateTo2030() {
     let differenceInTime = date2030.getTime() - customDate.getTime()
     let differenceInDays = Math.round(differenceInTime / (1000 * 3600 * 24))
 
-    custom.innerHTML = `<p>There are <strong>${differenceInDays}</strong> days until the year 2030 from this date.</p>`
+    if (differenceInDays != 1)
+        custom.innerHTML = `<p>There are <strong>${differenceInDays}</strong> days until the year 2030 from this date.</p>`
+    else
+        custom.innerHTML = `<p>There is <strong>${differenceInDays}</strong> day until the year 2030 from this date.</p>`
 }
 
 
@@ -64,5 +70,8 @@ function twoDates() {
 
     let differenceInDays = Math.abs(differenceInTime / (1000 * 3600 * 24));
 
-    betwixt.innerHTML = `<p>There are <strong>${differenceInDays}</strong> days between these dates.</p>`
+    if (differenceInDays != 1)
+        betwixt.innerHTML = `<p>There are <strong>${differenceInDays}</strong> days between these dates.</p>`
+    else
+        betwixt.innerHTML = `<p>There is <strong>${differenceInDays}</strong> day between these dates.</p>`
 }
