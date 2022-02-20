@@ -45,7 +45,7 @@ $(document).ready(() => {
     $("li").click(function (e) {
         e.preventDefault();
 
-        if ($(this).attr("class", "incomplete")) {
+        if ($(this).hasClass("incomplete")) {
             $(this).attr("class", "completed");
             $(this).css({
                 "text-decoration": "line-through",
