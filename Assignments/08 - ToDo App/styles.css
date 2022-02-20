@@ -10,10 +10,10 @@ body {
 }
 
 @media screen and (max-width: 375px) {
-    #content-Container {
-        position: relative;
-        bottom: 17vh;
-    }
+  #content-Container {
+    position: relative;
+    bottom: 17vh;
+  }
 
   form {
     display: flex;
@@ -22,7 +22,7 @@ body {
   }
 
   input {
-    background-color: rgb(204, 204, 204);
+    background-color: rgb(96, 191, 255);
     background-image: url("images/icon-check.svg");
     background-position: 10px 15px;
     background-repeat: no-repeat;
@@ -41,12 +41,12 @@ body {
   }
 
   ul li {
-    background-image: url("images/icon-cross.svg");
+    /* background-image: url("images/icon-cross.svg");  */
     background-position: 245px 13px;
     background-repeat: no-repeat;
     border: 1px solid black;
     padding: 1.5vh;
-    background-color: rgb(204, 204, 204);
+    background-color: rgb(96, 191, 255);
     list-style-position: inside;
     list-style-image: url("images/icon-check.svg");
   }
@@ -78,11 +78,11 @@ body {
     border-radius: 5px;
   }
 
-  img {
+  .bgImg {
     position: relative;
     bottom: 1vh;
     left: -3vw;
-    width: 101vw;
+    width: 386px;
   }
 
   #TODOLogo {
@@ -92,5 +92,17 @@ body {
     color: white;
     font-size: 30px;
     font-weight: bold;
+  }
+
+  .theme {
+    position: relative;
+    bottom: 20vh;
+    left: 80vw;
+  }
+
+  .cross {
+    position: relative;
+    left: 57vw;
+    bottom: -4px;
   }
 }
