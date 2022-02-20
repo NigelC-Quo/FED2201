@@ -7,12 +7,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color:  hsl(0deg 2% 95%);
 }
 
 @media screen and (max-width: 375px) {
   #content-Container {
     position: relative;
-    bottom: 17vh;
+    bottom: 22vh;
   }
 
   form {
@@ -21,15 +22,16 @@ body {
     justify-content: center;
   }
 
-  input {
-    background-color: rgb(96, 191, 255);
+  #toDoEntry {
+    background-color: white;
     background-image: url("images/icon-check.svg");
     background-position: 10px 15px;
     background-repeat: no-repeat;
-    padding-left: 27px;
-    height: 5vh;
-    width: 248px;
+    padding-left: 42px;
+    height: 6vh;
+    width: 286px;
     border-radius: 5px;
+    font-size: 13px;
   }
 
   ul {
@@ -41,14 +43,18 @@ body {
   }
 
   ul li {
-    /* background-image: url("images/icon-cross.svg");  */
     background-position: 245px 13px;
     background-repeat: no-repeat;
-    border: 1px solid black;
+    border-bottom: 1px solid hsl(233, 11%, 84%);
     padding: 1.5vh;
-    background-color: rgb(96, 191, 255);
+    background-color: white;
     list-style-position: inside;
     list-style-image: url("images/icon-check.svg");
+    font-size: 13px;
+    color: hsl(235, 19%, 35%);
+    width: 310px;
+    align-self: center;
+    height: 26px;
   }
 
   ul li:nth-child(1) {
@@ -59,23 +65,32 @@ body {
   ul #left-clear {
     display: block;
     font-size: 13px;
-    border: 1px solid black;
     padding-top: 2vh;
     text-align: center;
     margin: 0px;
     padding: 2vh;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-color: white;
+    color: hsl(236, 9%, 61%);
+    width: 302px;
+    height: 17px;
+    align-self: center;
   }
 
   ul #tab {
     display: block;
     font-size: 13px;
-    border: 1px solid black;
     padding-top: 2vh;
     text-align: center;
     padding: 2vh;
     border-radius: 5px;
+    background-color: white;
+    font-weight: bold;
+    color: hsl(236, 9%, 61%);
+    width: 302px;
+    height: 17px;
+    align-self: center;
   }
 
   .bgImg {
@@ -86,23 +101,26 @@ body {
   }
 
   #TODOLogo {
-    position: relative;
-    bottom: 21vh;
+        position: relative;
+    bottom: 27vh;
     left: 3vw;
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
+    width: 125px;
   }
 
   .theme {
     position: relative;
-    bottom: 20vh;
-    left: 80vw;
+    bottom: 177px;
+    left: 85vw;
   }
 
   .cross {
     position: relative;
-    left: 57vw;
+    left: 71vw;
     bottom: -4px;
+    width: 15px;
+    height: 14px;
   }
 }

@@ -13,14 +13,24 @@ $(document).ready(() => {
     function darkTheme() {
         $(backImage).attr("src", "images/bg-mobile-dark.jpg");
         $(mode).attr("src", "images/icon-sun.svg");
-
+        $("body").css({"background-color": "hsl(235, 21%, 11%)"})
+        $(entry).css({"background-color": "hsl(235, 24%, 19%)"})
+        $("li").css({"color": "white", "background-color": "hsl(235, 24%, 19%)", "border-bottom": "1px solid hsl(234, 11%, 52%)"})
+        $("#left-clear").css({"color": "hsl(233, 14%, 35%)", "background-color": "hsl(235, 24%, 19%)"})
+        $("#tab").css({"color": "hsl(233, 14%, 35%)","background-color": "hsl(235, 24%, 19%)"})
+        
         darkMode = true;
     }
     // Light theme toggle
     function lightTheme() {
         $(backImage).attr("src", "images/bg-mobile-light.jpg");
         $(mode).attr("src", "images/icon-moon.svg");
-
+        $("body").css({"background-color": "hsl(0deg 2% 95%)"})
+        $(entry).css({"background-color": "white"})
+        $("li").css({"color": "hsl(235, 19%, 35%)", "background-color": "white", "border-bottom": "1px solid hsl(233, 11%, 84%)"})
+        $("#left-clear").css({"color": "hsl(236, 9%, 61%)", "background-color": "white"})
+        $("#tab").css({"color": "hsl(236, 9%, 61%)","background-color": "white"})
+        
         darkMode = false;
     }
 
@@ -41,7 +51,7 @@ $(document).ready(() => {
         });
     }
 
-    // Click to complete a task
+    // Click to complete a task or revert back to active
     $("li").click(function (e) {
         e.preventDefault();
 
@@ -59,4 +69,7 @@ $(document).ready(() => {
             })
         }
     })
+
+    // Add a task
+
 })
