@@ -62,7 +62,7 @@ body {
     border-top-right-radius: 5px;
   }
 
-  ul #left-clear {
+  #left-clear {
     display: block;
     font-size: 13px;
     padding-top: 2vh;
@@ -78,7 +78,7 @@ body {
     align-self: center;
   }
 
-  ul #tab {
+  #tab {
     display: block;
     font-size: 13px;
     padding-top: 2vh;
@@ -122,5 +122,10 @@ body {
     bottom: -4px;
     width: 15px;
     height: 14px;
+  }
+
+  #misc {
+    margin-left: 14px;
+    margin-top: -18px;
   }
 }
