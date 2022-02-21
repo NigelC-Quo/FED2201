@@ -18,11 +18,6 @@ $(document).ready(() => {
         $(entry).css({
             "background-color": "hsl(235, 24%, 19%)"
         })
-        $(active).css({
-            "color": "white",
-            "background-color": "hsl(235, 24%, 19%)",
-            "border-bottom": "1px solid hsl(234, 11%, 52%)"
-        })
         $("#left-clear").css({
             "color": "hsl(233, 14%, 35%)",
             "background-color": "hsl(235, 24%, 19%)"
@@ -44,11 +39,6 @@ $(document).ready(() => {
         $(entry).css({
             "background-color": "white"
         })
-        $(active).css({
-            "color": "hsl(235, 19%, 35%)",
-            "background-color": "white",
-            "border-bottom": "1px solid hsl(233, 11%, 84%)"
-        })
         $("#left-clear").css({
             "color": "hsl(236, 9%, 61%)",
             "background-color": "white"
@@ -62,14 +52,27 @@ $(document).ready(() => {
     }
 
     // Click to change themes
-    mode.click(function (e) {
+    mode.on("click", list, (function (e) {
         e.preventDefault();
 
-        if (darkMode != true)
+        if (darkMode != true) {
             darkTheme()
-        else
+            $("li").css({
+                "color": "white",
+                "background-color": "hsl(235, 24%, 19%)",
+                "border-bottom": "1px solid hsl(234, 11%, 52%)"
+            })
+        } else
+        {
             lightTheme()
-    });
+            $("li").css({
+                "color": "hsl(235, 19%, 35%)",
+                "background-color": "white",
+                "border-bottom": "1px solid hsl(233, 11%, 84%)"
+            })
+        }
+
+    }));
 
     // Remove specific list item
     for (var i = 0; i < removeItem.length; i++) {
@@ -79,7 +82,7 @@ $(document).ready(() => {
     }
 
     // Click to complete a task or revert back to active
-    $("ul").on("click", "li", function (e) {
+    list.on("click", "li", function (e) {
         e.preventDefault();
 
         if ($(this).hasClass("incomplete")) {
@@ -121,7 +124,6 @@ $(document).ready(() => {
         list.on('click', '.cross', function () {
             $(this).parent().remove();
         });
-
 
         entry.val("");
     });
