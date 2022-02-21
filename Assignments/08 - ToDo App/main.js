@@ -7,6 +7,8 @@ $(document).ready(() => {
     var mode = $(".theme")
     var darkMode = false;
     var removeItem = $(".cross")
+    var leftClear = $("#left-clear")
+    var num;
 
     // Dark theme toggle
     function darkTheme() {
@@ -29,6 +31,7 @@ $(document).ready(() => {
 
         darkMode = true;
     }
+
     // Light theme toggle
     function lightTheme() {
         $(backImage).attr("src", "images/bg-mobile-light.jpg");
@@ -62,8 +65,7 @@ $(document).ready(() => {
                 "background-color": "hsl(235, 24%, 19%)",
                 "border-bottom": "1px solid hsl(234, 11%, 52%)"
             })
-        } else
-        {
+        } else {
             lightTheme()
             $("li").css({
                 "color": "hsl(235, 19%, 35%)",
@@ -87,6 +89,9 @@ $(document).ready(() => {
 
         if ($(this).hasClass("incomplete")) {
             $(this).attr("class", "completed");
+
+            checkList()
+            
             if (darkMode == false)
                 $(this).css({
                     "text-decoration": "line-through",
@@ -98,8 +103,13 @@ $(document).ready(() => {
                     "text-decoration": "line-through",
                     "color": "hsl(233, 14%, 35%)"
                 })
-        } else {
+        } 
+        
+        else {
             $(this).attr("class", "incomplete");
+
+            checkList()
+
             if (darkMode == false)
                 $(this).css({
                     "text-decoration": "none",
@@ -121,13 +131,23 @@ $(document).ready(() => {
 
         list.append(`<li class="incomplete"><img class="cross" src="images/icon-cross.svg" alt="cross">${entry.val()}</li>`);
 
+        checkList()
+        
+        if (darkMode == true) {
+            $("li").css({
+                "color": "white",
+                "background-color": "hsl(235, 24%, 19%)",
+                "border-bottom": "1px solid hsl(234, 11%, 52%)"
+            })
+        }
+        
         list.on('click', '.cross', function () {
             $(this).parent().remove();
+            checkList()
         });
-
+        
         entry.val("");
     });
-
 
     entry.keydown(function (e) {
 
@@ -142,4 +162,12 @@ $(document).ready(() => {
             alert("Task can't be blank");
         }
     });
+
+    function checkList(){
+        list.each(function () {
+            num = $(this).find('.incomplete').length;  
+            
+            leftClear.text(`${num} items left                Clear Completed`);
+        });
+    }
 })
