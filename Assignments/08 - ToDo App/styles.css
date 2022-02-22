@@ -103,7 +103,7 @@ ul li:nth-child(1) {
   position: relative;
   bottom: 1vh;
   left: -1vw;
-  width: 161vh;
+  width: 172vh;
 }
 
 #TODOLogo {
@@ -118,8 +118,8 @@ ul li:nth-child(1) {
 
 .theme {
   position: relative;
-  bottom: 358px;
-  left: 1380px;
+  bottom: 341px;
+  left: 64vw;
   width: 41px;
 }
 
@@ -211,7 +211,7 @@ ul li:nth-child(1) {
     height: 6vh;
     width: 290px;
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   ul {
@@ -229,7 +229,7 @@ ul li:nth-child(1) {
     padding: 1.5vh;
     background-color: white;
     list-style: none;
-    font-size: 13px;
+    font-size: 16px;
     color: hsl(235, 19%, 35%);
     width: 310px;
     height: 29px;
