@@ -179,9 +179,7 @@ $(document).ready(() => {
             return alert("Task can't be blank")
 
         else {
-
-            alert("Task entered");
-
+            
             list.append(`<li class="incomplete"><img style=""class="check" src="images/icon-check.svg" alt="check">
             <img class="cross" src="images/icon-cross.svg" alt="cross">${entry.val()}</li>`);
 
