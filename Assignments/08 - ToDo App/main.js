@@ -13,6 +13,8 @@ $(document).ready(() => {
     var allTab = $("#allTab");
     var activeTab = $("#activeTab");
     var completedTab = $("#completedTab");
+    var enter = $(".circleEntry");
+    var checkComplete = $(".check");
 
     // Dark theme toggle
     function darkTheme() {
@@ -114,6 +116,8 @@ $(document).ready(() => {
 
             $(this).attr("class", "completed");
 
+            $(this).find(".check").show();
+
             checkList()
 
             if (darkMode == false)
@@ -129,6 +133,8 @@ $(document).ready(() => {
                 })
         } else {
             $(this).attr("class", "incomplete");
+
+            $(this).find(".check").hide();
 
             checkList()
 
@@ -147,41 +153,37 @@ $(document).ready(() => {
     })
 
     // Add a task
-    entry.bind("enterKey", function (e) {
+    enter.click(function (e) {
+        e.preventDefault()
 
-        alert("Task entered");
+        if (entry.val() == "")
+            return alert("Task can't be blank")
 
-        list.append(`<li class="incomplete"><img class="cross" src="images/icon-cross.svg" alt="cross">${entry.val()}</li>`);
+        else {
 
-        checkList()
+            alert("Task entered");
 
-        if (darkMode == true) {
-            $("li").css({
-                "color": "white",
-                "background-color": "hsl(235, 24%, 19%)",
-                "border-bottom": "1px solid hsl(234, 11%, 52%)"
-            })
-        }
+            list.append(`<li class="incomplete"><img style=""class="check" src="images/icon-check.svg" alt="check">
+            <img class="cross" src="images/icon-cross.svg" alt="cross">${entry.val()}</li>`);
 
-        list.on('click', '.cross', function () {
-            $(this).parent().remove();
+            list.find(".check").hide();
+
             checkList()
-        });
 
-        entry.val("");
-    });
+            if (darkMode == true) {
+                $("li").css({
+                    "color": "white",
+                    "background-color": "hsl(235, 24%, 19%)",
+                    "border-bottom": "1px solid hsl(234, 11%, 52%)"
+                })
+            }
 
-    entry.keydown(function (e) {
+            list.on('click', '.cross', function () {
+                $(this).parent().remove();
+                checkList()
+            });
 
-        if (e.keyCode == 13 && entry.val() !== "") {
-
-            e.preventDefault()
-            $(this).trigger("enterKey");
-
-        } else if (e.keyCode == 13 && entry.val() == "") {
-
-            e.preventDefault()
-            alert("Task can't be blank");
+            entry.val("");
         }
     });
 

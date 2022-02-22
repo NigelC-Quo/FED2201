@@ -24,7 +24,6 @@ body {
 
   #toDoEntry {
     background-color: white;
-    background-image: url("images/icon-check.svg");
     background-position: 10px 15px;
     background-repeat: no-repeat;
     padding-left: 42px;
@@ -48,8 +47,7 @@ body {
     border-bottom: 1px solid hsl(233, 11%, 84%);
     padding: 1.5vh;
     background-color: white;
-    list-style-position: inside;
-    list-style-image: url("images/icon-check.svg");
+    list-style: none;
     font-size: 13px;
     color: hsl(235, 19%, 35%);
     width: 310px;
@@ -140,5 +138,31 @@ body {
     position: relative;
     left: 60vw;
     bottom: 36px;
+  }
+
+  .circleEntry {
+    width: 25px;
+    height: 25px;
+    border-radius: 13px;
+    background: hsl(192, 100%, 67%);
+    position: absolute;
+    left: 25px;
+    top: 13px;
+  }
+
+  .checkEntry {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+  }
+
+  .check {
+    position: relative;
+    left: 5px;
+    top: 2px;
+    background: hsl(192, 100%, 67%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
   }
 }
