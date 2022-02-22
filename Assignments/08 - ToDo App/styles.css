@@ -10,25 +10,206 @@ body {
   background-color: hsl(0deg 2% 95%);
 }
 
+#content-Container {
+  position: relative;
+  left: 62px;
+  bottom: 25vh;
+  align-self: center;
+}
+
+form {
+  padding-right: -16vw;
+  position: relative;
+  right: 90px;
+}
+
+#toDoEntry {
+  background-color: white;
+  background-position: 10px 15px;
+  background-repeat: no-repeat;
+  padding-left: 68px;
+  height: 7vh;
+  width: 686px;
+  border-radius: 5px;
+  font-size: 26px;
+}
+
+ul {
+  display: flex;
+  padding-right: 15vw;
+  margin-top: 3vh;
+  flex-direction: column;
+  width: 280px;
+}
+
+ul li {
+  background-position: 245px 13px;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+  padding: 1.5vh;
+  background-color: white;
+  list-style: none;
+  font-size: 26px;
+  color: hsl(235, 19%, 35%);
+  width: 717px;
+  height: 47px;
+  margin-left: -40px;
+  position: relative;
+  right: 89px;
+}
+
+ul li:hover {
+  border-bottom: 1px solid hsl(233, 100%, 50%);
+}
+
+ul li:nth-child(1) {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#left-clear {
+  font-size: 21px;
+  padding-top: 2vh;
+  margin: 0px;
+  padding: 2vh;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: white;
+  color: hsl(236, 9%, 61%);
+  width: 705px;
+  height: 2vh;
+  position: relative;
+  right: 89px;
+  bottom: 18px;
+}
+
+#tab {
+  padding-top: 2vh;
+  text-align: center;
+  padding: 2vh;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: bold;
+  color: hsl(236, 9%, 61%);
+  width: 188px;
+  height: 0px;
+  position: relative;
+  bottom: 141px;
+  left: 122px;
+  background: content-box;
+}
+
+.bgImgD {
+  position: relative;
+  bottom: 1vh;
+  left: -1vw;
+  width: 161vh;
+}
+
+#TODOLogo {
+  position: relative;
+  bottom: 30vh;
+  left: 660px;
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  width: 241px;
+}
+
+.theme {
+  position: relative;
+  bottom: 358px;
+  left: 1380px;
+  width: 41px;
+}
+
+.cross {
+  position: relative;
+  left: 29vw;
+  bottom: -8px;
+  width: 36px;
+  height: 31px;
+}
+
+#tab button {
+  background: none;
+  border: none;
+  color: hsl(236, 9%, 61%);
+  font-size: 21px;
+}
+
+#tab button:hover {
+  color: hsl(235, 7%, 30%);
+  font-weight: bold;
+}
+
+#clear {
+  background: none;
+  border: none;
+  color: hsl(236, 9%, 61%);
+  font-size: 21px;
+  position: relative;
+  left: 22vw;
+  bottom: 72px;
+}
+
+#clear:hover {
+  color: hsl(235, 7%, 30%);
+  font-weight: bold;
+}
+
+.circleEntry {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  background: hsl(192, 100%, 67%);
+  position: absolute;
+  left: 15px;
+  top: 24px;
+}
+
+.checkEntry {
+  position: absolute;
+  left: 10px;
+  width: 25px;
+  top: 13px;
+}
+
+.check {
+  position: relative;
+  left: 3px;
+  top: 8px;
+  background: hsl(192, 100%, 67%);
+  width: 31px;
+  height: 29px;
+  border-radius: 50%;
+}
+
+.check:hover {
+  background: hsl(231, 100%, 67%);
+}
+
 @media screen and (max-width: 375px) {
   #content-Container {
     position: relative;
-    bottom: 22vh;
+    bottom: 20vh;
+    align-self: flex-end;
+    left: 12vw;
   }
 
   form {
-    display: flex;
     padding-right: -16vw;
-    justify-content: center;
+    position: relative;
+    left: 12px;
   }
 
   #toDoEntry {
     background-color: white;
     background-position: 10px 15px;
     background-repeat: no-repeat;
-    padding-left: 42px;
+    padding-left: 45px;
     height: 6vh;
-    width: 286px;
+    width: 290px;
     border-radius: 5px;
     font-size: 13px;
   }
@@ -51,8 +232,10 @@ body {
     font-size: 13px;
     color: hsl(235, 19%, 35%);
     width: 310px;
-    align-self: center;
-    height: 26px;
+    height: 29px;
+    margin-left: -40px;
+    position: relative;
+    right: -14px;
   }
 
   ul li:active {
@@ -78,10 +261,10 @@ body {
     height: 17px;
     margin-left: 14px;
     margin-top: -18px;
+    position: initial;
   }
 
   #tab {
-    display: block;
     padding-top: 2vh;
     text-align: center;
     padding: 2vh;
@@ -89,24 +272,25 @@ body {
     background-color: white;
     font-weight: bold;
     color: hsl(236, 9%, 61%);
-    width: 302px;
+    width: 303px;
     height: 17px;
-    align-self: center;
-    margin-left: 14px;
-    margin-top: 20px;
+    position: relative;
+    bottom: 6px;
+    left: 15px;
+    background: white;
   }
 
   .bgImg {
     position: relative;
     bottom: 1vh;
-    left: -3vw;
-    width: 386px;
+    left: -2vw;
+    width: 433px;
   }
 
   #TODOLogo {
     position: relative;
-    bottom: 27vh;
-    left: 3vw;
+    bottom: 25vh;
+    left: 10vw;
     color: white;
     font-size: 25px;
     font-weight: bold;
@@ -115,8 +299,9 @@ body {
 
   .theme {
     position: relative;
-    bottom: 177px;
-    left: 85vw;
+    bottom: 196px;
+    left: 94vw;
+    width: 25px;
   }
 
   .cross {
@@ -131,10 +316,10 @@ body {
     background: none;
     border: none;
     color: hsl(236, 9%, 61%);
-    font-size: 13px;
+    font-size: 15px;
   }
 
-  #tab button:active {
+  #tab button:hover {
     color: hsl(235, 7%, 30%);
     font-weight: bold;
   }
@@ -146,10 +331,10 @@ body {
     font-size: 13px;
     position: relative;
     left: 60vw;
-    bottom: 36px;
+    bottom: 39px;
   }
 
-  #clear:active {
+  #clear:hover {
     color: hsl(235, 7%, 30%);
     font-weight: bold;
   }
@@ -160,14 +345,15 @@ body {
     border-radius: 13px;
     background: hsl(192, 100%, 67%);
     position: absolute;
-    left: 25px;
-    top: 13px;
+    left: 12px;
+    top: 17px;
   }
 
   .checkEntry {
     position: absolute;
-    left: 8px;
-    top: 8px;
+    left: 4px;
+    top: 6px;
+    width: 17px;
   }
 
   .check {

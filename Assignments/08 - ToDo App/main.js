@@ -1,5 +1,6 @@
 $(document).ready(() => {
     var backImage = $(".bgImg");
+    var backImage2 = $(".bgImgD");
     var list = $("#toDoList");
     var active = $(".incomplete");
     var completed = $(".completed")
@@ -18,7 +19,10 @@ $(document).ready(() => {
 
     // Dark theme toggle
     function darkTheme() {
+
         $(backImage).attr("src", "images/bg-mobile-dark.jpg");
+        $(backImage2).attr("src", "images/bg-desktop-dark.jpg");
+
         $(mode).attr("src", "images/icon-sun.svg");
         $("body").css({
             "background-color": "hsl(235, 21%, 11%)"
@@ -56,7 +60,10 @@ $(document).ready(() => {
 
     // Light theme toggle
     function lightTheme() {
+
         $(backImage).attr("src", "images/bg-mobile-light.jpg");
+        $(backImage2).attr("src", "images/bg-desktop-light.jpg");
+
         $(mode).attr("src", "images/icon-moon.svg");
         $("body").css({
             "background-color": "hsl(0deg 2% 95%)"
@@ -273,19 +280,16 @@ $(document).ready(() => {
             notComp.show();
 
             $(allTab).css({
-                "color": "rgb(0 137 255)",
-                "font-size": "large"
+                "color": "rgb(0 137 255)"
             })
 
         });
 
         $(activeTab).css({
-            "color": "unset",
-            "font-size": "13px"
+            "color": "unset"
         })
         $(completedTab).css({
-            "color": "unset",
-            "font-size": "13px"
+            "color": "unset"
         })
     }
 
@@ -299,19 +303,16 @@ $(document).ready(() => {
             notComp.show();
 
             $(activeTab).css({
-                "color": "rgb(0 137 255)",
-                "font-size": "large"
+                "color": "rgb(0 137 255)"
             })
 
         });
 
         $(allTab).css({
             "color": "unset",
-            "font-size": "13px"
         })
         $(completedTab).css({
-            "color": "unset",
-            "font-size": "13px"
+            "color": "unset"
         })
     }
 
@@ -324,21 +325,46 @@ $(document).ready(() => {
             comp.show();
             notComp.hide();
             $(completedTab).css({
-                "color": "rgb(0 137 255)",
-                "font-size": "large"
+                "color": "rgb(0 137 255)"
             })
         });
 
         $(activeTab).css({
-            "color": "unset",
-            "font-size": "13px"
+            "color": "unset"
         })
         $(allTab).css({
-            "color": "unset",
-            "font-size": "13px"
+            "color": "unset"
         })
     }
 
+    function windowResize() {
+
+        $(window).resize(function (e) {
+            e.preventDefault()
+
+            if ($(window).width() <= 375) {
+                backImage2.hide();
+                backImage.show();
+            } else {
+                backImage2.show();
+                backImage.hide();
+            }
+        })
+    }
+
+    function windowRefresh() {
+
+        if ($(window).width() <= 375) {
+            backImage2.hide();
+            backImage.show();
+        } else {
+            backImage2.show();
+            backImage.hide();
+        }
+    }
+
+    windowRefresh();
+    windowResize();
     checkList();
     allView();
 })
