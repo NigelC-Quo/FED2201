@@ -32,7 +32,7 @@ $(document).ready(() => {
             "color": "hsl(233, 14%, 35%)",
             "background-color": "hsl(235, 24%, 19%)"
         })
-        $("#tab button").css({
+        $("#tab button :not(.currentTab)").css({
             "color": "hsl(233, 14%, 35%)",
             "background-color": "hsl(235, 24%, 19%)"
         })
@@ -62,7 +62,7 @@ $(document).ready(() => {
             "color": "hsl(236, 9%, 61%)",
             "background-color": "white"
         })
-        $("#tab button").css({
+        $("#tab button :not(.currentTab)").css({
             "color": "hsl(236, 9%, 61%)",
             "background-color": "white"
         })
@@ -81,33 +81,37 @@ $(document).ready(() => {
         if (darkMode != true) {
             darkTheme()
             $("li").css({
-                "color": "white",
                 "background-color": "hsl(235, 24%, 19%)",
                 "border-bottom": "1px solid hsl(234, 11%, 52%)"
+            })
+            $(".incomplete").css({
+                "color": "white"
+            })
+            $(".completed").css({
+                "color": "hsl(233, 14%, 35%)"
             })
         } else {
             lightTheme()
             $("li").css({
-                "color": "hsl(235, 19%, 35%)",
                 "background-color": "white",
                 "border-bottom": "1px solid hsl(233, 11%, 84%)"
+            })
+            $(".incomplete").css({
+                "color": "hsl(235, 19%, 35%)"
+            })
+            $(".completed").css({
+                "color": "hsl(236, 33%, 92%)"
             })
         }
 
     }));
-
-    // Remove specific list item
-    for (var i = 0; i < removeItem.length; i++) {
-        removeItem[i].addEventListener("click", function () {
-            $(this).parent().remove();
-        });
-    }
 
     // Click to complete a task or revert back to active
     list.on("click", "li", function (e) {
         e.preventDefault();
 
         if ($(this).hasClass("incomplete")) {
+
             $(this).attr("class", "completed");
 
             checkList()
@@ -191,17 +195,30 @@ $(document).ready(() => {
     allTab.click(function (e) {
         e.preventDefault();
 
+        $(this).attr("class", "currentTab");
+        $(activeTab).removeClass("currentTab");
+        $(completedTab).removeClass("currentTab");
+
+
         allView();
     });
 
     activeTab.click(function (e) {
         e.preventDefault();
 
+        $(this).attr("class", "currentTab");
+        $(allTab).removeClass("currentTab");
+        $(completedTab).removeClass("currentTab");
+
         activeView();
     });
 
     completedTab.click(function (e) {
         e.preventDefault();
+
+        $(this).attr("class", "currentTab");
+        $(activeTab).removeClass("currentTab");
+        $(allTab).removeClass("currentTab");
 
         completeView();
     });
@@ -236,7 +253,22 @@ $(document).ready(() => {
 
             comp.show();
             notComp.show();
+
+            $(allTab).css({
+                "color": "rgb(0 137 255)",
+                "font-size": "large"
+            })
+
         });
+
+        $(activeTab).css({
+            "color": "unset",
+            "font-size": "13px"
+        })
+        $(completedTab).css({
+            "color": "unset",
+            "font-size": "13px"
+        })
     }
 
     function activeView() {
@@ -247,7 +279,22 @@ $(document).ready(() => {
 
             comp.hide();
             notComp.show();
+
+            $(activeTab).css({
+                "color": "rgb(0 137 255)",
+                "font-size": "large"
+            })
+
         });
+
+        $(allTab).css({
+            "color": "unset",
+            "font-size": "13px"
+        })
+        $(completedTab).css({
+            "color": "unset",
+            "font-size": "13px"
+        })
     }
 
     function completeView() {
@@ -258,7 +305,20 @@ $(document).ready(() => {
 
             comp.show();
             notComp.hide();
+            $(completedTab).css({
+                "color": "rgb(0 137 255)",
+                "font-size": "large"
+            })
         });
+
+        $(activeTab).css({
+            "color": "unset",
+            "font-size": "13px"
+        })
+        $(allTab).css({
+            "color": "unset",
+            "font-size": "13px"
+        })
     }
 
     checkList();
