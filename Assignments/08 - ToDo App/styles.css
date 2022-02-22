@@ -7,7 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color:  hsl(0deg 2% 95%);
+  background-color: hsl(0deg 2% 95%);
 }
 
 @media screen and (max-width: 375px) {
@@ -127,5 +127,12 @@ body {
   #misc {
     margin-left: 14px;
     margin-top: -18px;
+  }
+
+  .filter {
+    background: none;
+    border: none;
+    font-size: 13px;
+    color: hsl(236, 9%, 61%);
   }
 }
