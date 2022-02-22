@@ -206,6 +206,11 @@ $(document).ready(() => {
         }
     });
 
+    // Prevent page refresh
+    $(entry).keypress((e) => {
+        e.preventDefault()
+    })
+
     // Clear all completed tasks
     clear.click(function (e) {
         e.preventDefault();

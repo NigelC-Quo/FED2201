@@ -168,6 +168,11 @@ ul li:nth-child(1) {
   top: 24px;
 }
 
+.circleEntry:hover {
+  background: hsl(231, 100%, 67%);
+}
+
+
 .checkEntry {
   position: absolute;
   left: 10px;
