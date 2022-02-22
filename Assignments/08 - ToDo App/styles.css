@@ -55,6 +55,10 @@ body {
     height: 26px;
   }
 
+  ul li:active {
+    border-bottom: 1px solid hsl(233, 100%, 50%);
+  }
+
   ul li:nth-child(1) {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -130,6 +134,11 @@ body {
     font-size: 13px;
   }
 
+  #tab button:active {
+    color: hsl(235, 7%, 30%);
+    font-weight: bold;
+  }
+
   #clear {
     background: none;
     border: none;
@@ -138,6 +147,11 @@ body {
     position: relative;
     left: 60vw;
     bottom: 36px;
+  }
+
+  #clear:active {
+    color: hsl(235, 7%, 30%);
+    font-weight: bold;
   }
 
   .circleEntry {

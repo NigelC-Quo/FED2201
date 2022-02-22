@@ -42,6 +42,14 @@ $(document).ready(() => {
             "color": "hsl(233, 14%, 35%)",
             "background-color": "hsl(235, 24%, 19%)"
         })
+        $("#tab button:active").css({
+            "color": "white",
+            "font-weight": "bold"
+        })
+        $("#clear:active").css({
+            "color": "white",
+            "font-weight": "bold"
+        })
 
         darkMode = true;
     }
@@ -71,6 +79,14 @@ $(document).ready(() => {
         $(clear).css({
             "color": "hsl(236, 9%, 61%)",
             "background-color": "white"
+        })
+        $("#tab button:active").css({
+            "color": "hsl(235, 7%, 30%)",
+            "font-weight": "bold"
+        })
+        $("#clear:active").css({
+            "color": "hsl(235, 7%, 30%)",
+            "font-weight": "bold"
         })
 
         darkMode = false;
