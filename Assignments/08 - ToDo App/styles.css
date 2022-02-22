@@ -66,7 +66,6 @@ body {
     display: block;
     font-size: 13px;
     padding-top: 2vh;
-    text-align: center;
     margin: 0px;
     padding: 2vh;
     border-bottom-left-radius: 5px;
@@ -75,12 +74,12 @@ body {
     color: hsl(236, 9%, 61%);
     width: 302px;
     height: 17px;
-    align-self: center;
+    margin-left: 14px;
+    margin-top: -18px;
   }
 
   #tab {
     display: block;
-    font-size: 13px;
     padding-top: 2vh;
     text-align: center;
     padding: 2vh;
@@ -91,6 +90,8 @@ body {
     width: 302px;
     height: 17px;
     align-self: center;
+    margin-left: 14px;
+    margin-top: 20px;
   }
 
   .bgImg {
@@ -124,15 +125,20 @@ body {
     height: 14px;
   }
 
-  #misc {
-    margin-left: 14px;
-    margin-top: -18px;
-  }
-
-  .filter {
+  #tab button {
     background: none;
     border: none;
-    font-size: 13px;
     color: hsl(236, 9%, 61%);
+    font-size: 13px;
+  }
+
+  #clear {
+    background: none;
+    border: none;
+    color: hsl(236, 9%, 61%);
+    font-size: 13px;
+    position: relative;
+    left: 60vw;
+    bottom: 36px;
   }
 }

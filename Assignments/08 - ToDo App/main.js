@@ -9,6 +9,7 @@ $(document).ready(() => {
     var removeItem = $(".cross")
     var leftClear = $("#left-clear")
     var num;
+    var clear = $("#clear");
 
     // Dark theme toggle
     function darkTheme() {
@@ -25,6 +26,14 @@ $(document).ready(() => {
             "background-color": "hsl(235, 24%, 19%)"
         })
         $("#tab").css({
+            "color": "hsl(233, 14%, 35%)",
+            "background-color": "hsl(235, 24%, 19%)"
+        })
+        $("#tab button").css({
+            "color": "hsl(233, 14%, 35%)",
+            "background-color": "hsl(235, 24%, 19%)"
+        })
+        $(clear).css({
             "color": "hsl(233, 14%, 35%)",
             "background-color": "hsl(235, 24%, 19%)"
         })
@@ -47,6 +56,14 @@ $(document).ready(() => {
             "background-color": "white"
         })
         $("#tab").css({
+            "color": "hsl(236, 9%, 61%)",
+            "background-color": "white"
+        })
+        $("#tab button").css({
+            "color": "hsl(236, 9%, 61%)",
+            "background-color": "white"
+        })
+        $(clear).css({
             "color": "hsl(236, 9%, 61%)",
             "background-color": "white"
         })
@@ -91,7 +108,7 @@ $(document).ready(() => {
             $(this).attr("class", "completed");
 
             checkList()
-            
+
             if (darkMode == false)
                 $(this).css({
                     "text-decoration": "line-through",
@@ -103,9 +120,7 @@ $(document).ready(() => {
                     "text-decoration": "line-through",
                     "color": "hsl(233, 14%, 35%)"
                 })
-        } 
-        
-        else {
+        } else {
             $(this).attr("class", "incomplete");
 
             checkList()
@@ -132,7 +147,7 @@ $(document).ready(() => {
         list.append(`<li class="incomplete"><img class="cross" src="images/icon-cross.svg" alt="cross">${entry.val()}</li>`);
 
         checkList()
-        
+
         if (darkMode == true) {
             $("li").css({
                 "color": "white",
@@ -140,12 +155,12 @@ $(document).ready(() => {
                 "border-bottom": "1px solid hsl(234, 11%, 52%)"
             })
         }
-        
+
         list.on('click', '.cross', function () {
             $(this).parent().remove();
             checkList()
         });
-        
+
         entry.val("");
     });
 
@@ -163,11 +178,28 @@ $(document).ready(() => {
         }
     });
 
-    function checkList(){
+    clear.click(function (e) { 
+        e.preventDefault();
+
+        clearCompleted();
+    });
+
+    function checkList() {
         list.each(function () {
-            num = $(this).find('.incomplete').length;  
-            
-            leftClear.text(`${num} items left                Clear Completed`);
+            num = $(this).find('.incomplete').length;
+
+            leftClear.text(`${num} items left`)
         });
     }
+
+    function clearCompleted() {
+
+        list.each(function () {
+            let comp = $(list).find('.completed');
+
+            $(comp).remove();
+        });
+    }
+
+    checkList();
 })
