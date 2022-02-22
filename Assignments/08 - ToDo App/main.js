@@ -2,12 +2,9 @@ $(document).ready(() => {
     var backImage = $(".bgImg");
     var backImage2 = $(".bgImgD");
     var list = $("#toDoList");
-    var active = $(".incomplete");
-    var completed = $(".completed")
     var entry = $("#toDoEntry");
     var mode = $(".theme")
     var darkMode = false;
-    var removeItem = $(".cross")
     var leftClear = $("#left-clear")
     var num;
     var clear = $("#clear");
@@ -15,7 +12,6 @@ $(document).ready(() => {
     var activeTab = $("#activeTab");
     var completedTab = $("#completedTab");
     var enter = $(".circleEntry");
-    var checkComplete = $(".check");
 
     // Dark theme toggle
     function darkTheme() {
