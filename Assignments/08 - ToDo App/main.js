@@ -10,6 +10,9 @@ $(document).ready(() => {
     var leftClear = $("#left-clear")
     var num;
     var clear = $("#clear");
+    var allTab = $("#allTab");
+    var activeTab = $("#activeTab");
+    var completedTab = $("#completedTab");
 
     // Dark theme toggle
     function darkTheme() {
@@ -178,17 +181,41 @@ $(document).ready(() => {
         }
     });
 
-    clear.click(function (e) { 
+    // Clear all completed tasks
+    clear.click(function (e) {
         e.preventDefault();
 
         clearCompleted();
     });
 
+    allTab.click(function (e) {
+        e.preventDefault();
+
+        allView();
+    });
+
+    activeTab.click(function (e) {
+        e.preventDefault();
+
+        activeView();
+    });
+
+    completedTab.click(function (e) {
+        e.preventDefault();
+
+        completeView();
+    });
+
+    // Check how many active items are left
     function checkList() {
         list.each(function () {
             num = $(this).find('.incomplete').length;
 
-            leftClear.text(`${num} items left`)
+            if (num != 1)
+                leftClear.text(`${num} items left`)
+
+            else
+                leftClear.text(`${num} item left`)
         });
     }
 
@@ -201,5 +228,39 @@ $(document).ready(() => {
         });
     }
 
+    function allView() {
+
+        list.each(function () {
+            let comp = $(list).find('.completed');
+            let notComp = $(list).find('.incomplete');
+
+            comp.show();
+            notComp.show();
+        });
+    }
+
+    function activeView() {
+
+        list.each(function () {
+            let comp = $(list).find('.completed');
+            let notComp = $(list).find('.incomplete');
+
+            comp.hide();
+            notComp.show();
+        });
+    }
+
+    function completeView() {
+
+        list.each(function () {
+            let comp = $(list).find('.completed');
+            let notComp = $(list).find('.incomplete');
+
+            comp.show();
+            notComp.hide();
+        });
+    }
+
     checkList();
+    allView();
 })
