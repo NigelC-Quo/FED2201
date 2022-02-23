@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     
+    <script>
+      $(function () {
+        $("#sortable-1").sortable();
+      });
+    </script>
+  </head>
+  <body>
     <ul id="aList"></ul>
 
-    
+    <ul id="sortable-1">
+      <li class="default">Product 1</li>
+      <li class="default">Product 2</li>
+      <li class="default">Product 3</li>
+      <li class="default">Product 4</li>
+      <li class="default">Product 5</li>
+      <li class="default">Product 6</li>
+      <li class="default">Product 7</li>
+    </ul>
+
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

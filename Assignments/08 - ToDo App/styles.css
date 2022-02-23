@@ -12,15 +12,15 @@ body {
 
 #content-Container {
   position: relative;
-  left: 62px;
-  bottom: 25vh;
+  left: -28px;
+  bottom: 27vh;
   align-self: center;
 }
 
 form {
   padding-right: -16vw;
   position: relative;
-  right: 90px;
+  right: -31px;
 }
 
 #toDoEntry {
@@ -29,9 +29,9 @@ form {
   background-repeat: no-repeat;
   padding-left: 68px;
   height: 7vh;
-  width: 686px;
+  width: 483px;
   border-radius: 5px;
-  font-size: 26px;
+  font-size: 18px;
 }
 
 ul {
@@ -49,13 +49,13 @@ ul li {
   padding: 1.5vh;
   background-color: white;
   list-style: none;
-  font-size: 26px;
+  font-size: 18px;
   color: hsl(235, 19%, 35%);
-  width: 717px;
+  width: 531px;
   height: 47px;
   margin-left: -40px;
   position: relative;
-  right: 89px;
+  right: -31px;
 }
 
 ul li:hover {
@@ -68,7 +68,7 @@ ul li:nth-child(1) {
 }
 
 #left-clear {
-  font-size: 21px;
+  font-size: 18px;
   padding-top: 2vh;
   margin: 0px;
   padding: 2vh;
@@ -76,10 +76,10 @@ ul li:nth-child(1) {
   border-bottom-right-radius: 5px;
   background-color: white;
   color: hsl(236, 9%, 61%);
-  width: 705px;
-  height: 2vh;
+  width: 523px;
+  height: 3vh;
   position: relative;
-  right: 89px;
+  right: -31px;
   bottom: 18px;
 }
 
@@ -94,8 +94,8 @@ ul li:nth-child(1) {
   width: 188px;
   height: 0px;
   position: relative;
-  bottom: 141px;
-  left: 122px;
+  bottom: 116px;
+  left: 148px;
   background: content-box;
 }
 
@@ -108,8 +108,8 @@ ul li:nth-child(1) {
 
 #TODOLogo {
   position: relative;
-  bottom: 30vh;
-  left: 660px;
+  bottom: 35vh;
+  left: 433px;
   color: white;
   font-size: 45px;
   font-weight: bold;
@@ -118,14 +118,14 @@ ul li:nth-child(1) {
 
 .theme {
   position: relative;
-  bottom: 341px;
-  left: 64vw;
+  bottom: 257px;
+  left: 66vw;
   width: 41px;
 }
 
 .cross {
   position: relative;
-  left: 29vw;
+  left: 31vw;
   bottom: -8px;
   width: 36px;
   height: 31px;
@@ -135,27 +135,27 @@ ul li:nth-child(1) {
   background: none;
   border: none;
   color: hsl(236, 9%, 61%);
-  font-size: 21px;
+  font-size: 18px;
 }
 
 #tab button:hover {
   color: hsl(235, 7%, 30%);
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 #clear {
   background: none;
   border: none;
   color: hsl(236, 9%, 61%);
-  font-size: 21px;
+  font-size: 18px;
   position: relative;
-  left: 22vw;
-  bottom: 72px;
+  left: 30vw;
+  bottom: 60px;
 }
 
 #clear:hover {
   color: hsl(235, 7%, 30%);
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .circleEntry {
@@ -165,13 +165,12 @@ ul li:nth-child(1) {
   background: hsl(192, 100%, 67%);
   position: absolute;
   left: 15px;
-  top: 24px;
+  top: 8px;
 }
 
 .circleEntry:hover {
   background: hsl(231, 100%, 67%);
 }
-
 
 .checkEntry {
   position: absolute;
@@ -194,12 +193,20 @@ ul li:nth-child(1) {
   background: hsl(231, 100%, 67%);
 }
 
+#drag {
+  font-size: 21px;
+  position: relative;
+  left: 160px;
+  bottom: 53px;
+  color: hsl(236, 9%, 61%);
+}
+
 @media screen and (max-width: 375px) {
   #content-Container {
     position: relative;
-    bottom: 20vh;
+    bottom: 21vh;
     align-self: flex-end;
-    left: 12vw;
+    left: 21vw;
   }
 
   form {
@@ -216,7 +223,7 @@ ul li:nth-child(1) {
     height: 6vh;
     width: 290px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   ul {
@@ -234,7 +241,7 @@ ul li:nth-child(1) {
     padding: 1.5vh;
     background-color: white;
     list-style: none;
-    font-size: 16px;
+    font-size: 18px;
     color: hsl(235, 19%, 35%);
     width: 310px;
     height: 29px;
@@ -254,7 +261,7 @@ ul li:nth-child(1) {
 
   #left-clear {
     display: block;
-    font-size: 13px;
+    font-size: 16px;
     padding-top: 2vh;
     margin: 0px;
     padding: 2vh;
@@ -289,24 +296,24 @@ ul li:nth-child(1) {
     position: relative;
     bottom: 1vh;
     left: -2vw;
-    width: 433px;
+    width: 136vw;
   }
 
   #TODOLogo {
     position: relative;
     bottom: 25vh;
-    left: 10vw;
+    left: 19vw;
     color: white;
-    font-size: 25px;
+    font-size: 31px;
     font-weight: bold;
     width: 125px;
   }
 
   .theme {
     position: relative;
-    bottom: 187px;
-    left: 94vw;
-    width: 25px;
+    bottom: 182px;
+    left: 103vw;
+    width: 30px;
   }
 
   .cross {
@@ -321,7 +328,7 @@ ul li:nth-child(1) {
     background: none;
     border: none;
     color: hsl(236, 9%, 61%);
-    font-size: 15px;
+    font-size: 18px;
   }
 
   #tab button:hover {
@@ -333,10 +340,10 @@ ul li:nth-child(1) {
     background: none;
     border: none;
     color: hsl(236, 9%, 61%);
-    font-size: 13px;
+    font-size: 16px;
     position: relative;
-    left: 60vw;
-    bottom: 39px;
+    left: 55vw;
+    bottom: 36px;
   }
 
   #clear:hover {
@@ -369,5 +376,13 @@ ul li:nth-child(1) {
     width: 15px;
     height: 15px;
     border-radius: 50%;
+  }
+
+  #drag {
+    font-size: 17px;
+    position: relative;
+    left: 66px;
+    bottom: -15px;
+    color: hsl(236, 9%, 61%);
   }
 }

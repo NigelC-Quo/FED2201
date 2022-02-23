@@ -42,13 +42,8 @@ $(document).ready(() => {
             "color": "hsl(233, 14%, 35%)",
             "background-color": "hsl(235, 24%, 19%)"
         })
-        $("#tab button:active").css({
-            "color": "white",
-            "font-weight": "bold"
-        })
-        $("#clear:active").css({
-            "color": "white",
-            "font-weight": "bold"
+        $("#drag").css({
+            "color": "hsl(233, 14%, 35%)",
         })
 
         darkMode = true;
@@ -83,13 +78,8 @@ $(document).ready(() => {
             "color": "hsl(236, 9%, 61%)",
             "background-color": "white"
         })
-        $("#tab button:active").css({
-            "color": "hsl(235, 7%, 30%)",
-            "font-weight": "bold"
-        })
-        $("#clear:active").css({
-            "color": "hsl(235, 7%, 30%)",
-            "font-weight": "bold"
+        $("#drag").css({
+            "color": "hsl(236, 9%, 61%)",
         })
 
         darkMode = false;
@@ -179,7 +169,7 @@ $(document).ready(() => {
             return alert("Task can't be blank")
 
         else {
-            
+
             list.append(`<li class="incomplete"><img style=""class="check" src="images/icon-check.svg" alt="check">
             <img class="cross" src="images/icon-cross.svg" alt="cross">${entry.val()}</li>`);
 
@@ -361,6 +351,12 @@ $(document).ready(() => {
             backImage.hide();
         }
     }
+
+    // Drag and reorder
+    $(function () {
+        $("#toDoList").sortable();
+        $("#toDoList").disableSelection();
+    });
 
     windowRefresh();
     windowResize();
