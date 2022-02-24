@@ -7,7 +7,7 @@ import { MessageService } from '../message.service';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls: ['./heroes.component.sass']
 })
 
 export class HeroesComponent implements OnInit {
@@ -21,7 +21,7 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.getHeroes();
   }
-  
+
   getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
