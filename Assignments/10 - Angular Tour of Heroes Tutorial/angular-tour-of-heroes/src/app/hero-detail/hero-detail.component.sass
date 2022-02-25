@@ -1,21 +1,60 @@
-/* HeroDetailComponent's private CSS styles */
+/* HeroDetailComponent's private SASS styles */
+@mixin glow($name, $color1, $color2)
+ animation: #{$name} 1s infinite
+
+ @keyframes #{$name} 
+    0%  
+     background-color: #{$color1}
+    50%  
+     background-color: #{$color2}
+    100% 
+     background-color: #{$color1}
+
+$winterGrey: #d1ced7
+$blackBorder: 2px solid black
+
+#detail-container
+  background-color: $winterGrey
+  border: $blackBorder
+  padding: 1rem
+
+#id
+  font-size: 2rem
+  font-family: 'Courier New', monospace
+  color: darkblue
+  font-weight: bolder
+
 label 
-  color: #435960
-  font-weight: bold
+  font-weight: bolder
+  font-family: 'Courier New', monospace
+  font-size: 1.1rem
 
 input 
   font-size: 1em
   padding: .5rem
 
+input:nth-child(8)
+ margin-left: 31px
+
+input:nth-child(11)
+ margin-left: 63px
+
+input:nth-child(14)
+ margin-left: 31px
+
 button 
   margin-top: 20px
-  background-color: #eee
+  background-color: darkblue
   padding: 1rem
   border-radius: 4px
   font-size: 1rem
+  font-family: 'Courier New', monospace
+  color: white
+  border: $blackBorder
+  font-weight: bold
 
 button:hover 
-  background-color: #cfd8dc
+  @include glow(buttonAnim, #42545C, darkred)
 
 button:disabled 
   background-color: #eee

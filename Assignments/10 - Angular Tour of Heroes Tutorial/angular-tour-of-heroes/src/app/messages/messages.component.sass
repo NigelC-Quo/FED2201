@@ -1,0 +1,35 @@
+@mixin glow($name, $color1, $color2)
+ animation: #{$name} 1s infinite
+
+ @keyframes #{$name} 
+    0%  
+     background-color: #{$color1}
+    50%  
+     background-color: #{$color2}
+    100% 
+     background-color: #{$color1}
+
+$winterGrey: #d1ced7
+$blackBorder: 2px solid black
+
+#message-container
+ background-color: $winterGrey
+ border: $blackBorder
+ padding: 1rem
+
+.clear
+ background-color: darkblue
+ color: white
+ font-family: 'Courier New', monospace
+ border-radius: 4px
+ padding: 0.5rem
+ font-size: 1rem
+ border: $blackBorder
+ font-weight: bold
+
+.clear:hover
+ @include glow(buttonAnim, #42545C, darkred)
+
+.message-detail
+ font-family: 'Courier New', monospace
+ font-size: 1rem

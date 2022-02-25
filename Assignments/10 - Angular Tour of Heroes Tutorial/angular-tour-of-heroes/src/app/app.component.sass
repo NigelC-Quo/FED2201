@@ -1,20 +1,47 @@
-/* AppComponent's private CSS styles */
+/* AppComponent's private SASS styles */
+@mixin glow($name, $color1, $color2)
+ animation: #{$name} 1s infinite
+
+ @keyframes #{$name} 
+    0%  
+     background-color: #{$color1}
+    50%  
+     background-color: #{$color2}
+    100% 
+     background-color: #{$color1}
+
+$winterGrey: #d1ced7
+$blackBorder: 2px solid black
+
+#app-container
+  border: $blackBorder
+  background-color: $winterGrey
+  padding: 1rem
+
 h1 
   margin-bottom: 0
+  display: flex
+  justify-content: center
 
-nav a 
-  padding: 1rem
-  text-decoration: none
-  margin-top: 10px
-  display: inline-block
-  background-color: #e8e8e8
-  color: #3d3d3d
-  border-radius: 4px
+nav 
+  display: flex
+  justify-content: center
 
+  a  
+    padding: 1rem
+    text-decoration: none
+    margin-top: 10px
+    display: inline-block
+    background-color: darkblue
+    color: white
+    border-radius: 9px
+    border: $blackBorder
+    font-family: 'Courier New', monospace
+    font-weight: bold
 
-nav a:hover 
-  color: white
-  background-color: #42545C
+  a:hover 
+    color: white
+    @include glow(buttonAnim, #42545C, darkred)
 
-nav a.active 
-  background-color: black
+  a.active 
+    background-color: black

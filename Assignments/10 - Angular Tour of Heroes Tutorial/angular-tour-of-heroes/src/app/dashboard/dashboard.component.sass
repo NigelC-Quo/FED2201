@@ -1,4 +1,21 @@
 /* DashboardComponent's private SASS styles */
+@mixin glow($name, $color1, $color2)
+ animation: #{$name} 1s infinite
+
+ @keyframes #{$name} 
+    0%  
+     background-color: #{$color1}
+    50%  
+     background-color: #{$color2}
+    100% 
+     background-color: #{$color1}
+
+$winterGrey: #d1ced7
+$blackBorder: 2px solid black
+
+#dashboard-container
+ background-color: $winterGrey
+ border: $blackBorder
 
 h2 
   text-align: center
@@ -19,8 +36,9 @@ h2
 
 
 a 
-  background-color: #3f525c
-  border-radius: 2px
+  background-color: darkblue
+  border: $blackBorder
+  border-radius: 4px
   padding: 1rem
   font-size: 1.2rem
   text-decoration: none
@@ -31,19 +49,18 @@ a
   min-width: 70px
   margin: .5rem auto
   box-sizing: border-box
+  font-family: 'Courier New', monospace
+  font-weight: bold
 
   /* flexbox */
   order: 0
   flex: 0 1 auto
   align-self: auto
 
-
 @media (min-width: 600px) 
   a 
     width: 18%
     box-sizing: content-box
   
-
-
 a:hover 
-  background-color: #000
+  @include glow(buttonAnim, #42545C, darkred)

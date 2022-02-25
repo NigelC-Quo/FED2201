@@ -1,7 +1,7 @@
-<div *ngIf="hero">
+<div id="detail-container" *ngIf="hero">
 
     <h2>{{hero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
+    <div id="id"><span>ID: </span>{{hero.id}}</div>
     <div>
       <label for="hero-name">Hero name: </label>
       <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
@@ -18,6 +18,6 @@
       <label for="hero-zodiac">Zodiac: </label>
       <input id="hero-zodiac" [(ngModel)]="hero.zodiac" placeholder="zodiac">
     </div>  
-    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="goBack()">Back</button>
   </div>
 
