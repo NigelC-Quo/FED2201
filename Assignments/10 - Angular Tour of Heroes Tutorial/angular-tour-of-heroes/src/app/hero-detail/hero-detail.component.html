@@ -5,6 +5,18 @@
     <div>
       <label for="hero-name">Hero name: </label>
       <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+      <br>
+      <label for="hero-ego">Alter Ego: </label>
+      <input id="hero-ego" [(ngModel)]="hero.alterEgo" placeholder="alterEgo">
+      <br>
+      <label for="hero-power">Powers: </label>
+      <input id="hero-power" [(ngModel)]="hero.powers" placeholder="powers">
+      <br>
+      <label for="hero-age">Age: </label>
+      <input id="hero-age" [(ngModel)]="hero.age" placeholder="age">
+      <br>
+      <label for="hero-zodiac">Zodiac: </label>
+      <input id="hero-zodiac" [(ngModel)]="hero.zodiac" placeholder="zodiac">
     </div>  
     <button type="button" (click)="goBack()">go back</button>
   </div>
