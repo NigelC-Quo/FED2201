@@ -1,3 +1,15 @@
-<h2>{{trucks.name}} Details</h2>
-<div><span>id: </span>{{trucks.id}}</div>
-<div><span>name: </span>{{trucks.name}}</div>
+<h2>Trucks</h2>
+<ul class="trucks">
+  <li *ngFor="let truck of trucks">
+    <button [class.selected]="truck === selectedTrucks" type="button" (click)="onSelect(truck)">
+      <span class="name">{{truck.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedTrucks">
+
+    <h2>{{selectedTrucks.name | uppercase}} Details</h2>
+    <div>Price: {{selectedTrucks.price}}</div>
+    
+  </div>

@@ -9,14 +9,16 @@ import { WHEELS } from '../mock/mock-wheels';
 })
 export class WheelsComponent implements OnInit {
   
-  wheels: Wheels = {
-    id: 1,
-    name: 'Derby'
-  }
+  wheels = WHEELS;
+
+  selectedWheels?: Wheels;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSelect(wheels: Wheels): void {
+    this.selectedWheels = wheels;
+  }
 }

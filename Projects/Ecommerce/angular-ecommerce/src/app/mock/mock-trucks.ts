@@ -1,14 +1,8 @@
 import { Trucks } from '../interfaces/trucks';
 
 export const TRUCKS: Trucks[] = [
-  { id: 11, name: 'Dr Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+  { price: 14.99, name: 'CCS' },
+  { price: 14.99, name: 'Retrospec' },
+  { price: 24.99, name: 'Stage 11' },
+  { price: 24.99, name: 'Krux' }
 ];
