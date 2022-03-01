@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Decks } from '../interfaces/decks';
+import { DECKS } from '../mock/mock-decks';
 
 @Component({
   selector: 'app-decks',
@@ -7,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DecksComponent implements OnInit {
 
-  decks = "Green Xtreme"
-  
+  decks = DECKS;
+
+  selectedDecks?: Decks;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelect(decks: Decks): void {
+    this.selectedDecks = decks;
   }
 
 }

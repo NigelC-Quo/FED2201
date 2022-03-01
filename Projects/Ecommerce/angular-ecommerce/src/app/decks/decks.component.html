@@ -1,1 +1,15 @@
-<h3>{{decks}}</h3>
+<h2>Decks</h2>
+<ul class="decks">
+  <li *ngFor="let deck of decks">
+    <button [class.selected]="deck === selectedDecks" type="button" (click)="onSelect(deck)">
+      <span class="name">{{deck.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedDecks">
+
+    <h2>{{selectedDecks.name | uppercase}} Details</h2>
+    <div>Price: {{selectedDecks.price}}</div>
+    
+  </div>
