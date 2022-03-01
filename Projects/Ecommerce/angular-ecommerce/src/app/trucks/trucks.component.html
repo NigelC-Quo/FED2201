@@ -7,9 +7,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedTrucks">
-
-    <h2>{{selectedTrucks.name | uppercase}} Details</h2>
-    <div>Price: {{selectedTrucks.price}}</div>
-    
-  </div>
+<app-detail [truck]="selectedTrucks"></app-detail>
