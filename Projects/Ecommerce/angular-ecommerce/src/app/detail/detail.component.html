@@ -2,19 +2,19 @@
 
     <h2>{{deck.name | uppercase}} Details</h2>
     <div>Price: {{deck.price}}</div>
-    
+    <button type="button" (click)="goBack()">go back</button>
   </div>
 
 <div *ngIf="truck">
 
     <h2>{{truck.name | uppercase}} Details</h2>
     <div>Price: {{truck.price}}</div>
-    
+    <button type="button" (click)="goBack()">go back</button>
   </div>
 
 <div *ngIf="wheel">
 
     <h2>{{wheel.name | uppercase}} Details</h2>
     <div>Price: {{wheel.price}}</div>
-    
+    <button type="button" (click)="goBack()">go back</button>
   </div>

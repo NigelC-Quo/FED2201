@@ -46,4 +46,8 @@ export class DetailComponent implements OnInit {
       .subscribe(wheel => this.wheel = wheel);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
 }
