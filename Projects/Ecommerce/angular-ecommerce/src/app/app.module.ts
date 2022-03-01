@@ -7,6 +7,7 @@ import { DecksComponent } from './decks/decks.component';
 import { TrucksComponent } from './trucks/trucks.component';
 import { WheelsComponent } from './wheels/wheels.component';
 import { DetailComponent } from './detail/detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DetailComponent } from './detail/detail.component';
     DecksComponent,
     TrucksComponent,
     WheelsComponent,
-    DetailComponent
+    DetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

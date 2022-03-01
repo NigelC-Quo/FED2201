@@ -1,0 +1,21 @@
+<h2>Top Decks</h2>
+<div class="decks-menu">
+  <a *ngFor="let deck of decks"
+    routerLink="/detail/{{deck.id}}">
+    {{deck.name}}
+  </a>
+</div>
+<h2>Top Trucks</h2>
+<div class="trucks-menu">
+  <a *ngFor="let truck of trucks"
+    routerLink="/detail/{{truck.id}}">
+    {{truck.name}}
+  </a>
+</div>
+<h2>Top Wheels</h2>
+<div class="wheels-menu">
+  <a *ngFor="let wheel of wheels"
+    routerLink="/detail/{{wheel.id}}">
+    {{wheel.name}}
+  </a>
+</div>
