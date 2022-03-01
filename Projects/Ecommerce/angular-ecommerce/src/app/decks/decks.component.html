@@ -1,10 +1,8 @@
-<h2>Decks</h2>
 <ul class="decks">
-  <li *ngFor="let deck of decks">
-    <button [class.selected]="deck === selectedDecks" type="button" (click)="onSelect(deck)">
-      <span class="name">{{deck.name}}</span>
-    </button>
-  </li>
-</ul>
+    <li *ngFor="let deck of decks">
+      <a routerLink="/detail/{{deck.id}}"> {{deck.name}}
+      </a>
+    </li>
+  </ul>
 
 <app-detail [deck]="selectedDecks"></app-detail>

@@ -1,10 +1,9 @@
-<h2>Wheels</h2>
 <ul class="wheels">
   <li *ngFor="let wheel of wheels">
-    <button [class.selected]="wheel === selectedWheels" type="button" (click)="onSelect(wheel)">
-      <span class="name">{{wheel.name}}</span>
-    </button>
+    <a routerLink="/detail/{{wheel.id}}"> {{wheel.name}}
+    </a>
   </li>
 </ul>
+
 
 <app-detail [wheel]="selectedWheels"></app-detail>
