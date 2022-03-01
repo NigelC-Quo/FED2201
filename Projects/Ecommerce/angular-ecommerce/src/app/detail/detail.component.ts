@@ -24,12 +24,26 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDeck();
+    this.getTruck();
+    this.getWheel();
   }
 
   getDeck(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.skateService.getDeck(id)
       .subscribe(deck => this.deck = deck);
+  }
+
+  getTruck(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.skateService.getTruck(id)
+      .subscribe(truck => this.truck = truck);
+  }
+
+  getWheel(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.skateService.getWheel(id)
+      .subscribe(wheel => this.wheel = wheel);
   }
 
 }
