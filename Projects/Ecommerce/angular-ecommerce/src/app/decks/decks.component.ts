@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Decks } from '../interfaces/decks';
-import { DECKS } from '../mock/mock-decks';
+import { SkateService } from '../skate.service';
 
 @Component({
   selector: 'app-decks',
@@ -9,17 +9,16 @@ import { DECKS } from '../mock/mock-decks';
 })
 export class DecksComponent implements OnInit {
 
-  decks = DECKS;
+  decks: Decks[] = [];
 
-  selectedDecks?: Decks;
-
-  constructor() { }
+  constructor(private skateService: SkateService) { }
 
   ngOnInit(): void {
+    this.getDecks();
   }
 
-  onSelect(decks: Decks): void {
-    this.selectedDecks = decks;
+  getDecks(): void {
+    this.skateService.getDecks().subscribe(decks => this.decks = decks);
   }
 
 }

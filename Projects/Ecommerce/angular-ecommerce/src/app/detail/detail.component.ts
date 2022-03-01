@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Decks } from '../interfaces/decks';
 import { Trucks } from '../interfaces/trucks';
 import { Wheels } from '../interfaces/wheels';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { SkateService } from '../skate.service';
 
 @Component({
   selector: 'app-detail',
@@ -10,13 +13,23 @@ import { Wheels } from '../interfaces/wheels';
 })
 export class DetailComponent implements OnInit {
 
-  @Input() deck?: Decks;
-  @Input() truck?: Trucks;
-  @Input() wheel?: Wheels;
+  deck: Decks | undefined;
+  truck: Trucks | undefined;
+  wheel: Wheels | undefined;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private skateService: SkateService,
+    private location: Location) { }
 
   ngOnInit(): void {
+    this.getDeck();
+  }
+
+  getDeck(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.skateService.getDeck(id)
+      .subscribe(deck => this.deck = deck);
   }
 
 }
