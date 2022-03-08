@@ -1,20 +1,6 @@
-<div *ngIf="deck">
+<div *ngIf="product">
 
-    <h2>{{deck.name | uppercase}} Details</h2>
-    <p>Price: ${{deck.price}}</p>
-    <button type="button" (click)="goBack()">Back</button>
-</div>
-
-<div *ngIf="truck">
-
-    <h2>{{truck.name | uppercase}} Details</h2>
-    <p>Price:  ${{truck.price}}</p>
-    <button type="button" (click)="goBack()">Back</button>
-</div>
-
-<div *ngIf="wheel">
-
-    <h2>{{wheel.name | uppercase}} Details</h2>
-    <p>Price: ${{wheel.price}}</p>
+    <h2>{{product.name | uppercase}} Details</h2>
+    <p>Price: ${{product.price}}</p>
     <button type="button" (click)="goBack()">Back</button>
 </div>

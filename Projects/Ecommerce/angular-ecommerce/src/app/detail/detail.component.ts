@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Decks } from '../interfaces/decks';
-import { Trucks } from '../interfaces/trucks';
-import { Wheels } from '../interfaces/wheels';
+import { Products } from '../interfaces/products';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { SkateService } from '../skate.service';
@@ -13,9 +11,7 @@ import { SkateService } from '../skate.service';
 })
 export class DetailComponent implements OnInit {
 
-  deck: Decks | undefined;
-  truck: Trucks | undefined;
-  wheel: Wheels | undefined;
+  product: Products | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,27 +19,14 @@ export class DetailComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getDeck();
-    this.getTruck();
-    this.getWheel();
+
+    this.getProduct();
   }
 
-  getDeck(): void {
+  getProduct(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.skateService.getDeck(id)
-      .subscribe(deck => this.deck = deck);
-  }
-
-  getTruck(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.skateService.getTruck(id)
-      .subscribe(truck => this.truck = truck);
-  }
-
-  getWheel(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.skateService.getWheel(id)
-      .subscribe(wheel => this.wheel = wheel);
+    this.skateService.getProduct(id)
+      .subscribe(product => this.product = product);
   }
 
   goBack(): void {

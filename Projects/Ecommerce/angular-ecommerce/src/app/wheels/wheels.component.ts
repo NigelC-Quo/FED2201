@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Wheels } from '../interfaces/wheels';
-import { WHEELS } from '../mock/mock-wheels';
+import { Products } from '../interfaces/products';
+import { SkateService } from '../skate.service';
 
 @Component({
   selector: 'app-wheels',
@@ -9,16 +9,15 @@ import { WHEELS } from '../mock/mock-wheels';
 })
 export class WheelsComponent implements OnInit {
   
-  wheels = WHEELS;
+  wheels: Products[] = [];
 
-  selectedWheels?: Wheels;
-
-  constructor() { }
+  constructor(private skateService: SkateService) { }
 
   ngOnInit(): void {
+    this.getWheels()
   }
 
-  onSelect(wheels: Wheels): void {
-    this.selectedWheels = wheels;
+  getWheels(): void {
+    this.skateService.getProducts("wheels").subscribe(wheels => this.wheels = wheels);
   }
 }

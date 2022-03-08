@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Trucks } from '../interfaces/trucks';
-import { TRUCKS } from '../mock/mock-trucks';
+import { Products } from '../interfaces/products';
+import { SkateService } from '../skate.service';
 
 @Component({
   selector: 'app-trucks',
@@ -9,17 +9,18 @@ import { TRUCKS } from '../mock/mock-trucks';
 })
 export class TrucksComponent implements OnInit {
 
-  trucks = TRUCKS;
+  trucks: Products[] = [];
 
-  selectedTrucks?: Trucks;
+  selectedTrucks?: Products;
 
-  constructor() { }
+  constructor(private skateService: SkateService) { }
 
   ngOnInit(): void {
+    this.getTrucks()
   }
 
-  onSelect(trucks: Trucks): void {
-    this.selectedTrucks = trucks;
+  getTrucks(): void {
+    this.skateService.getProducts("trucks").subscribe(trucks => this.trucks = trucks);
   }
 
 }

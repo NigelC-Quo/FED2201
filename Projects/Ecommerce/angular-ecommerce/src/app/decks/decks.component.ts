@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Decks } from '../interfaces/decks';
+import { Products } from '../interfaces/products';
 import { SkateService } from '../skate.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { SkateService } from '../skate.service';
 })
 export class DecksComponent implements OnInit {
 
-  decks: Decks[] = [];
+  decks: Products[] = [];
 
   constructor(private skateService: SkateService) { }
 
@@ -18,7 +18,7 @@ export class DecksComponent implements OnInit {
   }
 
   getDecks(): void {
-    this.skateService.getDecks().subscribe(decks => this.decks = decks);
+    this.skateService.getProducts("deck").subscribe(decks => this.decks = decks);
   }
 
 }
