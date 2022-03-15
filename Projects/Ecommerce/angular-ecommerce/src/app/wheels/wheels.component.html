@@ -1,6 +1,9 @@
 <ul class="wheels">
   <li *ngFor="let wheel of wheels">
+    <img src="{{wheel.image}}" alt="prodImg">
+      <div>
     <a routerLink="/detail/{{wheel.id}}"> {{wheel.name}}
     </a>
+      </div>
   </li>
 </ul>

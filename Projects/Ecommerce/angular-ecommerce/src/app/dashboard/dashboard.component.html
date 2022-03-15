@@ -1,29 +1,41 @@
 <section id="tDecks" class="popular">
-    <h2>Top Decks</h2>
-    <div class="decks-menu">
-        <a *ngFor="let product of decks"
-        routerLink="/detail/{{product.id}}">
-        {{product.name}}
-    </a>
-</div>
+  <h2>Top Decks</h2>
+  <div class="menu">
+    <div *ngFor="let product of decks">
+      <img src="{{ product.image }}" alt="prodImg" />
+      <section>
+        <a routerLink="/detail/{{ product.id }}">
+          {{ product.name }}
+        </a>
+      </section>
+    </div>
+  </div>
 </section>
 
-<section id="tTrucks" class="popular">  
-    <h2>Top Trucks</h2>
-    <div class="trucks-menu">
-        <a *ngFor="let product of trucks"
-        routerLink="/detail/{{product.id}}">
-        {{product.name}}
-    </a>
-</div>
+<section id="tTrucks" class="popular">
+  <h2>Top Trucks</h2>
+  <div class="menu">
+    <div *ngFor="let product of trucks">
+      <img src="{{ product.image }}" alt="prodImg" />
+      <section>
+        <a routerLink="/detail/{{ product.id }}">
+          {{ product.name }}
+        </a>
+      </section>
+    </div>
+  </div>
 </section>
 
 <section id="tWheels" class="popular">
-    <h2>Top Wheels</h2>
-    <div class="wheels-menu">
-        <a *ngFor="let product of wheels"
-        routerLink="/detail/{{product.id}}">
-        {{product.name}}
-    </a>
-</div>
+  <h2>Top Wheels</h2>
+  <div class="menu">
+    <div *ngFor="let product of wheels">
+      <img src="{{ product.image }}" alt="prodImg" />
+      <section>
+        <a routerLink="/detail/{{ product.id }}">
+          {{ product.name }}
+        </a>
+      </section>
+    </div>
+  </div>
 </section>

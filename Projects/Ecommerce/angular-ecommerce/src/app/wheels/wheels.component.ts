@@ -10,8 +10,11 @@ import { SkateService } from '../skate.service';
 export class WheelsComponent implements OnInit {
   
   wheels: Products[] = [];
+  imagePath: string;
 
-  constructor(private skateService: SkateService) { }
+  constructor(private skateService: SkateService) {
+    this.imagePath = "images/snack-deck.jpg"
+   }
 
   ngOnInit(): void {
     this.getWheels()

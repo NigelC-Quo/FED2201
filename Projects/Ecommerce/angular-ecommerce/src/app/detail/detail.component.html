@@ -1,8 +1,11 @@
 <div *ngIf="product">
-
-    <h2>{{product.name | uppercase}} Details</h2>
-    <img src="{{product.image}}" alt="prodImg">
-    <p>Price: ${{product.price}}</p>
-    <p>{{product.description}}</p>
-    <button type="button" (click)="goBack()">Back</button>
+    <section>
+        <h2>{{product.name | uppercase}}</h2>
+        <p id="descript">{{product.description}}</p>
+        <p>Price: ${{product.price}}</p>
+        <button type="button" (click)="goBack()">Back</button>
+    </section>
+    <section>
+        <img src="{{product.image}}" alt="prodImg">
+    </section>
 </div>
