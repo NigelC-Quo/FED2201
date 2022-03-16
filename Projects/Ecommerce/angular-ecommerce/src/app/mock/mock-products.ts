@@ -5,7 +5,7 @@ export const PRODUCTS: Products[] = [
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
   { id: 2, type: "deck", price: 29.99, name: 'Blue Shark', image: '', 
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-  { id: 3, type: "deck", price: 39.99, name: 'Marvels Best', image: '', 
+  { id: 3, type: "deck", price: 39.99, name: "Marvel's Best", image: '', 
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
   { id: 4, type: "deck", price: 39.99, name: 'DC Heroes', image: '', 
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
