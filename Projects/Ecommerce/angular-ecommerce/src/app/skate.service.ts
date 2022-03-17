@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { Products } from './interfaces/products';
 import { PRODUCTS } from './mock/mock-products';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkateService {
 
-  constructor() { }
+  url: string = '';
+  jsonExt: string = '.json'
+
+  constructor(private http: HttpClient) { }
 
   getProducts(type: string): Observable<Products[]> {
     const products = of(PRODUCTS.filter(p => p.type === type));
