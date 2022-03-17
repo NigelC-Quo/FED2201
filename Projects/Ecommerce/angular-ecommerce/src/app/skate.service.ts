@@ -9,10 +9,15 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class SkateService {
 
-  url: string = '';
+  url: string = 'https://ecommercesite-aeedc-default-rtdb.firebaseio.com/products';
   jsonExt: string = '.json'
 
   constructor(private http: HttpClient) { }
+
+
+  public getDBProducts(): Observable<Products[]> {
+    return this.http.get<Products[]>(this.url + this.jsonExt);
+  }
 
   getProducts(type: string): Observable<Products[]> {
     const products = of(PRODUCTS.filter(p => p.type === type));

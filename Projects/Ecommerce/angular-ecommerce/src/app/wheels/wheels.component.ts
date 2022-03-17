@@ -10,17 +10,16 @@ import { SkateService } from '../skate.service';
 export class WheelsComponent implements OnInit {
   
   wheels: Products[] = [];
-  imagePath: string;
 
-  constructor(private skateService: SkateService) {
-    this.imagePath = "images/snack-deck.jpg"
-   }
+  constructor(private skateService: SkateService) {}
 
   ngOnInit(): void {
-    this.getWheels()
+    this.getWheelProductsDB()
   }
 
-  getWheels(): void {
-    this.skateService.getProducts("wheels").subscribe(wheels => this.wheels = wheels);
-  }
+  getWheelProductsDB(): void {
+    this.skateService.getDBProducts().subscribe((response) => {
+      this.wheels = response.filter(prod => prod.type === 'wheels') 
+      });
+    };
 }

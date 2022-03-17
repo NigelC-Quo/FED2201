@@ -16,19 +16,18 @@ export class DetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private skateService: SkateService,
-    private location: Location,
+    private location: Location
   ) {}
-  
 
   ngOnInit(): void {
-    this.getProduct();
+    this.getDBProductsID();
   }
 
-  getProduct(): void {
+  getDBProductsID(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.skateService
-      .getProduct(id)
-      .subscribe((product) => (this.product = product));
+    this.skateService.getDBProducts().subscribe((response) => {
+      this.product = response.find((prod) => prod.id === id);
+    });
   }
 
   goBack(): void {

@@ -16,11 +16,13 @@ export class TrucksComponent implements OnInit {
   constructor(private skateService: SkateService) { }
 
   ngOnInit(): void {
-    this.getTrucks()
+    this.getTruckProductsDB()
   }
 
-  getTrucks(): void {
-    this.skateService.getProducts("trucks").subscribe(trucks => this.trucks = trucks);
-  }
+  getTruckProductsDB(): void {
+    this.skateService.getDBProducts().subscribe((response) => {
+      this.trucks = response.filter(prod => prod.type === 'trucks') 
+      });
+    };
 
 }
