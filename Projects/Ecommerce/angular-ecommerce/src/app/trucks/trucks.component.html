@@ -1,8 +1,7 @@
-<ul class="trucks">
+<h1 class="page-header">Trucks</h1>
+<ul class="product-ul">
   <li *ngFor="let truck of trucks">
     <img src="{{ truck.image }}" alt="prodImg" />
-    <div>
-      <a routerLink="/detail/{{ truck.id }}"> {{ truck.name }} </a>
-    </div>
+      <a class="btn btn-primary" routerLink="/detail/{{ truck.id }}"> {{ truck.name }} </a>
   </li>
 </ul>

@@ -4,7 +4,7 @@
     <div *ngFor="let product of decks"  class="info-container">
       <img src="{{ product.image }}" alt="prodImg" />
       <section>
-        <a routerLink="/detail/{{ product.id }}">
+        <a class="btn btn-primary" routerLink="/detail/{{ product.id }}">
           {{ product.name }}
         </a>
       </section>
@@ -18,7 +18,7 @@
     <div *ngFor="let product of trucks" class="info-container">
       <img src="{{ product.image }}" alt="prodImg" />
       <section>
-        <a routerLink="/detail/{{ product.id }}">
+        <a class="btn btn-primary" routerLink="/detail/{{ product.id }}">
           {{ product.name }}
         </a>
       </section>
@@ -32,7 +32,7 @@
     <div *ngFor="let product of wheels" class="info-container">
       <img src="{{ product.image }}" alt="prodImg" />
       <section>
-        <a routerLink="/detail/{{ product.id }}">
+        <a class="btn btn-primary" routerLink="/detail/{{ product.id }}">
           {{ product.name }}
         </a>
       </section>

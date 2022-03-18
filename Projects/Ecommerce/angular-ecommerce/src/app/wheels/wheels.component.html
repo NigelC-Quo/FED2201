@@ -1,9 +1,9 @@
-<ul class="wheels">
+<h1 class="page-header">Wheels</h1>
+<ul class="product-ul">
   <li *ngFor="let wheel of wheels">
-    <img src="{{wheel.image}}" alt="prodImg">
-      <div>
-    <a routerLink="/detail/{{wheel.id}}"> {{wheel.name}}
+    <img src="{{ wheel.image }}" alt="prodImg" />
+    <a class="btn btn-primary" routerLink="/detail/{{ wheel.id }}">
+      {{ wheel.name }}
     </a>
-      </div>
   </li>
 </ul>

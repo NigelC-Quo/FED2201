@@ -1,12 +1,25 @@
-@import "~bootswatch/dist/lumen/variables"
+@import "~bootswatch/dist/quartz/variables"
 @import "~bootstrap/scss/bootstrap"
-@import "~bootswatch/dist/lumen/bootswatch"
+@import "~bootswatch/dist/quartz/bootswatch"
 
-body
-    background-color: darkseagreen
+#site-header
+    margin: 2rem 2rem 0rem 4rem
+    text-decoration: underline
+    font-weight: bolder
+
+.navbar
+    margin: 38px 65px 50px 65px
+    border-radius: 1rem
+    height: 4rem
+
+    .navbar-nav
+        font-size: 25px
+
+    #navbarColor02
+        height: 2rem
 
 .popular
-    background-color: #E7E8CB
+    background-color: #212529
     border-radius: 1rem
     margin: 4rem
     display: flex
@@ -15,9 +28,20 @@ body
 
     h2
         margin: 1rem
+        color: white
+
+.page-header
+    margin: 4rem 0rem 1rem 5rem
 
 ul
-    background-color: #E7E8CB
+    li
+        margin: 2rem
+        display: flex
+        flex-direction: column
+        align-items: center
+
+.product-ul
+    background-color: #212529
     border-radius: 1rem
     margin: 4rem
     display: flex
@@ -26,13 +50,23 @@ ul
     flex-wrap: wrap
     list-style-type: none
 
-    a
-        border: 2px solid black
-        background-color: #48A0C9
-        border-radius: 5px
-        margin: 4rem
-        font-size: 1.5rem
-        font-weight: bold
+    .btn
+        margin: 0px
+
+.container
+    background-color: #212529
+
+img
+    width: 12rem
+    height: 12rem
+    margin-bottom: 1rem
+    border: #48A0C9 7px solid
+    border-radius: 1rem
+
+.info-container
+    display: flex
+    flex-direction: column
+    align-items: center
 
 .menu
     display: flex
