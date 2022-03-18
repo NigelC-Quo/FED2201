@@ -3,6 +3,7 @@ import { Products } from '../interfaces/products';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { SkateService } from '../skate.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail',
@@ -12,11 +13,13 @@ import { SkateService } from '../skate.service';
 export class DetailComponent implements OnInit {
   product: Products | undefined;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  closeResult = '';
 
   constructor(
     private route: ActivatedRoute,
     private skateService: SkateService,
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -32,5 +35,23 @@ export class DetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }

@@ -1,7 +1,7 @@
 <section id="tDecks" class="popular">
   <h2>Top Decks</h2>
   <div class="menu">
-    <div *ngFor="let product of decks">
+    <div *ngFor="let product of decks"  class="info-container">
       <img src="{{ product.image }}" alt="prodImg" />
       <section>
         <a routerLink="/detail/{{ product.id }}">
@@ -15,7 +15,7 @@
 <section id="tTrucks" class="popular">
   <h2>Top Trucks</h2>
   <div class="menu">
-    <div *ngFor="let product of trucks">
+    <div *ngFor="let product of trucks" class="info-container">
       <img src="{{ product.image }}" alt="prodImg" />
       <section>
         <a routerLink="/detail/{{ product.id }}">
@@ -29,7 +29,7 @@
 <section id="tWheels" class="popular">
   <h2>Top Wheels</h2>
   <div class="menu">
-    <div *ngFor="let product of wheels">
+    <div *ngFor="let product of wheels" class="info-container">
       <img src="{{ product.image }}" alt="prodImg" />
       <section>
         <a routerLink="/detail/{{ product.id }}">
