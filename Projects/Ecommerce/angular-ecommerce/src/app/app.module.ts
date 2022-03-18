@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { Placement as PopperPlacement, Options } from '@popperjs/core';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { Placement as PopperPlacement, Options } from '@popperjs/core';
     TrucksComponent,
     WheelsComponent,
     DetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,

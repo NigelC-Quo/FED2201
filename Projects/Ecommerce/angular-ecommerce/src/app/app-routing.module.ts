@@ -5,6 +5,7 @@ import { TrucksComponent } from './trucks/trucks.component';
 import { WheelsComponent } from './wheels/wheels.component';
 import { DetailComponent } from './detail/detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'decks', component: DecksComponent },
   { path: 'trucks', component: TrucksComponent },
   { path: 'wheels', component: WheelsComponent },
-  { path: 'detail/:id', component: DetailComponent }
+  { path: 'detail/:id', component: DetailComponent },
+  { path: 'about', component: AboutPageComponent}
 ];
 
 @NgModule({
