@@ -6,7 +6,7 @@ import { WheelsComponent } from './wheels/wheels.component';
 import { DetailComponent } from './detail/detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutPageComponent } from './about-page/about-page.component';
-
+import { CartViewComponent } from './cart-view/cart-view.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'trucks', component: TrucksComponent },
   { path: 'wheels', component: WheelsComponent },
   { path: 'detail/:id', component: DetailComponent },
-  { path: 'about', component: AboutPageComponent}
+  { path: 'about', component: AboutPageComponent},
+  { path: 'cart', component: CartViewComponent}
 ];
 
 @NgModule({
