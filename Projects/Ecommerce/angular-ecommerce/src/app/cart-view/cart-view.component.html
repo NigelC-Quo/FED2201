@@ -1,1 +1,17 @@
-<p>cart-view works!</p>
+<h1 class="page-header">Cart</h1>
+
+<section id="cart-container">
+  <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+  </div>
+</section>
+<section id="order-container">
+  <div id="total">
+    <span>Items: </span>
+    <span>Shipping and handling: </span>
+    <span>Total before tax: </span>
+    <span>Estimated tax to be collected: </span>
+    <span>Order total: </span>
+  </div>
+</section>

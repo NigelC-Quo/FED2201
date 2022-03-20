@@ -3,8 +3,10 @@
     <h2>{{ product.name | uppercase }}</h2>
     <p id="descript">{{ product.description }}</p>
     <p>Price: ${{ product.price }}</p>
-    <button type="button" (click)="addToCart(product)">Buy</button>
-    <button type="button" (click)="goBack()">Back</button>
+    <div id="detail-buttons">
+      <button class="btn btn-primary" type="button" (click)="addToCart(product)">Add to Cart</button>
+      <button class="btn btn-warning" type="button" (click)="goBack()">Back</button>
+    </div>
   </section>
   <section id="productSlides">
     <ngb-carousel>
