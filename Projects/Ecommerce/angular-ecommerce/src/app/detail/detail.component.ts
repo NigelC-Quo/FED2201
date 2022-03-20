@@ -54,4 +54,10 @@ export class DetailComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
+  addToCart(product: Products) {
+    this.skateService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
 }
+

@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { Placement as PopperPlacement, Options } from '@popperjs/core';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { CartViewComponent } from './cart-view/cart-view.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutPageComponent } from './about-page/about-page.component';
     WheelsComponent,
     DetailComponent,
     DashboardComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    CartViewComponent
   ],
   imports: [
     BrowserModule,

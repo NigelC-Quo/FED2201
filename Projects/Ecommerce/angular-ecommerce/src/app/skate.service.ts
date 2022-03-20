@@ -11,6 +11,7 @@ export class SkateService {
 
   url: string = 'https://ecommercesite-aeedc-default-rtdb.firebaseio.com/products';
   jsonExt: string = '.json'
+  items: Products[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +28,18 @@ export class SkateService {
   getProduct(id: number): Observable<Products> {
     const products = PRODUCTS.find(p => p.id === id)!;
     return of(products);
+  }
+
+  addToCart(product: Products) {
+    this.items.push(product);
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  clearCart() {
+    this.items = [];
+    return this.items;
   }
 }

@@ -3,6 +3,7 @@
     <h2>{{ product.name | uppercase }}</h2>
     <p id="descript">{{ product.description }}</p>
     <p>Price: ${{ product.price }}</p>
+    <button type="button" (click)="addToCart(product)">Buy</button>
     <button type="button" (click)="goBack()">Back</button>
   </section>
   <section id="productSlides">
