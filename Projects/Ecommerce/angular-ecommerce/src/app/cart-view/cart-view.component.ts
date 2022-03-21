@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { SkateService } from '../skate.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-view',
@@ -14,7 +14,8 @@ export class CartViewComponent implements OnInit {
   isShowing: boolean = true;
   showPlaceOrder: boolean = false;
   
-  constructor(private skateService: SkateService) { }
+  constructor(private skateService: SkateService,
+    private router: Router) { }
   
   
   ngOnInit(): void {
@@ -32,12 +33,15 @@ export class CartViewComponent implements OnInit {
     this.prices.beforeTax = "0";
     this.prices.afterTax = "0";
     this.prices.total = "0";
-    this.isShowing = false
-    this.showPlaceOrder = false
+    this.isShowing = false;
+    this.showPlaceOrder = false;
     return this.items;
   }
 
   placeOrder(): void {
+    this.skateService.clearCart();
+    this.isShowing = false;
     window.alert('Your order has been placed!');
+    this.router.navigateByUrl("dashboard");
   }
 }

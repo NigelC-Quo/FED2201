@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from '../interfaces/products';
 import { SkateService } from '../skate.service';
-import { Product as Item } from '../classes/product';
 
 @Component({
   selector: 'app-decks',

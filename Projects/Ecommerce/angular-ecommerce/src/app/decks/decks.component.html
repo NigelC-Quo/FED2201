@@ -1,7 +1,7 @@
 <h1 class="page-header">Decks</h1>
 <ul class="product-ul">
     <li *ngFor="let deck of decks">
-      <img src="" alt="prodImg">
+      <img src="{{deck.image}}" alt="prodImg">
         <a class="btn btn-primary" routerLink="/detail/{{deck.id}}"> {{deck.name}}
         </a>
     </li>
