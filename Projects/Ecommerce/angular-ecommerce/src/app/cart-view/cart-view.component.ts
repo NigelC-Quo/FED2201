@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart-view',
   templateUrl: './cart-view.component.html',
-  styleUrls: ['./cart-view.component.sass']
+  styleUrls: ['./cart-view.component.sass'],
 })
 export class CartViewComponent implements OnInit {
 
@@ -22,7 +22,7 @@ export class CartViewComponent implements OnInit {
     console.log(this.items)
     if(this.items.length != 0)
     {
-      this.showPlaceOrder = true
+      this.showPlaceOrder = true;
     }
   }
 

@@ -5,6 +5,7 @@
     <p id="descript">{{ product.description }}</p>
     <hr>
     <p>Price: ${{ product.price }}</p>
+    <p>QTY: <input type="number" id="qty" [(ngModel)]="qty" name="qty" min="1" max="100" value="1"/></p>
     <hr>
     <div id="detail-buttons">
       <button class="btn btn-primary" type="button" (click)="addToCart(product)">Add to Cart</button>

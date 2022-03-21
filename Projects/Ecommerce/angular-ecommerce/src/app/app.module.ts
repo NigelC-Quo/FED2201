@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Placement as PopperPlacement, Options } from '@popperjs/core';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { CartViewComponent } from './cart-view/cart-view.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CartViewComponent } from './cart-view/cart-view.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
