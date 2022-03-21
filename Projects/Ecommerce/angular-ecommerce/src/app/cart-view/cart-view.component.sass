@@ -2,30 +2,58 @@
 @import "~bootstrap/scss/bootstrap"
 @import "~bootswatch/dist/quartz/bootswatch"
 
-#cart-container
-    background-color: #212529
-    border-radius: 1rem
-    margin: 0rem 4rem 0rem 4rem
+#container
     display: flex
-    flex-direction: column
-    justify-content: flex-start
+    flex-direction: row
+    justify-content: center
 
-    span
-        color: white
-        font-size: 27px
-        margin: 3rem
-
-#order-container
-    background-color: #212529
-    border-radius: 1rem
-    margin: 4rem 4rem 0rem 4rem
-    display: flex
-    flex-direction: column
-    justify-content: flex-start
-
-    #total
-        color: white
-        font-size: 27px
+    #cart-container
+        background-color: #212529
+        border-radius: 1rem
         display: flex
         flex-direction: column
-        margin: 3rem
+        justify-content: center
+        color: white
+        font-size: 27px
+
+        #cart
+            color: white
+            font-size: 27px
+            display: flex
+            flex-direction: column
+            margin: 3rem 3rem
+
+            .cart-item
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                width: 30rem
+
+    #order-container
+        background-color: #212529
+        border-radius: 1rem
+        margin: 0rem 0rem 0rem 3rem
+        display: flex
+        flex-direction: column
+        justify-content: center
+        height: fit-content
+
+        #total
+            color: white
+            font-size: 27px
+            display: flex
+            flex-direction: column
+            margin: 3rem
+
+            .prices
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                width: 30rem
+
+button
+    width: 20rem
+    margin: 2rem 8rem
+
+.removed
+    display: none

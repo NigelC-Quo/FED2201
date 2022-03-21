@@ -1,17 +1,57 @@
 <h1 class="page-header">Cart</h1>
-
-<section id="cart-container">
-  <div class="cart-item" *ngFor="let item of items">
-    <span>{{ item.name }}</span>
-    <span>{{ item.price | currency }}</span>
-  </div>
-</section>
-<section id="order-container">
-  <div id="total">
-    <span>Items: </span>
-    <span>Shipping and handling: </span>
-    <span>Total before tax: </span>
-    <span>Estimated tax to be collected: </span>
-    <span>Order total: </span>
-  </div>
-</section>
+<div id="container">
+  <section id="cart-container">
+    <div id="cart">
+      <div
+        class="cart-item"
+        [ngClass]="{
+          'cart-item': isShowing,
+          'removed': !isShowing
+        }"
+        *ngFor="let item of items"
+      >
+        <span>{{ item.name }}</span>
+        <span>{{ item.price | currency }}</span>
+      </div>
+    </div>
+    <button class="btn btn-warning" type="button" (click)="clearCart()">
+      Clear Cart
+    </button>
+  </section>
+  <section id="order-container">
+    <div id="total">
+      <div class="prices">
+        <span>Items: </span>
+        <span>{{ prices.items | currency }}</span>
+      </div>
+      <div class="prices">
+        <span>Shipping and handling: </span>
+        <span>{{ prices.shipping | currency }}</span>
+      </div>
+      <div class="prices">
+        <span>Total before tax: </span>
+        <span>{{ prices.beforeTax | currency }}</span>
+      </div>
+      <div class="prices">
+        <span>Estimated tax to be collected: </span>
+        <span>{{ prices.afterTax | currency }}</span>
+      </div>
+      <div class="prices">
+        <span>Order total: </span>
+        <span>{{ prices.total | currency }}</span>
+      </div>
+    </div>
+    <button
+      class="cart-item"
+      [ngClass]="{
+        'button': showPlaceOrder,
+        'removed': !showPlaceOrder
+      }"
+      class="btn btn-primary"
+      type="button"
+      (click)="placeOrder()"
+    >
+      Place Order
+    </button>
+  </section>
+</div>

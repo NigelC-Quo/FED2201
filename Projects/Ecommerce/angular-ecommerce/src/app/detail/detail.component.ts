@@ -3,12 +3,14 @@ import { Products } from '../interfaces/products';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { SkateService } from '../skate.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { CartViewComponent } from '../cart-view/cart-view.component';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.sass'],
+  providers: [CartViewComponent]
 })
 export class DetailComponent implements OnInit {
   product: Products | undefined;
@@ -19,7 +21,8 @@ export class DetailComponent implements OnInit {
     private route: ActivatedRoute,
     private skateService: SkateService,
     private location: Location,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public cart: CartViewComponent
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +60,7 @@ export class DetailComponent implements OnInit {
 
   addToCart(product: Products) {
     this.skateService.addToCart(product);
+    this.cart.showPlaceOrder = true;
     window.alert('Your product has been added to the cart!');
   }
 }
