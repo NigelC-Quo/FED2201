@@ -13,7 +13,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class DetailComponent implements OnInit {
   product: Products | undefined;
   closeResult = '';
-  qty!: number;
+  qty: number = 1;
 
   constructor(
     private route: ActivatedRoute,
