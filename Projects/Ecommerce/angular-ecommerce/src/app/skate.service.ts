@@ -19,9 +19,7 @@ export class SkateService {
   }
 
   addToCart(product: Products, qty: number) {
-    let singlePrice = product.price;
     product.quantity = qty;
-    product.price = (singlePrice * qty)
     this.items.push(product);
   }
 
@@ -34,7 +32,7 @@ export class SkateService {
     let tax = 0.04;
     let sAndH = 0;
     this.items.forEach(function (value) {
-      sum += value.price;
+      sum += (value.price * value.quantity);
       sAndH = 3.99;
     });
 
