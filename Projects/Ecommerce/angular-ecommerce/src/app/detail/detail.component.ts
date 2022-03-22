@@ -13,7 +13,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class DetailComponent implements OnInit {
   product: Products | undefined;
   closeResult = '';
-  qty: number | undefined;
+  qty!: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,8 +55,8 @@ export class DetailComponent implements OnInit {
     }
   }
 
-  addToCart(product: Products) {
-    this.skateService.addToCart(product);
+  addToCart(product: Products, qty: number) {
+    this.skateService.addToCart(product, qty);
     window.alert('Your product has been added to the cart!');
   }
 }

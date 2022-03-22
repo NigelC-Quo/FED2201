@@ -18,7 +18,10 @@ export class SkateService {
     return this.http.get<Products[]>(this.url + this.jsonExt);
   }
 
-  addToCart(product: Products) {
+  addToCart(product: Products, qty: number) {
+    let singlePrice = product.price;
+    product.quantity = qty;
+    product.price = (singlePrice * qty)
     this.items.push(product);
   }
 

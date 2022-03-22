@@ -2,26 +2,39 @@
 <div id="container">
   <section id="cart-container">
     <div id="cart">
+      <p class="empty" [ngClass]="{
+        'empty': !showPlaceOrder,
+        'removed': showPlaceOrder
+      }">--Cart Empty--</p>
       <div
         class="cart-item"
         [ngClass]="{
           'cart-item': isShowing,
-          'removed': !isShowing
+          removed: !isShowing
         }"
         *ngFor="let item of items"
       >
-        <span>{{ item.name }}</span>
+      
+        <span>{{ item.name }} x{{ item.quantity }}</span>
         <span>{{ item.price | currency }}</span>
       </div>
     </div>
-    <button class="btn btn-warning" type="button" (click)="clearCart()">
+    <button
+      [ngClass]="{
+        button: showPlaceOrder,
+        removed: !showPlaceOrder
+      }"
+      class="btn btn-warning"
+      type="button"
+      (click)="clearCart()"
+    >
       Clear Cart
     </button>
   </section>
   <section id="order-container">
     <div id="total">
       <div class="prices">
-        <span>Items: </span>
+        <span>Item(s): </span>
         <span>{{ prices.items | currency }}</span>
       </div>
       <div class="prices">
@@ -42,10 +55,9 @@
       </div>
     </div>
     <button
-      class="cart-item"
       [ngClass]="{
-        'button': showPlaceOrder,
-        'removed': !showPlaceOrder
+        button: showPlaceOrder,
+        removed: !showPlaceOrder
       }"
       class="btn btn-primary"
       type="button"
