@@ -11,7 +11,7 @@ function main() {
         'OPTIONS',
         'QUIT'
     ];
-    
+
     return ( 
         <div className="list">
         <IndList listContent = {selection}></IndList>

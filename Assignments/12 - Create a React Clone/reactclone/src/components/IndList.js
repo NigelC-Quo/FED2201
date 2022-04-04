@@ -1,5 +1,5 @@
 function IndList (props) {
-    let listContent = props.listContent
+    let listContent = props.listContent;
     
      return (
          <div>
