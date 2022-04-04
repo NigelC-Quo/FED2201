@@ -2,6 +2,7 @@ import MainMenu from './components/MainMenu'
 import Logo from './components/Logo';
 import BGImage from './images/aztezgameplay.jpg';
 import Caption from './components/Caption';
+import ButtonPrompt from './components/ButtonPrompt';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
      <MainMenu/>
      <hr/>
      <Caption/>
+     <ButtonPrompt/>
     </div>
   );
 }

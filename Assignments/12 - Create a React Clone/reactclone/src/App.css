@@ -52,8 +52,8 @@ li {
 }
 
 li:hover {
-  border: lightgray 1px solid;
-  background-color: lightgray;
+  border: gray 1px solid;
+  background-color: gray;
 }
 
 hr {
@@ -89,4 +89,18 @@ ul {
   color: white;
   font-style: italic;
   font-size: x-large;
+}
+
+.btnPrompt {
+  width: 3rem;
+  position: relative;
+  left: 14rem;
+}
+
+.select {
+  position: relative;
+  bottom: 85px;
+  left: 18rem;
+  font-style: normal;
+  font-size: 2rem;
 }
