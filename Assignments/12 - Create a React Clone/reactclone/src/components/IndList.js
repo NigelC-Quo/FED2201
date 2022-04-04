@@ -4,7 +4,7 @@ function IndList (props) {
      return (
          <div>
              <ul>
-                 {listContent.map(( item, index ) => <li key={index}>{item}</li>)}
+                 {listContent.map(( item, index ) => <li onClick={() => alert("Welcome to Aztez!")} key={index}>{item}</li>)}
              </ul>
          </div>
      )
