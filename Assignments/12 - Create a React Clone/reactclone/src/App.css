@@ -113,10 +113,10 @@ ul {
 
 .ver {
   position: absolute;
-  left: 106rem;
-  bottom: 53rem;
-  font-size: xx-large;
-  -webkit-text-stroke: aliceblue;
+  left: 107rem;
+  bottom: 52rem;
+  font-size: 3rem;
+  -webkit-text-stroke: gray;
   -webkit-text-stroke-width: 1px;
   font-weight: 900;
   font-family: 'American Captain', sans-serif;                                       
