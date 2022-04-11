@@ -19,3 +19,6 @@ Transparency and more stylization of the menu sidebar.
 Make the background animated.
 Make the caption different when different options are hovered over.
 Change the fonts and button prompt to match the original image.
+
+-- Additional pages
+
